@@ -1,3 +1,7 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
 {% if blog_posts %}
     <ul>
     {% for post in blog_posts %}
@@ -7,3 +11,7 @@
 {% else %}
     <p>No posts are available.</p>
 {% endif %}
+
+
+{% endblock %}
+
