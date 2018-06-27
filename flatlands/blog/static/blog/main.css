@@ -17,9 +17,31 @@ body {
     word-spacing: 20px;
     padding-bottom: 60px;
 }
+
+#nav a:link {
+    padding-right: 20px;
+    padding-left: 20px;
+    letter-spacing: 2px;
+    color: black;
+}
+#nav a:visited {
+    letter-spacing: 2px;
+    color: black;
+}
+#nav a:hover {
+    letter-spacing: 2px;
+    color: #F1696B;
+    text-decoration: none;
+}
+#nav a:active {
+    letter-spacing: 2px;
+    color: black;
+}
+
 .blogpostheader {
     display: flex;
     flex-direction: row;
+    font-weight: bold;
 }
 
 .bloglistpost {
@@ -28,11 +50,12 @@ body {
     max-width: 1000px;
     margin: auto auto;
     padding-bottom: 80px;
+    padding-left:40px;
+    padding-right:40px;
 }
 .bloglistpostdate {
-    font-size: 10px;
+    font-size:10px;
     padding-right: 20px;
-    font-weight: 600;
 }
 .bloglistpostname {
     font-size: 40px;
@@ -55,7 +78,22 @@ body {
 }
 
 #footer {
-    padding-top:50px;
+    padding:40px;
+    font-size: 14px;
+    margin: auto auto;
     display: flex;
-    justify-content: center;
+    max-width: 1000px;
+    color:#a5a5a5;
+}
+a:link {
+    color: #F1696B;
+}
+a:visited {
+    color: #F1696B;
+}
+a:hover {
+    color: #F1696B;
+}
+a:active {
+    color: #F1696B;
 }

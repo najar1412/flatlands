@@ -11,7 +11,7 @@
 
                 <div class="blogpostheader">
                 <div class="bloglistpostdate">
-                    {{post.pub_date|timesince|upper}}
+                    {{post.pub_date|timesince|upper}} AGO
                 </div>
                 <div class="bloglistposttags">
                         {% for tag in post.tag_list %}
@@ -31,7 +31,7 @@
                     
 
                         <div class="blogpostreadmore">
-                                <a href="/blog/{{ post.id }}/">READ MORE&ensp;></a>
+                                <a href="/blog/{{ post.id }}/">READ MORE</a>
                         </div>
             </div>
 
