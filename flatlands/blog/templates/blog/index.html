@@ -3,14 +3,38 @@
 {% block content %}
 
 {% if blog_posts %}
-    <ul>
-    {% for post in blog_posts %}
-        <li><a href="/blog/{{ post.id }}/">{{ post.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No posts are available.</p>
-{% endif %}
+
+
+        {% for post in blog_posts %}
+
+            <div class="bloglistpost">
+                <div class="bloglistpostdate">
+                    {{post.pub_date}}
+                </div>
+
+                <div class="bloglistpostname display-4">
+                    <a href="/blog/{{ post.id }}/">{{ post.name }}</a>
+                </div>
+
+                <div class="bloglistpostcontent">
+                        {{ post.content }}
+                    </div>
+
+                    <div class="bloglistposttags">
+                        {% for tag in post.tag_list %}
+                            // <a href="">{{tag}}</a>
+                        {% endfor %}
+                        </div>
+            </div>
+
+        {% endfor %}
+
+        {% else %}
+            <p>No posts are available.</p>
+
+
+    {% endif %}
+
 
 
 {% endblock %}

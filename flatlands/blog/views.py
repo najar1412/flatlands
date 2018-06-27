@@ -13,6 +13,5 @@ def index(request):
 
 def blog_post(request, post_id):
     post = get_object_or_404(BlogPost, pk=post_id)
-    
 
     return render(request, 'blog/post.html', {'post': post})
