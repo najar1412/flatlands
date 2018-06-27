@@ -15,29 +15,45 @@ body {
     font-size:12px;
     letter-spacing: 2px;
     word-spacing: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
+}
+.blogpostheader {
+    display: flex;
+    flex-direction: row;
 }
 
 .bloglistpost {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 1000px;
     margin: auto auto;
-    padding-bottom: 20px;
+    padding-bottom: 80px;
 }
 .bloglistpostdate {
     font-size: 10px;
-    color: lightgray;
+    padding-right: 20px;
+    font-weight: 600;
 }
 .bloglistpostname {
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: 600;
+    padding-top:5px;
+    padding-bottom:10px;
+    color:#383838;
 }
 .bloglistpostcontent {
-    letter-spacing: 2px;
+    color: darkgray;
+    word-spacing: 5px;
 }
 .bloglistposttags {
     font-size:10px;
 }
+.blogpostreadmore {
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight:100;
+}
+
 #footer {
     padding-top:50px;
     display: flex;

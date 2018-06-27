@@ -8,22 +8,30 @@
         {% for post in blog_posts %}
 
             <div class="bloglistpost">
+
+                <div class="blogpostheader">
                 <div class="bloglistpostdate">
-                    {{post.pub_date}}
+                    {{post.pub_date|timesince|upper}}
                 </div>
+                <div class="bloglistposttags">
+                        {% for tag in post.tag_list %}
+                            <a href="">{{tag|upper}}, </a>
+                        {% endfor %}
+                        </div>
+                    </div>
 
                 <div class="bloglistpostname display-4">
-                    <a href="/blog/{{ post.id }}/">{{ post.name }}</a>
+                    {{ post.name|title }}
                 </div>
 
                 <div class="bloglistpostcontent">
-                        {{ post.content }}
+                        {{ post.content|capfirst|truncatewords:50 }}
                     </div>
 
-                    <div class="bloglistposttags">
-                        {% for tag in post.tag_list %}
-                            // <a href="">{{tag}}</a>
-                        {% endfor %}
+                    
+
+                        <div class="blogpostreadmore">
+                                <a href="/blog/{{ post.id }}/">READ MORE&ensp;></a>
                         </div>
             </div>
 
