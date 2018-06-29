@@ -10,15 +10,15 @@
             <div class="bloglistpost">
 
                 <div class="blogpostheader">
-                <div class="bloglistpostdate">
-                    {{post.pub_date|timesince|upper}} AGO
-                </div>
-                <div class="bloglistposttags">
+                    <div class="bloglistpostdate">
+                        {{post.pub_date|timesince|upper}} AGO
+                    </div>
+                    <div class="bloglistposttags">
                         {% for tag in post.tag_list %}
                             <a href="">{{tag|upper}}, </a>
                         {% endfor %}
-                        </div>
                     </div>
+                </div>
 
                 <div class="bloglistpostname display-4">
                     {{ post.name|title }}
