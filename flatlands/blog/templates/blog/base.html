@@ -14,16 +14,27 @@
   </head>
   <body>
 
-    <div id="sitetitle" class="display-4">
-    FLATLANDS
-</div>
-    <div id='nav'>
-            <a href="/blog/">Articles</a> <a href="/blog/code/">Code</a> <a href="/blog/about/">About</a> <a href="">&#8981;</a>
-            </div>
-    
-            <br>
+    <div id="border-header">
+
+       <div id="border-header-nav">
+         <div>
+            <a href="/blog/">Articles</a> <a href="/blog/code/">Code</a> <a href="/blog/about/">About</a>
+          </div>
+          </div>
+
+          <div id="border-header-search">
+
+              <input type="text" class="form-control" style="margin:0" placeholder="Search...">
+
+          </div>
+    </div>
 
             <div class="content">
+
+                <div id="site-title" class="display-4">
+                    FLATLANDS
+                </div>
+
     {% block content %}{% endblock %}
   </div>
 
