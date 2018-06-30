@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 {% if blog_posts %}
@@ -11,16 +13,25 @@
 
                 <div class="blogpostheader">
                     <div class="bloglistpostdate">
+                        <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
                         {{post.pub_date|timesince|upper}} AGO
                     </div>
                     <div class="bloglistposttags">
+                            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
                         {% for tag in post.tag_list %}
                             <a href="">{{tag|upper}}, </a>
                         {% endfor %}
+
+                        
+
                     </div>
+
                 </div>
 
+              
+
                 <div class="bloglistpostname display-4">
+                        <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
                     {{ post.name|title }}
                 </div>
 
@@ -31,9 +42,14 @@
                     
 
                         <div class="blogpostreadmore">
-                                <a href="/blog/{{ post.id }}/">READ MORE</a>
-                        </div>
+                                <a href="/blog/{{ post.id }}/">READ MORE</a>&emsp;<img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
+                        
+                            </div>
+
+                      
             </div>
+
+    
 
         {% endfor %}
 
