@@ -16,8 +16,8 @@ def blog_post(request, post_id):
     return render(request, 'blog/post.html', {'post': post})
 
 
-def code(request):
-    return render(request, 'blog/code.html')
+def projects(request):
+    return render(request, 'blog/projects.html')
 
 
 def about(request):

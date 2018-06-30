@@ -86,7 +86,8 @@ body {
 }
 .blogpostreadmore {
     padding-top: 15px;
-    font-size: 15px;
+    font-size: 14px;
+    text-align: right;
 }
 .iconic-svg {
     height:15px;

@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\render\\.virtualenvs\\drafter-9_9_nVjK\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\render\\.virtualenvs\\drafter-9_9_nVjK\\Scripts\\python.exe",
+    "python.linting.enabled": false
 }
