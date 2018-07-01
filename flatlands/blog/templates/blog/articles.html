@@ -6,6 +6,49 @@
 
 <p style="height:105px;"></p>
 
-articles
+{% for article in articles %}
+
+<div class="bloglistpost">
+
+    <div class="blogpostheader">
+        <div class="bloglistpostdate">
+            <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
+            {{article.pub_date|timesince|upper}} AGO
+        </div>
+
+        <div class="bloglistposttags">
+            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
+            {% for tag in article.tag_list %}
+                <a href="">{{tag|upper}}, </a>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="bloglistpostname display-4">
+            <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+
+            <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;{{ article.name|title }}
+
+    </div>
+
+    <div class="bloglistpostcontent">
+            {{ article.content|capfirst|truncatewords:50 }}
+        </div>
+
+        
+
+            <div class="blogpostreadmore">
+                    <a href="/articles/{{ article.id }}/">Read More</a>&emsp;<img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
+            
+                </div>
+
+          
+</div>
+
+
+
+{% endfor %}
+
 
 {% endblock %}

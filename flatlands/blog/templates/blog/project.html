@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="breadcrumbs">
+    Projects &emsp; > &emsp; {{project.name}}
+</div>
+
+{{project}}
+
+
+{% endblock %}
