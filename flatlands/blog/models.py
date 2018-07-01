@@ -17,6 +17,7 @@ class Choice(models.Model):
 
 class BlogPost(models.Model):
     name = models.CharField(max_length=200)
+    post_type = models.CharField(max_length=200)
     content = models.CharField(max_length=5000)
     pub_date = models.DateTimeField('date published')
     tags = models.CharField(max_length=200)

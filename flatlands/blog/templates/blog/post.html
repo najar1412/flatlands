@@ -1,9 +1,51 @@
 {% extends "blog/base.html" %}
 
+{% load static %}
+
 {% block content %}
 
-{{post.name}}<br>
-{{post.content}}<br>
-{{post.pub_date}}<br>
+<p style="height:105px;"></p>
+
+<div class="bloglistpost">
+
+        <div class="blogpostheader">
+            <div class="bloglistpostdate">
+                <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
+                {{post.pub_date|timesince|upper}} AGO
+            </div>
+            <div class="bloglistposttags">
+                    <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
+                {% for tag in post.tag_list %}
+                    <a href="">{{tag|upper}}, </a>
+                {% endfor %}
+
+                
+
+            </div>
+
+        </div>
+
+      
+
+        <div class="bloglistpostname display-4">
+                <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+            
+                <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;{{ post.name|title }}
+        
+        </div>
+
+        <div class="bloglistpostcontent">
+                {{ post.content|capfirst}}
+            </div>
+
+            
+
+
+              
+    </div>
+
+
+
+
 
 {% endblock %}
