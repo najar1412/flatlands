@@ -1,19 +1,26 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 
-from .models import BlogPost
+from .models import Article
 
 
 def index(request):
-    blog_posts = BlogPost.objects.order_by('-pub_date')
+    blog_posts = Article.objects.order_by('-pub_date')
     context = {'blog_posts': blog_posts}
 
     return render(request, 'blog/index.html', context)
 
 
-def blog_post(request, post_id):
-    post = get_object_or_404(BlogPost, pk=post_id)
+def article(request, post_id):
+    post = get_object_or_404(Article, pk=post_id)
 
     return render(request, 'blog/post.html', {'post': post})
+
+
+def articles(request):
+    blog_posts = Article.objects.order_by('-pub_date')
+    context = {'blog_posts': blog_posts}
+
+    return render(request, 'blog/articles.html', context)
 
 
 def projects(request):

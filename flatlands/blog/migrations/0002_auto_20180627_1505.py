@@ -11,13 +11,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='blogpost',
+            model_name='article',
             name='tags',
             field=models.CharField(default='here are some test tags', max_length=200),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='blogpost',
+            model_name='article',
             name='content',
             field=models.CharField(max_length=5000),
         ),

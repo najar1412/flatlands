@@ -4,7 +4,10 @@
 
 {% block content %}
 
-<p style="height:105px;"></p>
+<div id="breadcrumbs">
+    Articles &emsp; > &emsp; {{post.name}}
+</div>
+
 
 <div class="bloglistpost">
 
@@ -13,6 +16,7 @@
                 <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
                 {{post.pub_date|timesince|upper}} AGO
             </div>
+
             <div class="bloglistposttags">
                     <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
                 {% for tag in post.tag_list %}

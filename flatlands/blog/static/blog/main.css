@@ -11,6 +11,15 @@ body {
     top: 0;
     width: 100%;
 }
+#breadcrumbs {
+    font-size: 10px;
+    padding-bottom: 60px;
+    padding-top: 80px;
+}
+#breadcrumbs img {
+    width: 10px;
+    height: 10px;
+}
 #border-header-nav {
     display: flex;
     font-size:16px;
