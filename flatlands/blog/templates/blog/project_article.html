@@ -5,27 +5,27 @@
 {% block content %}
 
 <div id="breadcrumbs">
-    Projects &emsp; > &emsp; {{project.name}} &emsp; > &emsp; {{viewed_article.name}}
+    Project &emsp; > &emsp; {{project.name}} &emsp; > &emsp; {{viewed_article.name}}
 </div>
 
 
 <div class="bloglistpostname display-4">
 
-    <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp;{{ project.name|title }}
+    <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp; {{ project.name|title }}
 
 </div>
-<br>
+<div class="project-contents">
 Contents:<br>
 <br>
 {% for article in articles %}
+{% if article.id == viewed_article.id %}
+<strong>{{ forloop.counter }}. {{article.name}}</strong> &emsp; <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="tags icon"> <br>
+{% else %}
 {{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name}}</a><br>
+{% endif %}
  {% endfor %}
+</div>
 
-<hr>
-
-project desc<br>
-
-<hr>
 <div class="bloglistpost">
 
     <div class="blogpostheader">

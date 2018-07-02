@@ -99,6 +99,10 @@ body {
     font-size: 14px;
     text-align: right;
 }
+.project-contents {
+    padding-top:30px;
+    padding-bottom: 80px;
+}
 .iconic-svg {
     height:15px;
     width:15px;
