@@ -5,11 +5,9 @@ from .models import Article, Project
 
 def index(request):
     articles = Article.objects.order_by('-pub_date')
-    projects = Project.objects.order_by('-pub_date')
 
     context = {
-        'articles': articles,
-        'projects': projects
+        'articles': articles
         }
 
     return render(request, 'blog/index.html', context)
@@ -31,8 +29,11 @@ def articles(request):
 
 def project(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
+    articles = list(Article.objects.filter(project=project_id).order_by('pub_date'))
 
-    return render(request, 'blog/project.html', {'project': project})
+    context = {'project': project, 'articles': articles}
+
+    return render(request, 'blog/project.html', context)
 
 
 def projects(request):

@@ -15,26 +15,23 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 """
 
-class Article(models.Model):
+class Project(models.Model):
     name = models.CharField(max_length=200)
-    post_type = models.CharField(max_length=200)
-    content = models.CharField(max_length=5000)
     pub_date = models.DateTimeField('date published')
-    tags = models.CharField(max_length=200)
-
-    def tag_list(self):
-        return str(self.tags).split(' ')
-
 
     def __str__(self):
         return self.name
 
 
-class Project(models.Model):
+class Article(models.Model):
     name = models.CharField(max_length=200)
     content = models.CharField(max_length=5000)
     pub_date = models.DateTimeField('date published')
     tags = models.CharField(max_length=200)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True)
+
+    def tag_list(self):
+        return str(self.tags).split(' ')
 
 
     def __str__(self):

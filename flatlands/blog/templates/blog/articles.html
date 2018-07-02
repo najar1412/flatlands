@@ -8,6 +8,8 @@
 
 {% for article in articles %}
 
+{% if article.project == None %}
+
 <div class="bloglistpost">
 
     <div class="blogpostheader">
@@ -34,6 +36,8 @@
 
     <div class="bloglistpostcontent">
             {{ article.content|capfirst|truncatewords:50 }}
+            <br>
+            {{article.project}}
         </div>
 
         
@@ -46,7 +50,7 @@
           
 </div>
 
-
+{% endif %}
 
 {% endfor %}
 

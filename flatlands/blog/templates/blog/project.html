@@ -8,7 +8,20 @@
     Projects &emsp; > &emsp; {{project.name}}
 </div>
 
-{{project}}
+{{project}}<br>
+<br>
+Contents:<br>
+<br>
+{% for article in articles %}
+ {{article.name}}<br>
+ {% endfor %}
+
+<hr>
+
+[post you are currentl viewing]<br>
+{{article.0}}
+
+
 
 
 {% endblock %}
