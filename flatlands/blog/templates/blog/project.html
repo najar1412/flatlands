@@ -13,13 +13,12 @@
 Contents:<br>
 <br>
 {% for article in articles %}
- {{article.name}}<br>
+{{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name}}</a><br>
  {% endfor %}
 
 <hr>
 
-[post you are currentl viewing]<br>
-{{article.0}}
+project desc<br>
 
 
 

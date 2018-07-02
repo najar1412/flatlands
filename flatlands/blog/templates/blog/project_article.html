@@ -1,0 +1,63 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="breadcrumbs">
+    Projects &emsp; > &emsp; {{project.name}} &emsp; > &emsp; {{viewed_article.name}}
+</div>
+
+
+<div class="bloglistpostname display-4">
+
+    <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp;{{ project.name|title }}
+
+</div>
+<br>
+Contents:<br>
+<br>
+{% for article in articles %}
+{{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name}}</a><br>
+ {% endfor %}
+
+<hr>
+
+project desc<br>
+
+<hr>
+<div class="bloglistpost">
+
+    <div class="blogpostheader">
+        <div class="bloglistpostdate">
+            <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
+            {{viewed_article.pub_date|timesince|upper}} AGO
+        </div>
+
+        <div class="bloglistposttags">
+            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
+            {% for tag in viewed_article.tag_list %}
+                <a href="">{{tag|upper}}, </a>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="bloglistpostname display-4">
+            <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+
+            {{ viewed_article.name|title }}
+
+    </div>
+
+    <div class="bloglistpostcontent">
+            {{ viewed_article.content|capfirst}}
+        </div>
+
+        
+
+</div>
+
+
+
+{% endblock %}

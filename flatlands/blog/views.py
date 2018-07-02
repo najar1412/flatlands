@@ -36,6 +36,16 @@ def project(request, project_id):
     return render(request, 'blog/project.html', context)
 
 
+def project_article(request, project_id, article_id):
+    project = get_object_or_404(Project, pk=project_id)
+    articles = list(Article.objects.filter(project=project_id).order_by('pub_date'))
+    viewed_article = Article.objects.get(pk=article_id)
+
+    context = {'project': project, 'articles': articles, 'viewed_article': viewed_article}
+
+    return render(request, 'blog/project_article.html', context)
+
+
 def projects(request):
     projects = Project.objects.order_by('-pub_date')
     
