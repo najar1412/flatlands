@@ -8,17 +8,33 @@
     Project &emsp; > &emsp; {{project.name}}
 </div>
 
-{{project}}<br>
-<br>
-Contents:<br>
-<br>
-{% for article in articles %}
-{{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name}}</a><br>
- {% endfor %}
+<div class="bloglistpostname display-4">
 
-<hr>
+        {{ project.name|title }}
+
+</div>
+<div class="project-contents">
+        Contents:<br>
+        <br>
+        {% for article in articles %}
+        {% if article.id == viewed_article.id %}
+        <strong>{{ forloop.counter }}. {{article.name}}</strong> &emsp; <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="tags icon"> <br>
+        {% else %}
+        {{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name}}</a><br>
+        {% endif %}
+         {% endfor %}
+        </div>
 
 {{project.content}}
+
+<br>
+<br>
+
+<hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+
+<div class="project-next">
+        [next project article]&emsp;<img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
+</div>
 
 
 

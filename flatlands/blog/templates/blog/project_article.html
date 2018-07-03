@@ -8,12 +8,10 @@
     Project &emsp; > &emsp; {{project.name}} &emsp; > &emsp; {{viewed_article.name}}
 </div>
 
-
 <div class="bloglistpostname display-4">
-
-    <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp; {{ project.name|title }}
-
+        {{ project.name|title }}
 </div>
+
 <div class="project-contents">
 Contents:<br>
 <br>
@@ -56,6 +54,10 @@ Contents:<br>
 
         
 
+</div>
+<hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+<div class="project-next">
+        <img class="iconic-svg" src="{% static 'blog/svg/arrow-left.svg' %}" alt="arrow icon">&emsp;[previous project article]&emsp; &emsp;[next project article]&emsp;<img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
 </div>
 
 
