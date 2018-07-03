@@ -1,6 +1,11 @@
 body {
     background-color: #f2f2f2;
 }
+.project-next {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
 #border-header {
     background-color: #383838;
     display: flex;
@@ -110,7 +115,7 @@ body {
 }
 .project-contents {
     padding-top:30px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
 }
 .iconic-svg {
     height:15px;
