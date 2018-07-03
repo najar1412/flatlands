@@ -64,11 +64,20 @@ body {
     margin: auto auto;
 }
 
+.indexlistpost {
+    display: flex;
+    flex-direction: column;
+    margin: auto auto;
+    padding-bottom: 50px;
+}
+
 .blogpostheader {
     display: flex;
     flex-direction: row;
     font-weight: bold;
 }
+
+
 
 .bloglistpost {
     display: flex;

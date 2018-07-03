@@ -8,68 +8,48 @@
         FLATLANDS
     </div>
 
-{% for article in articles %}
-{{article}}<br>
-{% endfor %}
 
-<br>
-<br>
-
-{% for project in projects %}
-{{project}}<br>
-{% endfor %}
-
-<hr>
+{% if articles %}
 
 
-{% if blog_posts %}
+        {% for article in articles %}
 
-
-        {% for post in blog_posts %}
-
-            <div class="bloglistpost">
+            <div class="indexlistpost">
 
                 <div class="blogpostheader">
                     <div class="bloglistpostdate">
                         <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
-                        {{post.pub_date|timesince|upper}} AGO
+                        {{article.pub_date|timesince|upper}} AGO
                     </div>
                     <div class="bloglistposttags">
                             <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
-                        {% for tag in post.tag_list %}
+                        {% for tag in article.tag_list %}
                             <a href="">{{tag|upper}}, </a>
                         {% endfor %}
-
-                        
 
                     </div>
 
                 </div>
+
 
               
 
                 <div class="bloglistpostname display-4">
-                        <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
-                       
-                        <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;{{ post.name|title }}
-                </div>
-
-                <div class="bloglistpostcontent">
-                        {{ post.content|capfirst|truncatewords:50 }}
-                    </div>
-
-                    
-
-                        <div class="blogpostreadmore">
-                                <a href="/articles/{{ post.id }}/">Read More</a>&emsp;<img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
+                        <!-- <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;"> -->
+                       {% if article.project == None %}
+                        <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;
+                        {{ article.name|title }}
+                        {% else %}
+                        <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp;
+                        {{article.project|title }}: 
+                        {{ article.name|title }}
                         
-                            </div>
-
-                      
+                        {% endif %}
+                </div>
+                  
             </div>
 
     
-
         {% endfor %}
 
         {% else %}
