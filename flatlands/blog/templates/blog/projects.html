@@ -4,11 +4,32 @@
 
 {% block content %}
 
-<p style="height:105px;"></p>
+<div style="padding-top:100px;padding-bottom:40px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
 
 {% for project in projects %}
 
-<a href="/projects/{{ project.id }}/">{{project}}</a> <br>
+
+
+      <div class="card">
+            <div class="card-header">
+                    <a href="/projects/{{ project.id }}/">{{project}}</a>
+            </div>
+            <div class="card-body">
+                    <div>
+                            <div>
+                         {{project.content|truncatewords:50}}
+                    </div>
+                    </div>
+                    <hr>
+                    <div>
+                        [technology/software used (icons)]
+                    </div>
+            </div>
+          </div>
+          <br>
+
 
 {% endfor %}
 
