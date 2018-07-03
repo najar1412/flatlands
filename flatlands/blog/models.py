@@ -9,6 +9,17 @@ class Project(models.Model):
     pub_date = models.DateTimeField('date published')
     content = models.CharField(max_length=5000)
     tags = models.CharField(max_length=200)
+    
+
+    def __str__(self):
+        return self.name
+
+
+class UsedSoftware(models.Model):
+    name = models.CharField(max_length=200)
+    small_logo = models.CharField(max_length=200)
+    projects = models.ManyToManyField(Project, blank=True)
+    website = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
@@ -27,3 +38,4 @@ class Article(models.Model):
 
     def __str__(self):
         return self.name
+

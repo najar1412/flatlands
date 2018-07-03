@@ -37,13 +37,16 @@
                 <div class="bloglistpostname display-4">
                         <!-- <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;"> -->
                        {% if article.project == None %}
-                        <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;
-                        {{ article.name|title }}
-                        {% else %}
-                        <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp;
-                        {{article.project|title }}: 
-                        {{ article.name|title }}
+                       <div><img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;</div>
+                        <div><a href="/articles/{{ article.id }}/">{{ article.name|title }}</a></div>
                         
+                        {% else %}
+                        <div>
+                        <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp;
+                    </div>
+                    <div>
+                        <a href="/projects/{{ article.project.id }}/{{article.id}}">{{article.project|title }}: {{ article.name|title }}</a>
+                    </div>
                         {% endif %}
                 </div>
                   

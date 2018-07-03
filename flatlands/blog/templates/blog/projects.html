@@ -24,7 +24,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                     </div>
                     <hr>
                     <div>
-                        [technology/software used (icons)]
+                                {% for tech in project.usedsoftware_set.all %}
+                                <a href="{{tech.website}}"><img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon"></a>
+                                {% endfor %}
                     </div>
             </div>
           </div>

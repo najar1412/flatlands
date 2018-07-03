@@ -29,8 +29,11 @@
 
     <div class="bloglistpostname display-4">
             <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
-
-            <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;{{ article.name|title }}
+            <div>
+            <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;
+        </div>
+        <div>{{ article.name|title }}
+            </div>
 
     </div>
 
