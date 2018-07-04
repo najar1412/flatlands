@@ -8,8 +8,9 @@
     Articles &emsp; > &emsp; {{post.name}}
 </div>
 
+<p style="height:40px;"></p>
 
-<div class="bloglistpost">
+<div class="indexlistpost">
 
         <div class="blogpostheader">
             <div class="bloglistpostdate">
@@ -36,19 +37,14 @@
                 <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;{{ post.name|title }}
             </div>
         </div>
-
-        <div class="bloglistpostcontent">
-                {{ post.content|capfirst}}
-            </div>
-
-            
-
-
-              
+   
     </div>
 
 
-    {{post_markdown|safe}}
+    <div class="article-post">
+        {{post_markdown|safe}}
+
+    </div>   
 
 
 {% endblock %}

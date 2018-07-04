@@ -56,8 +56,9 @@ def project_article(request, project_id, article_id):
     project = get_object_or_404(Project, pk=project_id)
     articles = list(Article.objects.filter(project=project_id).order_by('pub_date'))
     viewed_article = Article.objects.get(pk=article_id)
+    article_content = post_markdown = get_markdown(viewed_article.content)
 
-    context = {'project': project, 'articles': articles, 'viewed_article': viewed_article}
+    context = {'project': project, 'articles': articles, 'viewed_article': viewed_article, 'article_content': article_content}
 
     return render(request, 'blog/project_article.html', context)
 

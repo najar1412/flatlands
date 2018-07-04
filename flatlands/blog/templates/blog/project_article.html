@@ -13,19 +13,26 @@
         <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
 </div>
 
-<div class="project-contents">
-Contents:<br>
-<br>
-{% for article in articles %}
-{% if article.id == viewed_article.id %}
-<strong>{{ forloop.counter }}. {{article.name|title}}</strong> &emsp; <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="tags icon"> <br>
-{% else %}
-{{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name|title}}</a><br>
-{% endif %}
- {% endfor %}
-</div>
 
-<div class="bloglistpost">
+<div class="alert alert-light" role="alert">
+        <div class="project-contents">
+                Contents:<br>
+                <br>
+                {% for article in articles %}
+                {% if article.id == viewed_article.id %}
+                <strong>{{ forloop.counter }}. {{article.name|title}}</strong> &emsp; <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="tags icon"> <br>
+                {% else %}
+                {{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name|title}}</a><br>
+                {% endif %}
+                 {% endfor %}
+                </div>
+      </div>
+
+
+
+<p style="height:40px;"></p>
+
+<div class="indexlistpost">
 
     <div class="blogpostheader">
         <div class="bloglistpostdate">
@@ -49,11 +56,18 @@ Contents:<br>
 
     </div>
 
-    <div class="bloglistpostcontent">
-            {{ viewed_article.content|capfirst}}
-        </div>
+
 
 </div>
+
+
+<div class="article-post">
+    {{ article_content|capfirst|safe }}
+</div>
+
+<br>
+
+<hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
 
 <div class="project-next">
     <div>
