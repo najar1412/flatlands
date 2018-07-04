@@ -32,7 +32,7 @@
             <div>
             <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;
         </div>
-        <div>{{ article.name|title }}
+        <div><a href="/articles/{{ article.id }}/">{{ article.name|title }}</a>
             </div>
 
     </div>

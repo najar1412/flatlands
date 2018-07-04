@@ -23,19 +23,18 @@
                     <a href="">{{tag|upper}}, </a>
                 {% endfor %}
 
-                
-
             </div>
 
         </div>
 
-      
-
         <div class="bloglistpostname display-4">
+            <div>
                 <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
-            
+            </div>
+
+            <div>
                 <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;{{ post.name|title }}
-        
+            </div>
         </div>
 
         <div class="bloglistpostcontent">
@@ -48,6 +47,8 @@
               
     </div>
 
+
+    {{post_markdown|safe}}
 
 
 {% endblock %}

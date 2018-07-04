@@ -1,6 +1,21 @@
+import os
+from pathlib import Path
+
 from django.shortcuts import render, HttpResponse, get_object_or_404
+import markdown
 
 from .models import Article, Project
+
+def get_markdown(article_name=None):
+
+    root = os.path.dirname(os.path.dirname(__file__))
+    articles = os.path.join(root, 'blog', 'static', 'blog', 'articles', article_name, f'{article_name}.md')
+
+    f = open(articles, 'r')
+    html = markdown.markdown(f.read())
+    f.close()
+
+    return html
 
 
 def index(request):
@@ -15,8 +30,9 @@ def index(request):
 
 def article(request, post_id):
     post = get_object_or_404(Article, pk=post_id)
+    post_markdown = get_markdown(post.content)
 
-    return render(request, 'blog/post.html', {'post': post})
+    return render(request, 'blog/post.html', {'post': post, 'post_markdown': post_markdown})
 
 
 def articles(request):
