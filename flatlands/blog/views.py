@@ -19,7 +19,7 @@ def get_markdown(article_name=None):
 
 
 def index(request):
-    articles = Article.objects.order_by('-pub_date')
+    articles = Article.objects.filter(project=None).order_by('-pub_date')
 
     context = {
         'articles': articles
@@ -36,7 +36,7 @@ def article(request, post_id):
 
 
 def articles(request):
-    articles = Article.objects.order_by('-pub_date')
+    articles = Article.objects.filter(project=None).order_by('-pub_date')
 
     context = {'articles': articles}
 
