@@ -2,18 +2,23 @@
 
 <div class="content">
 
-                <div style="padding-top:100px;padding-bottom:40px;">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
+        <div style="padding-top:100px;padding-bottom:40px;">
+                Personal projects are a great way to explore new technologies and development best practises. 90% of the personal projects
+                I start are never finished, most of which barely see the light of day. I’m hoping that by documenting some
+                of my better ideas will help me be more accountable to get them finished.
+                <br><br> 
+                Below are somewhat detailed accounts on how i go about building software. They’ll follow a similar structure
+                of putting together a technical spec and detailed requirements of what i’d like to accomplish. I’ll try
+                and document the problems and their solutions as they arise as well as any thoughts i have along the way.
+                Finally, I’ll take a look at the finished project and discuss the successes and failures and any new technologies
+                used. 
+                <br><br>
+                Ultimately im hoping these will serve as a sort of development journal of my personal projects. A way
+                i can keep improving my craft by looking back and building on top of my knowledge.
 
-        {% if projects %}
+        </div>
 
-        
-
-        {% for project in projects %}
+        {% if projects %} {% for project in projects %}
 
 
 
@@ -27,8 +32,7 @@
                                         <img class="iconic-svg-small" src="{% static 'blog/svg/file.svg' %}" alt="file icon">
                                         <span style="font-size: 12px;">
                                                 <a href="#">Technical Spec</a> &emsp;
-                                                <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}"
-                                                        alt="code icon">
+                                                <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
                                                 <a href="#">Repo</span>
                                         </a>
                                 </div>
@@ -50,12 +54,6 @@
                         </div>
                 </div>
         </div>
-        <br> {% endfor %}
-
-        {% else %}
-
-        No Projects :(
-
-        {% endif %}
+        <br> {% endfor %} {% else %} No Projects :( {% endif %}
 </div>
 {% endblock %}
