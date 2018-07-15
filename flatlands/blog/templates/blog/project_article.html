@@ -4,6 +4,8 @@
 
 {% block content %}
 
+<div class="content">
+
 <div id="breadcrumbs">
     Project &emsp; > &emsp; {{project.name}} &emsp; > &emsp; {{viewed_article.name}}
 </div>
@@ -13,10 +15,13 @@
         <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
 </div>
 
+<div>
+    <img style="width:100%;" src="{% static 'blog/img/'|add:project.cover_img %}">
+</div>
+
+<p style="height:40px;"></p>
 
 {% include "blog/comp/project_contents.html" %}
-
-
 
 <p style="height:40px;"></p>
 
@@ -66,6 +71,6 @@
     </div>
 </div>
 
-
+</div>
 
 {% endblock %}

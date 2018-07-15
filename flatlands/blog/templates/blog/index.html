@@ -4,15 +4,71 @@
 
 {% block content %}
 
+{% if articles %}
+
+
+
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+
+    <div class="carousel-inner">
+
+
+            {% for project in projects %}
+
+      {% if forloop.counter == 1 %}
+
+
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{% static 'blog/img/caro/carosel_img.jpg' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+            
+            <span >
+  <h1 class="display-4" style="background-color: rgba(255, 255, 255, .5); color:black;">{{project.name|capfirst}}</h5>
+  <p style="background-color: rgba(255, 255, 255, .5); color:black;">{{project.content|capfirst|truncatewords:30}}</p>
+</span>
+</div>
+      </div>
+
+      {% else %}
+
+
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static 'blog/img/caro/carosel_img.jpg' %}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+                <h5 class="display-4" style="background-color: rgba(255, 255, 255, .5); color:black;">{{project.name|capfirst}}</h5>
+                <p style="background-color: rgba(255, 255, 255, .5); color:black;">{{project.content|capfirst|truncatewords:30}}</p>
+</div>
+      </div>
+
+      {% endif %}
+      {% endfor %}
+
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+
+<div class="content">
+
 <p style="height:105px"></p>
 
-{% if articles %}
 
 
         {% for article in articles %}
 
             <div class="indexlistpost">
-
+                    {% if article.project == None %}
                 <div class="blogpostheader">
                     <div class="bloglistpostdate">
                         <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
@@ -32,21 +88,13 @@
               
 
                 <div class="bloglistpostname display-4">
-                        <!-- <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;"> -->
-                       {% if article.project == None %}
+                      
                        <div><img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;</div>
                         <div><a href="/articles/{{ article.id }}/">{{ article.name|title }}</a></div>
+
                         
-                        {% else %}
-                        <div>
-                        <img class="iconic-svg-header" src="{% static 'blog/svg/folder.svg' %}" alt="tags icon">&ensp;
-                    </div>
-                    <div>
-                        <a href="/projects/{{ article.project.id }}/{{article.id}}">{{article.project|title }}: {{ article.name|title }}</a>
-                    </div>
-                        {% endif %}
                 </div>
-                  
+                {% endif %}
             </div>
 
     
@@ -58,7 +106,7 @@
 
     {% endif %}
 
-
+</div>
 
 {% endblock %}
 

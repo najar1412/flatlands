@@ -4,6 +4,8 @@
 
 {% block content %}
 
+<div class="content">
+
 <div style="padding-top:100px;padding-bottom:40px;">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </div>
@@ -14,9 +16,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
       <div class="card">
             <div class="card-header">
-                    <a href="/projects/{{ project.id }}/">{{project}}</a>
+                    <a style="font-size: 24px;" href="/projects/{{ project.id }}/">{{project.name}}</a>
             </div>
             <div class="card-body">
+                    <div style="display: flex; flex-direction: row; padding-bottom: 15px;">
+
+                                <div>
+                                                <img class="iconic-svg-small" src="{% static 'blog/svg/file.svg' %}" alt="file icon">  <a href="#"><span style="font-size: 12px;">Technical Spec</span></a>
+                                        </div>
+
+                                &emsp;
+
+                            <div>
+                        <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon"> <a href="#"><span style="font-size: 12px;">Repo</span></a>
+                </div>
+              
+                </div>
+
+
                     <div>
                             <div>
                          {{project.content|truncatewords:50}}
@@ -33,6 +50,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
           <br>
 
 
-{% endfor %}
 
+{% endfor %}
+</div>
 {% endblock %}

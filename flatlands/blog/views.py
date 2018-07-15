@@ -19,10 +19,12 @@ def get_markdown(article_name=None):
 
 
 def index(request):
-    articles = Article.objects.filter(project=None).order_by('-pub_date')
+    articles = Article.objects.order_by('-pub_date')
+    projects = Project.objects.order_by('-pub_date')
 
     context = {
-        'articles': articles
+        'articles': articles,
+        'projects': projects
         }
 
     return render(request, 'blog/index.html', context)
@@ -69,10 +71,6 @@ def projects(request):
     context = {'projects': projects}
 
     return render(request, 'blog/projects.html', context)
-
-
-def about(request):
-    return render(request, 'blog/about.html')
 
 
 def search(request):
