@@ -1,55 +1,45 @@
-{% extends "blog/base.html" %}
-
-{% load static %}
-
-{% block content %}
+{% extends "blog/base.html" %} {% load static %} {% block content %}
 
 <div class="content">
 
-<div id="breadcrumbs">
-    Articles &emsp; > &emsp; {{post.name}}
-</div>
+    <div id="breadcrumbs">
+        Articles &emsp; > &emsp; {{post.name}}
+    </div>
 
-<p style="height:40px;"></p>
+    <p style="height:40px;"></p>
 
-<div class="articlelistpost">
-    
-
+    <div class="articlelistpost">
         <div class="bloglistpostname display-4" style="padding-left: 20px; padding-right: 20px; width:100%; height: 400px; background-image: url('{% static 'blog/img/'|add:post.cover_img %}');background-size: cover;">
-
 
             <div style="align-self: flex-end;">
                 <span style="background-color: rgba(255, 255, 255, .5);line-height: 1.6;">{{ post.name|title }}</span>
             </div>
-            
+
         </div>
-        
-        
-   
     </div>
+
     <br>
+
     <div class="blogpostheader">
-            <div class="bloglistpostdate">
-                <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
-                {{post.pub_date|timesince|upper}} AGO
-            </div>
+        <div class="bloglistpostdate">
+            <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{post.pub_date|timesince|upper}} AGO
+        </div>
 
-            <div class="bloglistposttags">
-                    <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
-                {% for tag in post.tag_list %}
-                    <a href="">{{tag|upper}}, </a>
-                {% endfor %}
-
-            </div>
+        <div class="bloglistposttags">
+            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in post.tag_list %}
+            <a href="">{{tag|upper}}, </a>
+            {% endfor %}
 
         </div>
+
+    </div>
     <br>
 
 
     <div class="article-post">
         {{post_markdown|safe}}
 
-    </div>   
+    </div>
 
 </div>
 {% endblock %}

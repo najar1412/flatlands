@@ -1,39 +1,41 @@
-{% extends "blog/base.html" %}
-
-{% load static %}
-
-{% block content %}
+{% extends "blog/base.html" %} {% load static %} {% block content %}
 
 <div class="content">
 
-<div id="breadcrumbs">
-    Project &emsp; > &emsp; {{project.name}}
-</div>
+        <div id="breadcrumbs">
+                Project &emsp; > &emsp; {{project.name}}
+        </div>
 
 
-<div class="bloglistpostname display-4">
-        {{ project.name|title }}
-        <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
-</div>
+        <div class="articlelistpost">
+                <div class="bloglistpostname display-4" style="padding-left: 20px; padding-right: 20px; width:100%; height: 400px; background-image: url('{% static 'blog/img/'|add:project.cover_img %}');background-size: cover;">
+
+                        <div style="align-self: flex-end;">
+                                <span style="background-color: rgba(255, 255, 255, .5);line-height: 1.6;">{{ project.name|title }}</span>
+                        </div>
+
+                </div>
+        </div>
 
 
-
-{% include "blog/comp/project_contents.html" %}
-
+        <p style="height:40px;"></p>
+        {% include "blog/comp/project_contents.html" %}
+        <p style="height:40px;"></p>
 
 
         <p style="height:40px;"></p>
 
-<hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
+        <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
 
-<div class="project-next">
+        <div class="project-next">
                 <div>
-                                
-                        </div>
-        <div>
-        [next project article]&emsp;<img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
-</div>
-</div>
+
+                </div>
+                <div>
+                        [next project article]&emsp;
+                        <img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
+                </div>
+        </div>
 
 </div>
 

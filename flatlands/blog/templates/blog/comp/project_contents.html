@@ -3,16 +3,16 @@
 <div class="alert alert-light" role="alert">
 
         <div class="project-contents">
-                        Contents:<br>
-                        <br>
-                        {% for article in articles %}
-                        {% if article.id == viewed_article.id %}
-                        <strong>{{ forloop.counter }}. {{article.name|title}}</strong> &emsp; <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="tags icon"> <br>
-                        {% else %}
-                        {{ forloop.counter }}. <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name|title}}</a><br>
-                        {% endif %}
-                         {% endfor %}
-                        </div>
+                Contents:
+                <br>
+                <br> {% for article in articles %} {% if article.id == viewed_article.id %}
+                <strong>{{ forloop.counter }}. {{article.name|title}}</strong> &emsp;
+                <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}"
+                        alt="tags icon">
+                <br> {% else %} {{ forloop.counter }}.
+                <a href="/projects/{{ project.id }}/{{ article.id }}">{{article.name|title}}</a>
+                <br> {% endif %} {% endfor %}
+        </div>
 
 
 </div>

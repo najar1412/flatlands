@@ -1,56 +1,61 @@
-{% extends "blog/base.html" %}
-
-{% load static %}
-
-{% block content %}
+{% extends "blog/base.html" %} {% load static %} {% block content %}
 
 <div class="content">
 
-<div style="padding-top:100px;padding-bottom:40px;">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</div>
+                <div style="padding-top:100px;padding-bottom:40px;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
 
-{% for project in projects %}
+        {% if projects %}
+
+        
+
+        {% for project in projects %}
 
 
 
-      <div class="card">
-            <div class="card-header">
-                    <a style="font-size: 24px;" href="/projects/{{ project.id }}/">{{project.name}}</a>
-            </div>
-            <div class="card-body">
-                    <div style="display: flex; flex-direction: row; padding-bottom: 15px;">
-
+        <div class="card">
+                <div class="card-header">
+                        <div style="display: flex; flex-direction: row; justify-content: space-between">
                                 <div>
-                                                <img class="iconic-svg-small" src="{% static 'blog/svg/file.svg' %}" alt="file icon">  <a href="#"><span style="font-size: 12px;">Technical Spec</span></a>
-                                        </div>
+                                        <a style="font-size: 24px;" href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a>
+                                </div>
+                                <div>
+                                        <img class="iconic-svg-small" src="{% static 'blog/svg/file.svg' %}" alt="file icon">
+                                        <span style="font-size: 12px;">
+                                                <a href="#">Technical Spec</a> &emsp;
+                                                <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}"
+                                                        alt="code icon">
+                                                <a href="#">Repo</span>
+                                        </a>
+                                </div>
+                        </div>
 
-                                &emsp;
-
-                            <div>
-                        <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon"> <a href="#"><span style="font-size: 12px;">Repo</span></a>
                 </div>
-              
-                </div>
+                <div class="card-body">
+                        <div>
+                                {{project.content|truncatewords:50}}
+                        </div>
 
-
-                    <div>
-                            <div>
-                         {{project.content|truncatewords:50}}
-                    </div>
-                    </div>
-                    <hr>
-                    <div>
+                        <hr>
+                        <div>
                                 {% for tech in project.usedsoftware_set.all %}
-                                <a href="{{tech.website}}"><img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon"></a>
+                                <a href="{{tech.website}}">
+                                        <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon">
+                                </a>
                                 {% endfor %}
-                    </div>
-            </div>
-          </div>
-          <br>
+                        </div>
+                </div>
+        </div>
+        <br> {% endfor %}
 
+        {% else %}
 
+        No Projects :(
 
-{% endfor %}
+        {% endif %}
 </div>
 {% endblock %}
