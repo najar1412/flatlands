@@ -7,9 +7,21 @@ import markdown
 from .models import Article, Project
 
 
-def get_markdown(article_name=None):
+# TODO: IMP technical spec docs.
+# TODO: IMP article/project images.
+# TODO: IMP next/previous project links.
+
+def get_markdown(is_project=False, markdown_name=None, project_name=None):
     root = os.path.dirname(os.path.dirname(__file__))
-    articles = os.path.join(root, 'blog', 'static', 'blog', 'articles', article_name, f'{article_name}.md')
+
+    if is_project and project_name and markdown_name:
+        articles = os.path.join(root, 'blog', 'static', 'blog', 'projects', project_name, markdown_name, f'{markdown_name}.md')
+
+    elif not is_project and markdown_name:
+        articles = os.path.join(root, 'blog', 'static', 'blog', 'articles', markdown_name, f'{markdown_name}.md')
+
+    else:
+        return 'Markdown Not Found.'
 
     f = open(articles, 'r')
     html = markdown.markdown(f.read())
@@ -31,7 +43,7 @@ def index(request):
 
 def article(request, post_id):
     post = get_object_or_404(Article, pk=post_id)
-    post_markdown = get_markdown(post.content)
+    post_markdown = get_markdown(markdown_name=post.content)
     context = {
         'post': post, 
         'post_markdown': post_markdown
@@ -63,7 +75,8 @@ def project_article(request, project_id, article_id):
     project = get_object_or_404(Project, pk=project_id)
     articles = list(Article.objects.filter(project=project_id, published=True).order_by('pub_date'))
     viewed_article = Article.objects.get(pk=article_id)
-    article_content = post_markdown = get_markdown(viewed_article.content)
+    article_content = post_markdown = get_markdown(is_project=True, project_name=project.name, markdown_name=viewed_article.content)
+
     context = {'project': project, 'articles': articles, 'viewed_article': viewed_article, 'article_content': article_content}
 
     return render(request, 'blog/project_article.html', context)
