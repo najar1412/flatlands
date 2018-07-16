@@ -55,13 +55,24 @@
     <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;">
 
     <div class="project-next">
+        {% if project_nav.0 != -1 %}
         <div>
-            <img class="iconic-svg" src="{% static 'blog/svg/arrow-left.svg' %}" alt="arrow icon"> [previous project article]
+            <img class="iconic-svg" src="{% static 'blog/svg/arrow-left.svg' %}" alt="arrow icon"> 
+            <a href="/projects/{{ project.id }}/{{ project_nav.0 }}">Previous Project Article</a>
         </div>
+        {% else %}
+        <div></div>
+        {% endif %}
+
+        {% if project_nav.1 != -1 %}
         <div>
-            [next project article]
+            <a href="/projects/{{ project.id }}/{{ project_nav.1 }}">Next Project Article</a>
             <img class="iconic-svg" src="{% static 'blog/svg/arrow-right.svg' %}" alt="arrow icon">
         </div>
+        {% else %}
+        <div>No More :(</div>
+        {% endif %}
+
     </div>
 
 </div>

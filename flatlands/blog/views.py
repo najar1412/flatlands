@@ -9,8 +9,8 @@ from .models import Article, Project
 
 # TODO: IMP technical spec docs.
 # TODO: IMP article/project images.
-# TODO: IMP next/previous project links.
 
+# IO
 def get_markdown(is_project=False, markdown_name=None, project_name=None):
     root = os.path.dirname(os.path.dirname(__file__))
 
@@ -28,6 +28,28 @@ def get_markdown(is_project=False, markdown_name=None, project_name=None):
     f.close()
 
     return html
+
+# DB
+def get_project_nav(article_id, article_list):
+    previous_id = None
+    next_id = None
+
+    for idx, article in enumerate(article_list):
+        if article.pk == article_id:
+            previous_id = idx - 1
+            next_id = idx + 1
+
+    if previous_id < 0:
+        previous_id = -1
+    else:
+        previous_id = article_list[previous_id].pk
+
+    if next_id > len(article_list) - 1:
+        next_id = -1
+    else:
+        next_id = article_list[next_id].pk
+    
+    return (previous_id, next_id)
 
 
 def index(request):
@@ -74,10 +96,15 @@ def project(request, project_id):
 def project_article(request, project_id, article_id):
     project = get_object_or_404(Project, pk=project_id)
     articles = list(Article.objects.filter(project=project_id, published=True).order_by('pub_date'))
-    viewed_article = Article.objects.get(pk=article_id)
+    viewed_article = [x for x in articles if x.pk == article_id][0]
     article_content = post_markdown = get_markdown(is_project=True, project_name=project.name, markdown_name=viewed_article.content)
+    project_nav = get_project_nav(article_id, articles)
 
-    context = {'project': project, 'articles': articles, 'viewed_article': viewed_article, 'article_content': article_content}
+    context = {
+        'project': project, 'articles': articles, 
+        'viewed_article': viewed_article, 'article_content': article_content,
+        'project_nav': project_nav
+        }
 
     return render(request, 'blog/project_article.html', context)
 

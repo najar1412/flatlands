@@ -4,6 +4,7 @@ body {
 
 .project-next {
     display: flex;
+    font-size: 20px;
     justify-content: space-between;
     padding-top: 40px;
 }
