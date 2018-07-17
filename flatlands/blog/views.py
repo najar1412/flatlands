@@ -11,7 +11,8 @@ from .models import Article, Project
 # TODO: IMP article/project images.
 
 # IO
-def md_to_html(md):
+# TODO: refactor to markdown io to class
+def read_markdown(md):
     """Opens markdown file and converts to str.
     md: io: markdown file to open.
     returns: str: markdown as str with html tags."""
@@ -22,31 +23,35 @@ def md_to_html(md):
     return html
 
 
-def get_markdown(is_project=False, markdown_name=None, project_name=None):
-    """Builds location information for access a markdown file.
+def get_project_markdown(project=None, markdown=None):
+    """Builds location information for accessing a markdown file.
 
-    is_project: bool: determines if the article is part of a project.
-    markdown_name: str: name of the markdown file.
-    project_name: str: name of the project.
+    markdown: str: name of the markdown file.
+    project: str: name of the project.
     return: str: markdown file convert to str, with html tags."""
     root = os.path.dirname(os.path.dirname(__file__))
 
-    if is_project and project_name and markdown_name:
-        md = os.path.join(
-            root, 'blog', 'static', 'blog', 'projects', project_name, 
-            markdown_name, f'{markdown_name}.md'
-        )
+    md = os.path.join(
+        root, 'blog', 'static', 'blog', 'projects', project, 
+        markdown, f'{markdown}.md'
+    )
 
-    elif not is_project and markdown_name:
-        md = os.path.join(
-            root, 'blog', 'static', 'blog', 'articles', 
-            markdown_name, f'{markdown_name}.md'
-        )
+    return read_markdown(md)
 
-    else:
-        return 'Markdown Not Found.'
 
-    return md_to_html(md)
+def get_article_markdown(markdown=None):
+    """Builds location information for accessing a markdown file.
+
+    markdown: str: name of the markdown file.
+    return: str: markdown file convert to str, with html tags."""
+    root = os.path.dirname(os.path.dirname(__file__))
+
+    md = os.path.join(
+        root, 'blog', 'static', 'blog', 'articles', 
+        markdown, f'{markdown}.md'
+    )
+
+    return read_markdown(md)
 
 
 # DB
@@ -85,7 +90,7 @@ def index(request):
 
 def article(request, post_id):
     post = get_object_or_404(Article, pk=post_id)
-    post_markdown = get_markdown(markdown_name=post.content)
+    post_markdown = get_article_markdown(markdown_name=post.content)
 
     context = {
         'post': post, 
@@ -118,7 +123,7 @@ def project_article(request, project_id, article_id):
     project = get_object_or_404(Project, pk=project_id)
     articles = list(Article.objects.filter(project=project_id, published=True).order_by('pub_date'))
     viewed_article = [x for x in articles if x.pk == article_id][0]
-    article_content = get_markdown(is_project=True, project_name=project.name, markdown_name=viewed_article.content)
+    article_content = get_project_markdown(project=project.name, markdown=viewed_article.content)
     project_nav = get_project_nav(article_id, articles)
 
     context = {
