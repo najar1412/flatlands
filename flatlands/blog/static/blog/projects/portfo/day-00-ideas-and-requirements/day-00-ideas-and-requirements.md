@@ -14,3 +14,5 @@ I had a long weekend to myself while my girlfriend was off doing girlfriend thin
 All in all a pretty basic crud app. Most apps i build for work won't ever be seen by more than ~60 people, so i don't usually spend a whole lot of time on the frontend. The industry i work in is very fast moving and does not allow much time in building solutions. So for this project i decided to dip my toes in the javascript waters. When i say dip i literally mean graze the surface.
 
 My typical stack consists of python/flask, postgres, html/css. I don't see any reason to change that up. So i’ll move forward using that with a sprinkle of javascript.
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)

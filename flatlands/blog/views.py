@@ -5,13 +5,14 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 import markdown
 
 from .models import Article, Project
+from .modules.markdown import Markdown
 
 
 # TODO: IMP technical spec docs.
 # TODO: IMP article/project images.
+# TODO: IMP markdown.Markdown, remove refactoed mardown functions
 
 # IO
-# TODO: refactor to markdown io to class
 def read_markdown(md):
     """Opens markdown file and converts to str.
     md: io: markdown file to open.
