@@ -21,7 +21,7 @@
         {% else %}
 
         <div class="carousel-item">
-            <img class="d-block w-100" src="{% static 'blog/projects/{{project.name}}/{{project.cover_img}}' %}" alt="First slide">
+            <img class="d-block w-100" src="/static/blog/projects/{{project.name}}/{{project.cover_img}}">
             <div class="carousel-caption d-none d-md-block">
                 <a href="/projects/{{ project.id }}/" style="text-decoration: none;">
                     <h5 class="display-4" style="text-align: left;background-color: rgba(255, 255, 255, .8); color:black;">Project: {{project.name|capfirst}}</h1>
@@ -47,7 +47,9 @@
 {% else %} No Projects :( {% endif %}
 
 <div class="content">
-    <p style="height:80px"></p>
+        <p style="height:40px"></p>
+    <h1 class="display-4">Articles</h1>
+    <p style="height:40px"></p>
     {% if articles %} {% for article in articles %}
 
     <div class="indexlistpost">

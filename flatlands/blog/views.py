@@ -41,7 +41,7 @@ def index(request):
 
 def article(request, post_id):
     post = get_object_or_404(Article, pk=post_id)
-    post_markdown = get_article_markdown(markdown_name=post.content)
+    post_markdown = get_article_markdown(post.content)
 
     context = {
         'post': post, 

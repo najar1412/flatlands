@@ -69,7 +69,7 @@ def get_project_markdown(project, markdown):
     return _read_markdown(loc, md)
 
 
-def get_article_markdown(markdown=None):
+def get_article_markdown(markdown):
     """Builds location information for accessing a markdown file.
 
     markdown: str: name of the markdown file.
