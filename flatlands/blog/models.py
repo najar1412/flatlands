@@ -11,6 +11,8 @@ class Project(models.Model):
     tags = models.CharField(max_length=200)
     cover_img = models.CharField(max_length=200)
     published = models.BooleanField(default=False)
+    techspec = models.CharField(max_length=200, null=True, blank=True)
+    repo = models.CharField(max_length=200, null=True, blank=True)
     
     def __str__(self):
         return self.name

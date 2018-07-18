@@ -6,21 +6,19 @@
                 Personal projects are a great way to explore new technologies and development best practises. 90% of the personal projects
                 I start are never finished, most of which barely see the light of day. I’m hoping that by documenting some
                 of my better ideas will help me be more accountable to get them finished.
-                <br><br> 
-                Below are somewhat detailed accounts on how i go about building software. They’ll follow a similar structure
-                of putting together a technical spec and detailed requirements of what i’d like to accomplish. I’ll try
-                and document the problems and their solutions as they arise as well as any thoughts i have along the way.
-                Finally, I’ll take a look at the finished project and discuss the successes and failures and any new technologies
-                used. 
-                <br><br>
-                Ultimately im hoping these will serve as a sort of development journal of my personal projects. A way
-                i can keep improving my craft by looking back and building on top of my knowledge.
+                <br>
+                <br> Below are somewhat detailed accounts on how i go about building software. They’ll follow a similar structure
+                of putting together a technical spec and detailed requirements of what i’d like to accomplish. I’ll try and
+                document the problems and their solutions as they arise as well as any thoughts i have along the way. Finally,
+                I’ll take a look at the finished project and discuss the successes and failures and any new technologies
+                used.
+                <br>
+                <br> Ultimately im hoping these will serve as a sort of development journal of my personal projects. A way i
+                can keep improving my craft by looking back and building on top of my knowledge.
 
         </div>
 
         {% if projects %} {% for project in projects %}
-
-
 
         <div class="card">
                 <div class="card-header">
@@ -31,13 +29,13 @@
                                 <div>
                                         <img class="iconic-svg-small" src="{% static 'blog/svg/file.svg' %}" alt="file icon">
                                         <span style="font-size: 12px;">
-                                                <a href="#">Technical Spec</a> &emsp;
+                                                <a href="">Technical Spec</a> &emsp;
                                                 <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
-                                                <a href="#">Repo</span>
-                                        </a>
+                                                <a href="{{project.repo}}">Repo</a>
+                                        </span>
+                                        
                                 </div>
                         </div>
-
                 </div>
                 <div class="card-body">
                         <div>

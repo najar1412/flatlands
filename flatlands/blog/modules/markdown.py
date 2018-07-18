@@ -50,7 +50,7 @@ def _read_markdown(loc, md):
     return _parse_html(loc, html)
 
 
-def get_project_markdown(project=None, markdown=None):
+def get_project_markdown(project, markdown):
     """Builds location information for accessing a markdown file.
 
     markdown: str: name of the markdown file.
@@ -63,6 +63,7 @@ def get_project_markdown(project=None, markdown=None):
         root, 'static', 'blog', 'projects', project, 
         markdown
     )
+
     md = f'{markdown}.md'
 
     return _read_markdown(loc, md)

@@ -4,8 +4,6 @@ from .models import Article, Project
 
 
 # TODO: IMP technical spec docs.
-# TODO: IMP article/project images.
-# TODO: IMP markdown.Markdown, remove refactoed mardown functions
 
 # DB
 def get_project_nav(article_id, article_list):
@@ -76,7 +74,7 @@ def project_article(request, project_id, article_id):
     project = get_object_or_404(Project, pk=project_id)
     articles = list(Article.objects.filter(project=project_id, published=True).order_by('pub_date'))
     viewed_article = [x for x in articles if x.pk == article_id][0]
-    article_content = get_project_markdown(project=project.name, markdown=viewed_article.content)
+    article_content = get_project_markdown(project.name, viewed_article.content)
     project_nav = get_project_nav(article_id, articles)
 
     context = {
