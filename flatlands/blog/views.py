@@ -3,7 +3,7 @@ from .modules.markdown import get_project_markdown, get_article_markdown
 from .models import Article, Project
 
 
-# TODO: IMP technical spec docs.
+# TODO: IMP project cover image
 
 # DB
 def get_project_nav(article_id, article_list):

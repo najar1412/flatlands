@@ -27,9 +27,7 @@
                                         <a style="font-size: 24px;" href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a>
                                 </div>
                                 <div>
-                                        <img class="iconic-svg-small" src="{% static 'blog/svg/file.svg' %}" alt="file icon">
                                         <span style="font-size: 12px;">
-                                                <a href="">Technical Spec</a> &emsp;
                                                 <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
                                                 <a href="{{project.repo}}">Repo</a>
                                         </span>
@@ -39,7 +37,7 @@
                 </div>
                 <div class="card-body">
                         <div>
-                                {{project.content|truncatewords:50}}
+                                {{project.content|capfirst|truncatewords:50}}
                         </div>
 
                         <hr>

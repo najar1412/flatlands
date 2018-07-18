@@ -11,7 +11,6 @@ class Project(models.Model):
     tags = models.CharField(max_length=200)
     cover_img = models.CharField(max_length=200)
     published = models.BooleanField(default=False)
-    techspec = models.CharField(max_length=200, null=True, blank=True)
     repo = models.CharField(max_length=200, null=True, blank=True)
     
     def __str__(self):
@@ -34,8 +33,9 @@ class Article(models.Model):
     pub_date = models.DateTimeField('date published')
     tags = models.CharField(max_length=200)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True)
-    cover_img = models.CharField(max_length=200)
+    cover_img = models.CharField(max_length=200, null=True, blank=True)
     published = models.BooleanField(default=False)
+    techspec = models.BooleanField(default=False)
 
     def tag_list(self):
         return str(self.tags).split(' ')
