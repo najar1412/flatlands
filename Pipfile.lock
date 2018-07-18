@@ -1,20 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "69374a43c36f69fb659faeae583221d586d05beafd387ef1d14393be9f36490a"
-        },
-        "host-environment-markers": {
-            "implementation_name": "cpython",
-            "implementation_version": "3.7.0",
-            "os_name": "nt",
-            "platform_machine": "AMD64",
-            "platform_python_implementation": "CPython",
-            "platform_release": "10",
-            "platform_system": "Windows",
-            "platform_version": "10.0.17134",
-            "python_full_version": "3.7.0",
-            "python_version": "3.7",
-            "sys_platform": "win32"
+            "sha256": "b3d5ff28aa5103827301390292aef272afd09c6caefdfb97abebaee7a1a504e7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -29,18 +16,29 @@
         ]
     },
     "default": {
+        "beautifulsoup4": {
+            "hashes": [
+                "sha256:11a9a27b7d3bddc6d86f59fb76afb70e921a25ac2d6cc55b40d072bd68435a76",
+                "sha256:7015e76bf32f1f574636c4288399a6de66ce08fb7b2457f628a8d70c0fbabb11",
+                "sha256:808b6ac932dccb0a4126558f7dfdcf41710dd44a4ef497a0bb59a77f9f078e89"
+            ],
+            "index": "pypi",
+            "version": "==4.6.0"
+        },
         "django": {
             "hashes": [
-                "sha256:69ff89fa3c3a8337015478a1a0744f52a9fef5d12c1efa01a01f99bcce9bf10c",
-                "sha256:3eb25c99df1523446ec2dc1b00e25eb2ecbdf42c9d8b0b8b32a204a8db9011f8"
+                "sha256:97886b8a13bbc33bfeba2ff133035d3eca014e2309dff2b6da0bdfc0b8656613",
+                "sha256:e900b73beee8977c7b887d90c6c57d68af10066b9dac898e1eaf0f82313de334"
             ],
-            "version": "==2.0.6"
+            "index": "pypi",
+            "version": "==2.0.7"
         },
         "markdown": {
             "hashes": [
                 "sha256:9ba587db9daee7ec761cfc656272be6aabe2ed300fece21208e4aab2e457bc8f",
                 "sha256:a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
             ],
+            "index": "pypi",
             "version": "==2.6.11"
         },
         "pytz": {

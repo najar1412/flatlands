@@ -1,59 +1,11 @@
-import os
-from pathlib import Path
-
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-import markdown
-
+from .modules.markdown import get_project_markdown, get_article_markdown
 from .models import Article, Project
-from .modules.markdown import Markdown
 
 
 # TODO: IMP technical spec docs.
 # TODO: IMP article/project images.
 # TODO: IMP markdown.Markdown, remove refactoed mardown functions
-
-# IO
-def read_markdown(md):
-    """Opens markdown file and converts to str.
-    md: io: markdown file to open.
-    returns: str: markdown as str with html tags."""
-    f = open(md, 'r')
-    html = markdown.markdown(f.read())
-    f.close()
-
-    return html
-
-
-def get_project_markdown(project=None, markdown=None):
-    """Builds location information for accessing a markdown file.
-
-    markdown: str: name of the markdown file.
-    project: str: name of the project.
-    return: str: markdown file convert to str, with html tags."""
-    root = os.path.dirname(os.path.dirname(__file__))
-
-    md = os.path.join(
-        root, 'blog', 'static', 'blog', 'projects', project, 
-        markdown, f'{markdown}.md'
-    )
-
-    return read_markdown(md)
-
-
-def get_article_markdown(markdown=None):
-    """Builds location information for accessing a markdown file.
-
-    markdown: str: name of the markdown file.
-    return: str: markdown file convert to str, with html tags."""
-    root = os.path.dirname(os.path.dirname(__file__))
-
-    md = os.path.join(
-        root, 'blog', 'static', 'blog', 'articles', 
-        markdown, f'{markdown}.md'
-    )
-
-    return read_markdown(md)
-
 
 # DB
 def get_project_nav(article_id, article_list):

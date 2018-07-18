@@ -15,4 +15,4 @@ All in all a pretty basic crud app. Most apps i build for work won't ever be see
 
 My typical stack consists of python/flask, postgres, html/css. I don't see any reason to change that up. So i’ll move forward using that with a sprinkle of javascript.
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](yaktocat.png)
