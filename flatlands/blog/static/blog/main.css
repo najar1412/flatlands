@@ -45,21 +45,16 @@ body {
     padding-bottom: 10px;
 }
 #border-header-nav a:link {
-    padding-right: 20px;
-    padding-left: 20px;
     letter-spacing: 2px;
     color: white;
-}
-#border-header-nav a:visited {
-    letter-spacing: 2px;
-}
-#border-header-nav a:hover {
-    letter-spacing: 2px;
-    color: #0db3e3;
     text-decoration: none;
 }
+#border-header-nav a:visited {
+}
+#border-header-nav a:hover {
+    border-bottom: dotted 1px white;
+}
 #border-header-nav a:active {
-    letter-spacing: 2px;
 }
 #site-title {
     display: flex;
@@ -74,6 +69,7 @@ body {
     padding-left:40px;
     padding-right:40px;
     margin: auto auto;
+    background-color: white;
 }
 
 .indexlistpost {
@@ -119,6 +115,18 @@ body {
 }
 .bloglistposttags {
     font-size:10px;
+    color: #233452;
+}
+.bloglistposttags a:link {
+    color: #233452;
+    text-decoration: none;
+}
+.bloglistposttags a:visited {
+}
+.bloglistposttags a:hover {
+    border-bottom: dotted 1px;
+}
+.bloglistposttags a:active {
 }
 .blogpostreadmore {
     padding-top: 15px;
@@ -143,7 +151,7 @@ body {
     margin-right:5px;
 }
 #footer {
-    background-color: #0db3e3;
+    background-color: #233452;
     padding-top: 100px;
     padding-bottom: 100px;
 }
@@ -155,16 +163,15 @@ body {
     padding-right:40px;
 }
 a:link {
-    color: #0db3e3;
+    color: #233452;
+    text-decoration: none;
 }
 a:visited {
-    color: #0db3e3;
 }
 a:hover {
-    color: #0db3e3;
+    border-bottom: dotted 1px;
 }
 a:active {
-    color: #0db3e3;
 }
 
 
@@ -179,7 +186,7 @@ a:active {
 .article-post .title {
   margin: 0;
   font-size: 50px;
-   color: black;
+   color: #233452;
 }
 .article-post img{
 }
@@ -191,13 +198,13 @@ a:active {
   padding-left: 20px;
 }
 .article-post {
-  color: black;
+  color: #233452;
 }
 .article-post small {
-  color: black;
+  color: #233452;
 }
 .article-post small a {
-  color: black;
+  color: #233452;
 }
 .article-post small span {}
 .article-post small span a:hover{
@@ -218,13 +225,13 @@ a:active {
   height:auto;
 }
 .article-post a {
-  color: black;
+  color: #233452;
   text-decoration: none;
   border-width: 1px;
   border-bottom-style: dotted;
 }
 .article-post a:hover {
-  color: #0db3e3;
+  color: #233452;
   border-width: 1px;
   border-bottom-style: dotted;
 }

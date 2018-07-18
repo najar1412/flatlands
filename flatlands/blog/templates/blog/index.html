@@ -47,13 +47,16 @@
 {% else %} No Projects :( {% endif %}
 
 <div class="content">
-        <p style="height:40px"></p>
+        <p style="height:80px"></p>
     <h1 class="display-4">Articles</h1>
-    <p style="height:40px"></p>
+    <p style="height:20px"></p>
     {% if articles %} {% for article in articles %}
 
+    {% if article.project == None %}
     <div class="indexlistpost">
-        {% if article.project == None %}
+
+            <p style="height:20px;"></p>
+        
         <div class="blogpostheader">
             <div class="bloglistpostdate">
                 <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{article.pub_date|timesince|upper}} AGO
@@ -67,13 +70,14 @@
 
         <div class="bloglistpostname display-4">
             <div>
-                <img class="iconic-svg-header" src="{% static 'blog/svg/document.svg' %}" alt="tags icon">&ensp;</div>
-            <div>
                 <a href="/articles/{{ article.id }}/">{{ article.name|title }}</a>
             </div>
         </div>
-        {% endif %}
+
+        
+        
     </div>
+    {% endif %}
 
     {% endfor %} {% else %}
     <p>No Articles :(</p>
