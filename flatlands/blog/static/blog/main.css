@@ -25,7 +25,6 @@ body {
 }
 #breadcrumbs {
     font-size: 10px;
-    padding-bottom: 30px;
     padding-top: 80px;
 }
 #breadcrumbs img {
@@ -98,7 +97,7 @@ body {
     padding-bottom: 100px;
 }
 .bloglistpostdate {
-    font-size:10px;
+    font-size:12px;
     padding-right: 20px;
 }
 .bloglistpostname {
@@ -114,26 +113,12 @@ body {
     word-spacing: 5px;
 }
 .bloglistposttags {
-    font-size:10px;
-    color: #233452;
-}
-.bloglistposttags a:link {
-    color: #233452;
-    text-decoration: none;
-}
-.bloglistposttags a:visited {
-}
-.bloglistposttags a:hover {
-    border-bottom: dotted 1px;
-}
-.bloglistposttags a:active {
+    font-size:12px;
 }
 .blogpostreadmore {
     padding-top: 15px;
     font-size: 14px;
     text-align: right;
-}
-.project-contents {
 }
 .iconic-svg {
     height:15px;
@@ -193,7 +178,7 @@ a:active {
   
 .article-post pre {
   background-color: rgb(236, 236, 236);
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 15px;
   padding-left: 20px;
 }

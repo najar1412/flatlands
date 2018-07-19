@@ -6,8 +6,10 @@
         Project &emsp; > &emsp; {{project.name}} &emsp; > &emsp; {{viewed_article.name}}
     </div>
 
+    <p style="height:10px;"></p>
+
     <div class="articlelistpost">
-        <div class="bloglistpostname display-4" style="padding-left: 20px; padding-right: 20px; width:100%; height: 340px; background-image: url('/static/blog/projects/{{project.name}}/{{project.cover_img}}');background-size: cover;">
+        <div class="bloglistpostname display-4" style="border-radius: 3px;padding-left: 20px; padding-right: 20px; width:100%; height: 340px; background-image: url('/static/blog/projects/{{project.name}}/{{project.cover_img}}');background-size: cover;">
 
             <div style="align-self: flex-end;">
                 <span style="background-color: rgba(255, 255, 255, .5);line-height: 1.6;">{{ project.name|title }}</span>
@@ -16,7 +18,7 @@
         </div>
     </div>
 
-    <p style="height:40px;"></p>
+    <p></p>
 
     {% include "blog/comp/project_contents.html" %}
 
@@ -29,9 +31,6 @@
                 <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{viewed_article.pub_date|timesince|upper}} AGO
             </div>
 
-            <br>
-            <br>
-
             <div class="bloglistposttags">
                 <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in viewed_article.tag_list %}
                 <a href="">{{tag|upper}}, </a>
@@ -40,11 +39,14 @@
 
         </div>
 
-        <div class="bloglistpostname display-4">
-            <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;"> {{ viewed_article.name|title }}
+        <div class="display-4">
+            <hr style="margin:0px;margin-top:5px;border-top: 1px dashed #8c8b8b;border-bottom: 1px dashed #fff;"> 
+            {{ viewed_article.name|title }}
         </div>
 
     </div>
+
+    <p style="height:40px;"></p>
 
     <div class="article-post">
         {{ article_content|capfirst|safe }}

@@ -63,7 +63,7 @@
             </div>
             <div class="bloglistposttags">
                 <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in article.tag_list %}
-                <a href="">{{tag|upper}}, </a>
+                <a href="" style="color: #233452;">{{tag|upper}}</a>, 
                 {% endfor %}
             </div>
         </div>
