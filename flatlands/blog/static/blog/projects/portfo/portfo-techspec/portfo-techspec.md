@@ -1,8 +1,3 @@
-*INDEV*
-
-**Portfo: Software Design Spec**
---
-
 Portfo is to be a simple portfolio management web app aimed at artists of visual media for the presentation of media. Simple to use with minimal user interaction. Prebuilt themes or layouts and privacy tools.
 
 Requirments for Completion
@@ -38,7 +33,8 @@ The user can manage the portfolio from a prebuilt admin interface at any point a
 * ..
 * ..
 
-**UI**
+UI
+--
 
 * Wireframes
     * Dimensions and Constraints
@@ -48,7 +44,38 @@ The user can manage the portfolio from a prebuilt admin interface at any point a
     * high-level interation
 * Represent Functionality
 
-**Milestones**
+**Login Page**
+
+![Login Page](01_wire_login.jpg)
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
+
+**Logged User View Page**
+
+![Logged User View Page](02_wire_view.jpg)
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
+
+**Public View Page**
+
+![Public View Page](03_wire_public_view.jpg)
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
+
+**Model Image Page**
+
+![Model Image Page](05_model_image.jpg)
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
+
+**User Admin Page**
+
+![User Admin Page*](04_wire_user_admin.jpg)
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
+
+Milestones
+--
 
 *Deadlines for completion and expected deliverables.*
 
@@ -68,7 +95,7 @@ The user can manage the portfolio from a prebuilt admin interface at any point a
 * Release
 
 High-level Design Spec
-----------------------
+--
 
 *Describes the architecture used in the development of a particular software product.*
 
