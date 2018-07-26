@@ -1,25 +1,42 @@
-*INDEV: TEMPLATE*
+*INDEV*
 
-Software Design Spec
-------------------------------
+**Portfo: Software Design Spec**
+--
 
-**Description of Desired Application**
+Portfo is to be a simple portfolio management web app aimed at artists of visual media for the presentation of media. Simple to use with minimal user interaction. Prebuilt themes or layouts and privacy tools.
 
-**Requirments for Completion**
+Requirments for Completion
+--
 
-* Statement of Goals
-* Software Requirements
+* user auth.
+* user can create portofolio.
+* user to upload visual media.
+* user management of portoflio items, including public/private, renaming and captioning of items, deletions.
+* user management of portoflio, including selection of layouts, naming and contact details, deleting of portfolio.
 
-**Functional Description**
+Functional Description
+--
 
-*What does the application do? What application states (high-level descriptions of core user scenarios) will the user encounter?*
+**Frontend Behavior**
 
-* First Run
-* Operations
-    * Creating a new...
-    * Commenting
-    * User Actions
-* Background and Foreground Behavior
+1) First time running allows the user to create a user account. 
+2) Once an account has been made the user can then progress to the creation of a portfolio.
+3) The user will need to name and add contact information to their portfolio.
+4) finally Selecting a theme/layout.
+
+The user can manage the portfolio from a prebuilt admin interface at any point after the creation of portfolio. The below outlines the admin interface functionality:
+
+* Media can be uploaded.
+* Media can be renamed and captioned.
+* Media can be made public/private.
+* Media can be deleted.
+* Theme/layout changes.
+* renaming and editing of the portfolio name and contact information.
+
+**Backend Behavior**
+
+* ..
+* ..
 
 **UI**
 
