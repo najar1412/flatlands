@@ -1,4 +1,4 @@
-STARTING A VIRTUAL ENV USING PIPENV[link]
+### STARTING A VIRTUAL ENV USING PIPENV[link]
 
 I've only recently been using pipenv - i'd been using miniconda previously. I found they pretty much cover the same ground. ultimately switched to pipenv for no good reason other than its smaller scope. both are great.
 
@@ -10,7 +10,7 @@ I've only recently been using pipenv - i'd been using miniconda previously. I fo
 
 I find when building both back and frontend on a personal project, its super helpful to build them out at the same time. at this point the database and ui are so fluid its best to stay in this place as long as possible.
 
-[USING FLASK[Link] AS OUR OUR FRAMEWORK]
+### [USING FLASK[Link] AS OUR OUR FRAMEWORK]
 
 flask is fantasic. i can run a web server with an index page in like 8 lines of code. granted its all development and should *not* be used for production. You can. but dont.
 

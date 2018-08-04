@@ -1,7 +1,7 @@
 Portfo is to be a simple portfolio management web app aimed at artists of visual media for the presentation of media. Simple to use with minimal user interaction. Prebuilt themes or layouts and privacy tools.
 
-Requirments for Completion
---
+### Requirments for Completion
+
 
 * user auth.
 * user can create portofolio.
@@ -9,8 +9,8 @@ Requirments for Completion
 * user management of portoflio items, including public/private, renaming and captioning of items, deletions.
 * user management of portoflio, including selection of layouts, naming and contact details, deleting of portfolio.
 
-Functional Description
---
+### Functional Description
+
 
 **Frontend Behavior**
 
@@ -33,8 +33,7 @@ The user can manage the portfolio from a prebuilt admin interface at any point a
 * ..
 * ..
 
-UI
---
+### UI
 
 * Wireframes
     * Dimensions and Constraints
@@ -74,8 +73,7 @@ Words words words words words words words words words words words words words wo
 
 Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words 
 
-Milestones
---
+### Milestones
 
 *Deadlines for completion and expected deliverables.*
 
