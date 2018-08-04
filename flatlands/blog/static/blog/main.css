@@ -147,6 +147,16 @@ body {
     padding-left:40px;
     padding-right:40px;
 }
+.footer-images {
+    display:flex; 
+    flex-direction: row; 
+    padding-top:50px;
+}
+@media(max-width:650px) {
+    .footer-images {
+        flex-direction: column; 
+    }
+  }
 a:link {
     color: #233452;
     text-decoration: none;
