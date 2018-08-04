@@ -2,6 +2,28 @@ body {
     background-color: #f2f2f2;
 }
 
+/*
+Removes white gap between slides - chagnge to base color of slide images
+*/
+.carousel {
+    background:#007aeb;
+  }
+  
+  /*
+  Forces image to be 100% width and not max width of 100%
+  */
+  .carousel-item .img-fluid {
+    width:100%;
+  }
+  
+  /* 
+  anchors are inline so you need ot make them block to go full width
+  */
+  .carousel-item a {
+    display: block;
+    width:100%;
+  }
+
 .project-next {
     display: flex;
     font-size: 20px;
@@ -156,17 +178,18 @@ body {
     .footer-images {
         flex-direction: column; 
     }
-  }
-a:link {
+}
+
+.content a:link {
     color: #233452;
     text-decoration: none;
 }
-a:visited {
+.content a:visited {
 }
-a:hover {
+.content a:hover {
     border-bottom: dotted 1px;
 }
-a:active {
+.content a:active {
 }
 
 
