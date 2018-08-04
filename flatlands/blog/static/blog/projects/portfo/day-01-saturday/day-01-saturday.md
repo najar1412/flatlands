@@ -1,14 +1,26 @@
+STARTING A VIRTUAL ENV USING PIPENV[link]
+
+I've only recently been using pipenv - i'd been using miniconda previously. I found they pretty much cover the same ground. ultimately switched to pipenv for no good reason other than its smaller scope. both are great.
+
     ```
     :code$ mkdir portfo
     :code$ cd portfo
     :code/portfo$ pipenv install
     ```
 
-I've only recently been using pipenv - i'd been using miniconda previously. I found they pretty much cover the same ground. ultimately switched to pipenv for no good reason other than its small scope. both are great.
-
 I find when building both back and frontend on a personal project, its super helpful to build them out at the same time. at this point the database and ui are so fluid its best to stay in this place as long as possible.
 
+[USING FLASK[Link] AS OUR OUR FRAMEWORK]
+
 flask is fantasic. i can run a web server with an index page in like 8 lines of code. granted its all development and should *not* be used for production. You can. but dont.
+
+Before we can use Flask we need to install it in the virtual environment.
+
+    ```
+    :code/portfo$ pipenv install flask
+    ```
+
+[MINIMUM REQUIRED FOR A FLASK APP]
 
 /portfo/portfo/app.py
 
@@ -40,6 +52,8 @@ flask is fantasic. i can run a web server with an index page in like 8 lines of 
 
 thats it, ridiculous.
 
+[BASIC MODELS]
+
 building out the models i try and only include the 'required to work' columns.
 
     ```
@@ -65,11 +79,13 @@ building out the models i try and only include the 'required to work' columns.
 
 My thoughts were i'll need a user and their media. but then i also thought that if i just add another table and setup relationships this could be pretty scalable to support many users having many portfolios. Thats a bit grand for this project but i did decide to leave it loosly wired (whats yagni?) - just in case...
 
-so its intended state is to have one app per user/portfolio.
+so its intended state is to have one app per user.
 
-moving on to writting the utility functions and views. at this point i should really just test the database using the interactive interupter. but if im being completely honest most of the code at this point has been frankensteined from other projects that i know work. as with all frankensteined code that i know work, i spend more time print debugging naming errors etc. using the interactive interupter wins everytime...
+moving on to writing the utility functions and views. at this point i should really just test the database using the interactive interupter. but if im being completely honest most of the code at this point has been frankensteined from other projects that i know work. as with all frankensteined code that i know work, i spend more time print debugging naming errors etc. using the interactive interupter wins everytime...
 
-At this point we have a 'required to work' database with basic crude utility functions wrapping sqlalchemy returning data to the only view and a basic config file.
+At this point we have a 'required to work' database with basic crude utility functions wrapping sqlalchemy returning data to the only view.
+
+[BASIC CONFIG]
 
 /portfo/portfo/config.py
 
@@ -88,6 +104,8 @@ At this point we have a 'required to work' database with basic crude utility fun
         SQLALCHEMY_TRACK_MODIFICATIONS = False
     ```
 
+[INITIAL VIEW]
+
 /portfo/portfo/app.py
 
     ```
@@ -100,6 +118,8 @@ At this point we have a 'required to work' database with basic crude utility fun
     ```
 
 Once you've got basic crud working on the frontend in as basic html as possible, its a good time to start fleshing out the actual models and how to access the data. i like to keep a boarder between the database and the views. a super basic wrapper around the minimal sql/sqlalchemy needed to set and retrive the data. reusability, frankenstining.
+
+[FLESH OUT THE HERO PAGE]
 
 developing the 'hero' page
 --

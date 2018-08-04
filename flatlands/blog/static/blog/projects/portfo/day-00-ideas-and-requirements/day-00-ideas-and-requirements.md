@@ -11,6 +11,8 @@ I had a long weekend to myself while my girlfriend was off doing girlfriend thin
 * a way for potential clients to contact the artist.
 * some form of backend ui to manage the images.
 
+Once I've collected all the client requirements, i'll put together a technical spec, a living document that i can always refer to if i get lost or starting building aspects that the client might not need.
+
 All in all a pretty basic crud app. Most apps i build for work won't ever be seen by more than ~60 people, so i don't usually spend a whole lot of time on the frontend. The industry i work in is very fast moving and does not allow much time in building solutions. So for this project i decided to dip my toes in the javascript waters. When i say dip i literally mean graze the surface.
 
 My typical stack consists of python/flask, postgres, html/css. I don't see any reason to change that up. So i’ll move forward using that with a sprinkle of javascript.

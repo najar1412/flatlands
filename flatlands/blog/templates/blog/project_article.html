@@ -32,8 +32,8 @@
             </div>
 
             <div class="bloglistposttags">
-                <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in viewed_article.tag_list %}
-                <a href="">{{tag|upper}}, </a>
+                <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in viewed_article.tags.all %}
+                <a href="/search/{{tag|lower}}">{{tag|upper}}, </a>
                 {% endfor %}
             </div>
 

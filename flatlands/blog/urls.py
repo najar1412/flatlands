@@ -10,5 +10,6 @@ urlpatterns = [
     path('projects/<int:project_id>/', views.project, name='project'),
     path('projects/<int:project_id>/<int:article_id>/', views.project_article, name='project_article'),
     path('articles/', views.articles, name='articles'),
-    path('search/', views.search, name='search'),
+    path('search_form/', views.search_form, name='search_form'),
+    path('search/<str:string>', views.search, name='search'),
 ]

@@ -27,9 +27,15 @@
     </div>
 
 
+
+
+
     <div id="border-header-search">
 
-      <input type="text" class="form-control" style="margin:0" placeholder="...">
+        <form action="/search_form/" method="post">
+          {% csrf_token %}
+          {{ searchform }}
+      </form>
 
     </div>
 
