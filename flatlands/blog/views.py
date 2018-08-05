@@ -43,6 +43,8 @@ def index(request):
 
     return render(request, 'blog/index.html', context)
 
+def about(request):
+    return render(request, 'blog/about.html')
 
 def article(request, post_id):
     post = get_object_or_404(Article, pk=post_id)

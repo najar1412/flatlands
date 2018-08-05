@@ -14,6 +14,7 @@ class Tag(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+    strap = models.CharField(max_length=300)
     content = models.CharField(max_length=5000)
     tags = models.ManyToManyField(Tag, blank=True)
     cover_img = models.CharField(max_length=200)
@@ -38,6 +39,7 @@ class Article(models.Model):
     name = models.CharField(max_length=200)
     content = models.CharField(max_length=5000)
     pub_date = models.DateTimeField('date published')
+    strap = models.CharField(max_length=300)
     tags = models.ManyToManyField(Tag, blank=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True)
     cover_img = models.CharField(max_length=200, null=True, blank=True)
