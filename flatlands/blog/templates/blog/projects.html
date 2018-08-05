@@ -1,23 +1,34 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
-<div class="container content">
 
-        <div style="padding-top:100px;padding-bottom:40px;">
-                Personal projects are a great way to explore new technologies and development best practises. 90% of the personal projects
-                I start are never finished, most of which barely see the light of day. I’m hoping that by documenting some
-                of my better ideas will help me be more accountable to get them finished.
-                <br>
-                <br> Below are somewhat detailed accounts on how i go about building software. They’ll follow a similar structure
-                of putting together a technical spec and detailed requirements of what i’d like to accomplish. I’ll try and
-                document the problems and their solutions as they arise as well as any thoughts i have along the way. Finally,
-                I’ll take a look at the finished project and discuss the successes and failures and any new technologies
-                used.
-                <br>
-                <br> Ultimately im hoping these will serve as a sort of development journal of my personal projects. A way i
-                can keep improving my craft by looking back and building on top of my knowledge.
+<div style="background-color: #0099cc;">
 
+        <div class="container content-intro">
+                <p style="height:80px"></p>
+                <p style="font-size: 20px;">
+                Side projects are a great way to explore new technologies and develop best practises.
+                Documenting ideas forces you to take as much information into consideration for when the time comes to actually code it.
+                <br>
+
+                <br>
+                Each projects will follow a similar structure of putting a technical spec of what'll be accomplish. 
+                Document the problems and their solutions as they arise as well as any thoughts i have along the way. 
+                Finally, I’ll discuss their successes and weaknesses and the different paths i'll want to take in the future for solving similar problems.
+        </p>
         </div>
+        <p style="height:30px;"></p>
+</div>
 
+
+
+
+
+
+
+
+
+<div class="container content">
+                <p style="height:20px;"></p>
         {% if projects %} {% for project in projects %}
 
         <div class="card">

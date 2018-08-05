@@ -20,13 +20,13 @@
 
 <nav class="navbar fixed-top navbar-expand-sm navbar-dark navbar-custom">
     <div class="container content-nav">
-  <a class="navbar-brand" href="/">Flatlands</a>
+  <a class="navbar-brand display-4" href="/" style="letter-spacing: 3px;font-weight: 400;">Flatlands</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto" style="letter-spacing: 1px;">
       <li class="nav-item">
         <a class="nav-link" href="/projects/">Projects</a>
       </li>
@@ -52,6 +52,8 @@
 
   {% block content %}{% endblock %}
 
+
+  {% include "blog/footer.html" %}
 
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

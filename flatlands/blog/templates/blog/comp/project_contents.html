@@ -1,9 +1,7 @@
 {% load static %}
 
 <div class="alert alert-info" role="alert">
-
         <div class="project-contents">
-
                 <h1 class="display-4" style="font-size: 40px;">Contents</h1>
                 <br> {% for article in articles %} {% if article.id == viewed_article.id %}
                 <strong>{{ forloop.counter }}. {{article.name|title}}</strong> &emsp;
