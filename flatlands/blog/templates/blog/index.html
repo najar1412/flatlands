@@ -8,13 +8,10 @@
         <div class="container content-intro">
                 <p style="height:80px"></p>
          
-                <p style="font-size: 20px;">
-                        
+                <p class="lead" style="font-size: 20px;">
                     Hello, <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">I'm Rory</a>!</span> Technical Director of a creative agency based in New York where we predominantly produce computer generated
                     still and film visualisations of Architecture both built and unbuilt.
-                </p>
-
-                <p style="font-size: 20px;">
+                    <br><br>
                     Flatlands is a place for me to document and discuss my processes in developing software. 
                     Posting write-ups and summaries on my side projects as well as thoughts and guides on technologies and the software industry as a whole.
                 </p>
@@ -38,6 +35,7 @@
 
 
 
+<p style="height:40px;"></p>
 
 
 
@@ -50,7 +48,6 @@
     {% if article.project == None %}
     <div class="indexlistpost">
 
-            <p style="height:20px;"></p>
         
         <div class="blogpostheader">
             <div class="bloglistpostdate">
@@ -75,6 +72,8 @@
         
         
     </div>
+    
+    <p style="height:60px;"></p>
     {% endif %}
 
     {% endfor %} {% else %}
