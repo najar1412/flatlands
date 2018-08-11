@@ -167,6 +167,23 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
 }
+.footer-content a:link {
+    color: #353839;
+    text-decoration: none;
+}
+.footer-content a:visited {
+    color: #353839;
+}
+.footer-content a:hover {
+    color: #353839;
+    border-bottom: none;
+}
+.footer-content a:active {
+    color: #353839;
+}
+
+
+
 .footer-images {
     display:flex; 
     flex-direction: row;
