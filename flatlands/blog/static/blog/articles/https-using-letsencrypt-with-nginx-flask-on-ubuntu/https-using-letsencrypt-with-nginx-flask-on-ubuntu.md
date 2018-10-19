@@ -1,10 +1,8 @@
 This guide is originally from [Miguel Grinberg](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https) and [Digitalocean](http://https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04). Full credit goes to them, this is just a condensed version for my reference.
 
-### Introduction
-
 Using [letsencrypt](https://letsencrypt.org/) to get and validate ssl certificates on ubuntu.
 
-### Using Let's Encrypt for free SSL Certs
+### 1. Using Let's Encrypt for free SSL Certs
 
 Getting a certificate from Let's Encrypt is fairly easy, begin by installing their open source certbot tool on your server:
 
@@ -21,7 +19,7 @@ we'll be using the nginx plugin:
     sudo apt-get install python-certbot-nginx
     ```
 
-### Obtaining an SSL Certificate
+### 1.1 Obtaining an SSL Certificate
 
     ```
     $ sudo certbot --nginx -d example.com -d www.example.com
@@ -66,7 +64,7 @@ Certbot is also used when you need to renew the certificates, which will expire 
     $ sudo certbot renew
     ```
 
-### Additional Steps: Achieving an SSL A+ Grade
+### 2. Additional Steps: Achieving an SSL A+ Grade
 
 One of the areas in which it is easy to make an improvement is in how the coefficients that are used during the encryption key exchange are generated. Using the openssl tool, you can run the following command:
 
