@@ -17,7 +17,7 @@ body {
 .project-next {
     display: flex;
     font-size: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 40px;
 }
 .tech-icon {

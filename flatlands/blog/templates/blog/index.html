@@ -27,9 +27,10 @@
 <div class="container content">
 
     <div class="project-comp">
-
+        <div>
         {% include "blog/project_comp.html" %}
-        
+        </div>
+
         </div>
 
 <div style="display:inline;">
@@ -44,7 +45,7 @@
     
     <div style="display:flex;">
             <div style="padding-right:10px;font-size: 12px; font-weight: bold;"><a href="">Newest</a></div>
-            <div style="padding-right:10px;font-size: 12px;"><a href="">Popular</a></div>
+            <div style="padding-right:10px;font-size: 12px;"><a href="" style="color:dimgrey;">Popular</a></div>
             
         </div>
         
@@ -81,21 +82,44 @@
         
         
     </div>
+
+
+
+
+
     
     <p style="height:60px;"></p>
     {% endif %}
 
-    {% endfor %} {% else %}
+    {% endfor %} 
+    
+    
+    
+    <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-start">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+
+    <p style="height: 60px;"></p>
+    
+    
+    {% else %}
     <p>No Articles :(</p>
 
     {% endif %}
 </div>
 
 
-<hr>
-
 </div>
-
 
 
 
