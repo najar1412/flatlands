@@ -1,29 +1,29 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
+<div style="background-image: url('{% static 'blog/img/'|add:post.cover_img %}');background-size: cover;background-position: center;">
+    <div class="bloglistpostname" style="border-radius: 3px;padding-left: 20px; padding-right: 20px; width:100%; height: 340px; background: linear-gradient(135deg, rgba(135,224,253,0) 0%,rgba(83,203,241,0.4) 40%,rgba(5,171,224,1) 100%);">
+
+        <div class="container content" style="display: flex;">
+            <div style="display: flex; align-self: flex-end;">
+                <span class="display-4" style="font-size:60px;background-color: rgba(255, 255, 255, .5);line-height: 1.6;">{{ post.name|title }}</span>
+            </div>
+</div>
+        </div>
+   
+</div>
+
+
 <div class="container content">
 
-    <div id="breadcrumbs">
-        Articles &emsp; > &emsp; {{post.name}}
-    </div>
-
-    <p style="height:10px;"></p>
-
-    <div class="articlelistpost">
-        <div class="bloglistpostname display-4" style="padding-left: 20px; padding-right: 20px; width:100%; height: 400px; background-image: url('{% static 'blog/img/'|add:post.cover_img %}');background-size: cover;">
-
-            <div style="align-self: flex-end;">
-                <span style="background-color: rgba(255, 255, 255, .5);line-height: 1.6;">{{ post.name|title }}</span>
-            </div>
-
-        </div>
-    </div>
-
-    <br>
 
     <div class="blogpostheader">
         <div class="bloglistpostdate">
             <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{post.pub_date|timesince|upper}} AGO
         </div>
+
+        <div class="bloglistpostdate">
+                <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="clock icon"> {{post.viewed}}
+            </div>
 
         <div class="bloglistposttags">
             <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in post.tags.all %}

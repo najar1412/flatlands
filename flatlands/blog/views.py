@@ -1,39 +1,23 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-from .models import Article, Project, Tag
+from .models import Post, Project, Tag
 from .forms import SearchForm
 
-from .modules.markdown import get_project_markdown, get_article_markdown
-import blog.modules.helpers as helpers
+from .modules.markdown import MTML
+import blog.modules.view_helpers as view_helpers
 
 
 # TODO: IMP project cover image
 
-# DB
-def get_project_nav(article_id, article_list):
-    previous_id = None
-    next_id = None
-
-    for idx, article in enumerate(article_list):
-        if article.pk == article_id:
-            previous_id = idx - 1
-            next_id = idx + 1
-
-    if previous_id < 0:
-        previous_id = -1
-    else:
-        previous_id = article_list[previous_id].pk
-
-    if next_id > len(article_list) - 1:
-        next_id = -1
-    else:
-        next_id = article_list[next_id].pk
-    
-    return (previous_id, next_id)
-
-
+# views
 def index(request):
-    articles = Article.objects.filter(published=True, project=None).order_by('-pub_date')
-    projects = Project.objects.filter(published=True).order_by('-pub_date')
+    """Landing page"""
+    articles = Post.objects.filter(
+        published=True, project=None
+        ).order_by('-pub_date')
+
+    projects = Project.objects.filter(
+        published=True
+        ).order_by('-pub_date')
 
     context = {
         'articles': articles,
@@ -43,12 +27,21 @@ def index(request):
 
     return render(request, 'blog/index.html', context)
 
+
 def about(request):
+    # TODO: IMP design and copy
     return render(request, 'blog/about.html')
 
+
 def article(request, post_id):
-    post = get_object_or_404(Article, pk=post_id)
-    post_markdown = get_article_markdown(post.content)
+    """retrives a single articles"""
+    post = get_object_or_404(Post, pk=post_id)
+    post.viewed += 1
+    post.save()
+
+    post_markdown = MTML('django').retrieve(
+        post.content, markdown_type=['articles']
+        )
 
     context = {
         'post': post, 
@@ -60,58 +53,102 @@ def article(request, post_id):
 
 
 def articles(request):
-    articles = Article.objects.filter(project=None, published=True).order_by('-pub_date')
+    """retrives all articles"""
+    articles = Post.objects.filter(
+        project=None, published=True
+        ).order_by('-pub_date')
 
-    context = {'articles': articles,
-        'searchform': SearchForm()}
+    context = {
+        'articles': articles,
+        'searchform': SearchForm()
+        }
 
     return render(request, 'blog/articles.html', context)
 
 
 def project(request, project_id):
+    """retrives a single project"""
     project = get_object_or_404(Project, pk=project_id)
-    articles = list(Article.objects.filter(project=project_id, published=True).order_by('pub_date'))
+    articles = list(
+        Post.objects.filter(
+            project=project_id, published=True
+            ).order_by('pub_date')
+        )
 
     context = {'project': project, 'articles': articles,
         'searchform': SearchForm()}
 
     if len(articles) > 0:
-        return redirect('project_article', project_id=project_id, article_id=articles[0].pk)
+        return redirect(
+            'project_article', project_id=project_id, article_id=articles[0].pk
+            )
 
     else:
         return render(request, 'blog/project.html', context)
     
 
 def project_article(request, project_id, article_id):
-    project = get_object_or_404(Project, pk=project_id)
-    articles = list(Article.objects.filter(project=project_id, published=True).order_by('pub_date'))
-    viewed_article = [x for x in articles if x.pk == article_id][0]
-    article_content = get_project_markdown(project.name, viewed_article.content)
-    project_nav = get_project_nav(article_id, articles)
+    """retrives a single projects article
+    AUG:
+    project_id: ??: pk of a project
+    article_id: ??: pk of an article
+    """
+    # TODO: Limit data return to minimum. 
+    # why send the whole project row, if i just need the title etc.
+    article = get_object_or_404(Post, pk=article_id)
 
-    context = {
-        'project': project, 'articles': articles, 
-        'viewed_article': viewed_article, 'article_content': article_content,
-        'project_nav': project_nav,
-        'searchform': SearchForm()
-        }
+    if article:
+        project = get_object_or_404(Project, pk=project_id)
+        articles = list(
+            Post.objects.filter(
+                project=project_id, published=True
+                ).order_by('pub_date')
+            )
 
-    return render(request, 'blog/project_article.html', context)
+        project_markdown = MTML('django').retrieve(
+            article.content, markdown_type=['projects', project.name]
+            )
+
+        project_nav = view_helpers.before_and_after_articles(
+            article_id, articles
+            )
+
+        context = {
+            'project': project, 
+            'articles': articles, 
+            'viewed_article': article, 
+            'article_content': project_markdown,
+            'project_nav': project_nav,
+            'searchform': SearchForm()
+            }
+
+        return render(request, 'blog/project_article.html', context)
+
+    return redirect('index')
 
 
 def projects(request):
-    projects = Project.objects.filter(published=True).order_by('-pub_date')
+    """retrives all projects"""
+    projects = Project.objects.filter(
+        published=True
+        ).order_by('-pub_date')
 
-    context = {'projects': projects,
-        'searchform': SearchForm()}
+    context = {
+        'projects': projects,
+        'searchform': SearchForm()
+        }
 
     return render(request, 'blog/projects.html', context)
 
 
 def search(request, string):
+    """retrives tags for article retrieval
+    AUG:
+    string: str??: keywords sepr by single spaces
+    """
     # TODO: something fishy going on. doesnt return all articles that include
     # the tag.
-    cleaned_search = helpers.clean_string(string)
+    cleaned_search = view_helpers.clean_string(string)
     articles = []
 
     for word in cleaned_search:
@@ -130,6 +167,7 @@ def search(request, string):
 
 
 def search_form(request):
+    """Parses/cleans search field data"""
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():

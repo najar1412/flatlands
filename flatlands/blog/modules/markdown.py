@@ -1,3 +1,7 @@
+"""
+Source code for handling all markdown logic
+"""
+
 import os
 from pathlib import Path
 
@@ -5,82 +9,109 @@ from bs4 import BeautifulSoup
 import markdown
 
 
-# TODO: refactor markdown functions to class.
+# Assumes the following structure
+# /markdown_root
+#   /markdown_type(can nest)
+#       /markdown_name_folder
+#           /['markdown_file', 'assets']
+
+class MarkdownStore():
+    """
+    builds MTML safe strings for locations to markdown files
+
+    AUG:
+    component: str: name of component to use to find markdown 
+    and assiated files.
+
+    EXTENSTION:
+    additinal compounents can be added by appending its name to 
+    self._COMPONENTS and adding a function with the same name 
+    prefixed with '_'.
+    'new_component': _new_component()
+    """
+    # TODO: rename set, to something not python reserved :p
+    def __init__(self, component):
+        self._COMPONENTS = {
+            'django': self._django(), 
+            #'new_component': '_new_component()'
+        }
+
+        if component in self._COMPONENTS:
+            self.component = component
+            self.endpoint = self._COMPONENTS[component]
 
 
-def _static_loc(loc):
-    """builds a folder location to be compatable with djangos static location
-    loc: str: full location to file
-    return: str: location usable by django"""
+    def _django(self):
+        """EXAMPLE: component that links to djangos static folder"""
+        # TODO: need to implement a way for the user to 
+        # define the django app name to remove 'blog' hardcode.
+        # or i can retrieve the app name from the root?
+        root = os.path.dirname(os.path.dirname(__file__))
+        loc = os.path.join(
+            root, 'static', 'blog'
+        )
 
-    path = os.path.normpath(loc)
-    split_path = path.split(os.sep)
-
-    for idx, folder in enumerate(split_path):
-        if folder == 'static':
-
-            return os.path.join(*split_path[idx: len(split_path)])
-
-
-def _parse_html(loc, html):
-    """parses str repr of html, looks for img tags and appends the correct
-    static location
-    loc: str: full location to file
-    html: str: html to parse
-    return: str"""
-
-    soup = BeautifulSoup(html, 'html.parser')
-    for img in soup.findAll('img'):
-        img['src'] = f"/{_static_loc(loc)}/{img['src']}"
-
-    html = str(soup)
-
-    return html
+        return loc
 
 
-def _read_markdown(loc, md):
-    """Opens markdown file and converts to str.
-    md: io: markdown file to open.
-    returns: str: markdown as str with html tags."""
-
-    f = open(os.path.join(loc, md), 'r')
-    html = markdown.markdown(f.read())
-    f.close()
-
-    return _parse_html(loc, html)
+    def set(self):
+        return self.endpoint
 
 
-def get_project_markdown(project, markdown):
-    """Builds location information for accessing a markdown file.
-
-    markdown: str: name of the markdown file.
-    project: str: name of the project.
-    return: str: markdown file convert to str, with html tags."""
-
-    root = os.path.dirname(os.path.dirname(__file__))
-
-    loc = os.path.join(
-        root, 'static', 'blog', 'projects', project, 
-        markdown
-    )
-
-    md = f'{markdown}.md'
-
-    return _read_markdown(loc, md)
+    def __repr__(self):
+        return f'<MarkdownStore(component={self.component})>'
 
 
-def get_article_markdown(markdown):
-    """Builds location information for accessing a markdown file.
+class MTML():
+    """handles retrival and conversion of markdown files to html"""
+    # TODO: remove hardcodings to locations, try and imp 
+    # MarkdownStore where poss.
+    def __init__(self, static=None):
+        if static:
+            self.static = MarkdownStore(static).set()
+        else:
+            self.static = MarkdownStore('django').set()
 
-    markdown: str: name of the markdown file.
-    return: str: markdown file convert to str, with html tags."""
+        self.markdown_type = None
 
-    root = os.path.dirname(os.path.dirname(__file__))
 
-    loc = os.path.join(
-        root, 'static', 'blog', 'articles', 
-        markdown
-    )
-    md = f'{markdown}.md'
+    def _parse_markdown_contents(self, markdown_contents):
+        """parse markdown contents to html
+        loc: str: full location to file
+        markdown_contents: str: markdown_contents to parse
+        return: str
+        """
+        # TODO: remove hardcodings, blog etc
+        # better string builder for parsing img tags
+        html = BeautifulSoup(markdown_contents, 'html.parser')
 
-    return _read_markdown(loc, md)
+        for img in html.findAll('img'):
+            img['src'] = f"/static/blog/{self.markdown_type[0]}/{self.markdown_type[1]}/{self.md}/{img['src']}"
+
+        return str(html)
+
+    
+    def _convert_markdown(self, loc):
+        """Opens markdown file in memory.
+        returns: str: markdown as html.
+        """
+        with open(os.path.join(loc, f'{self.md}.md'), 'r') as f:
+            return self._parse_markdown_contents(markdown.markdown(f.read()))
+
+
+    def retrieve(self, markdown, markdown_type=None):
+        """retrieves a markdown file as html.
+        markdown: str: name of the markdown file.
+        markdown_type: str: folder name for the type of markdown file. 
+            For example 'article', 'post' or 'document'
+        return: str: markdown file converted to html.
+        """
+        self.markdown_type = markdown_type
+        loc = os.path.join(self.static, *markdown_type, markdown)
+        self.md = markdown
+
+        return self._convert_markdown(loc)
+
+
+    def __repr__(self):
+        return f'<MTML(static={self.static})>'

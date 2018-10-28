@@ -1,0 +1,102 @@
+{% load static %}
+
+
+        {% if projects %} 
+
+
+
+            <div class="card mb-3">
+                        <div class="card-body" style="padding-top:0px;padding-bottom:0px;padding-top:10px;margin:0px;border:0px;">
+                          <h5 class="card-title" style="padding:0px;margin:0px;border:0px;">
+                                        <h1 class="display-4" style="font-size:24px;">Side Projects</h1>
+        
+                          </h5>
+
+
+
+                          <p class="card-text">
+                                        <div style="display:flex;">
+                                                        <div style="padding-right:10px;font-size: 12px; font-weight: bold;"><a href="">Current</a></div>
+                                                        <div style="padding-right:10px;font-size: 12px;"><a href="">Finished</a></div>
+                                                        <div style="padding-right:10px;font-size: 12px;"><a href="">Abandoned</a></div>
+                                                    </div>
+        
+                          </p>
+        
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        {% for project in projects %}
+
+
+
+
+        <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">
+
+
+                        <div style="display: flex; flex-direction: row; justify-content: space-between">
+                                <div>
+                                        <h5 class="card-title"><a href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a></h5>
+                                </div>
+                                <div>
+                                        <span style="font-size: 12px;">
+                                                <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
+                                                <a href="{{project.repo}}">Repo</a>
+                                        </span>
+                                        
+                                </div>
+                        </div>
+
+
+
+                  </h5>
+                  <p class="card-text">
+                                {{project.content|capfirst|truncatewords:50}}
+
+                  </p>
+
+
+                  <div>
+                        {% for tech in project.usedsoftware_set.all %}
+                        <a href="{{tech.website}}">
+                                <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon">
+                        </a>
+                        {% endfor %}
+                </div>
+
+
+<br>
+
+
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+
+
+
+
+
+    
+        <br> {% endfor %} {% else %} No Projects :( {% endif %}
+

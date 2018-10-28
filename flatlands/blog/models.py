@@ -35,7 +35,7 @@ class UsedSoftware(models.Model):
         return self.name
 
 
-class Article(models.Model):
+class Post(models.Model):
     name = models.CharField(max_length=200)
     content = models.CharField(max_length=5000)
     pub_date = models.DateTimeField('date published')
@@ -45,6 +45,7 @@ class Article(models.Model):
     cover_img = models.CharField(max_length=200, null=True, blank=True)
     published = models.BooleanField(default=False)
     techspec = models.BooleanField(default=False)
+    viewed = models.IntegerField(default=0)
 
     def tag_test(self):
         return str(self.tags)

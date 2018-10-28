@@ -1,26 +1,26 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
 
-
-
-<div style="background-color: #0099cc;">
+<div style="background: linear-gradient(45deg, rgba(169,228,247,1) 0%,rgba(15,180,231,1) 100%);">
 
         <div class="container content-intro">
                 <p style="height:80px"></p>
          
-                <p class="lead" style="font-size: 20px;">
-                    Hello, <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">I'm Rory</a>!</span> Technical Director at a creative agency based in New York where we predominantly produce computer generated
-                    still and film visualisations of Architecture both built and unbuilt.
+                <p class="display-4" style="font-size: 24px;">
+                    Hello, I'm <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a <span style="font-weight: bold;">creative</span> agency based in New York where we predominantly produce computer generated
+                    still and film visualisations of architecture, both built and unbuilt.
                     <br><br>
-                    Below you'll find write ups and summaries on my side projects as well as thoughts and guides on technologies.
+                    Below you’ll find write-ups on side projects as well as thoughts and guides on various <span style="font-weight: bold;">technologies and software development</span>.
                 </p>        
+
+
         </div>
       <br>   
 </div>
 
 
 
-<p style="height:40px;"></p>
+<p style="height:30px;"></p>
 
 
 
@@ -28,9 +28,34 @@
 
 
 
-    {% if articles %} {% for article in articles %}
+        <div style="margin-left:15px;padding-left:20px;float:right;width:35%;">
+            
+
+                {% include "blog/project_comp.html" %}
+                
+                </div>
+
+
+
+
+<div style="display:inline;">
+
+    
+
+    {% if articles %} 
+
+    <h1 class="display-4" style="font-size:24px;">Posts</h1>
+    
+    <div style="display:flex;padding-bottom:60px;">
+            <div style="padding-right:10px;font-size: 12px; font-weight: bold;"><a href="">Newest</a></div>
+            <div style="padding-right:10px;font-size: 12px;"><a href="">Popular</a></div>
+        </div>
+    
+    
+    {% for article in articles %}
 
     {% if article.project == None %}
+    
     <div class="indexlistpost">
 
         
@@ -38,7 +63,10 @@
             <div class="bloglistpostdate">
                 <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{article.pub_date|timesince|upper}} AGO
             </div>
-            <div class="bloglistposttags">
+            <div class="bloglistpostdate">
+                    <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="clock icon"> {{article.viewed}}
+                </div>
+            <div class="bloglistpostdate">
                 <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in article.tags.all %}
                 <a href="/search/{{tag|lower}}" style="color: #233452;">{{tag|upper}}</a>, 
                 {% endfor %}
@@ -46,9 +74,7 @@
         </div>
 
         <div class="bloglistpostname display-4">
-            <div>
-                <a href="/articles/{{ article.id }}/">{{ article.name|title }}</a>
-            </div>
+            <div><a href="/articles/{{ article.id }}/">{{ article.name|title }}.</a></div>
         </div>
         <div>
             {{article.strap|capfirst|truncatewords:50}} <a href='/articles/{{article.id}}' style="font-weight: bolder;">Continue Reading.</a>
@@ -65,6 +91,9 @@
     <p>No Articles :(</p>
 
     {% endif %}
+</div>
+
+
 
 </div>
 
