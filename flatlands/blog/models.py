@@ -41,7 +41,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField('date published')
     strap = models.CharField(max_length=300)
     tags = models.ManyToManyField(Tag, blank=True)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='posts', null=True, blank=True)
     cover_img = models.CharField(max_length=200, null=True, blank=True)
     published = models.BooleanField(default=False)
     techspec = models.BooleanField(default=False)

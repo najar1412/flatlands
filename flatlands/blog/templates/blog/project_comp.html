@@ -7,10 +7,10 @@
 
             <div class="card mb-3">
                         <div class="card-body" style="padding-top:0px;padding-bottom:0px;padding-top:10px;margin:0px;border:0px;">
-                          <h5 class="card-title" style="padding:0px;margin:0px;border:0px;">
+                          
                                         <h1 class="display-4" style="font-size:24px;">Side Projects</h1>
         
-                          </h5>
+                        
 
 
 
@@ -48,8 +48,6 @@
         {% for project in projects %}
 
 
-
-
         <div class="card mb-3">
                 <div class="card-body">
                   <h5 class="card-title">
@@ -59,6 +57,8 @@
                                 <div>
                                         <h5 class="card-title"><a href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a></h5>
                                 </div>
+                                <div style="display: flex;">
+
                                 <div>
                                         <span style="font-size: 12px;">
                                                 <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
@@ -66,8 +66,15 @@
                                         </span>
                                         
                                 </div>
+                                <div style="padding-left:10px;">
+                                        <span style="font-size: 12px;">
+                                                <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
+                                                <a href="#">Demo</a>
+                                        </span>
+                                        
+                                </div>
                         </div>
-
+                        </div>
 
 
                   </h5>
