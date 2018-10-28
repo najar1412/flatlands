@@ -37,15 +37,19 @@
     
 
     {% if articles %} 
+    <div>
 
-    <h1 class="display-4" style="font-size:24px;">Posts</h1>
+    <h1 class="display-4" style="font-size:30px;">Posts</h1>
+ 
     
-    <div style="display:flex;padding-bottom:60px;">
+    <div style="display:flex;">
             <div style="padding-right:10px;font-size: 12px; font-weight: bold;"><a href="">Newest</a></div>
             <div style="padding-right:10px;font-size: 12px;"><a href="">Popular</a></div>
+            
         </div>
-    
-    
+        
+    </div>
+    <p style="height:30px;"></p>
     {% for article in articles %}
 
     {% if article.project == None %}
@@ -88,9 +92,11 @@
 </div>
 
 
-
+<hr>
 
 </div>
+
+
 
 
 {% endblock %}

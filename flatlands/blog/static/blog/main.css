@@ -67,7 +67,6 @@ body {
     font-size: 60px;
 }
 .content {
-    padding-bottom: 40px;
     padding-left:40px;
     padding-right:40px;
     position: relative;
@@ -163,10 +162,6 @@ body {
 }
 .footer-content {
     color: #353839;
-    padding-left:40px;
-    padding-right:40px;
-    padding-top: 50px;
-    padding-bottom: 50px;
 }
 .footer-content a:link {
     color: #353839;
@@ -182,7 +177,28 @@ body {
 .footer-content a:active {
     color: #353839;
 }
-
+.footer-resource{
+    display:flex; 
+    flex-direction: row;
+    justify-content: space-around;
+}
+@media(max-width:1200px) {
+    .footer-resource{
+        display:flex; 
+        flex-direction: column;
+    }
+}
+.footer-resource-item{
+    display:flex; 
+    flex-direction: column;
+    max-width: 33%;
+}
+@media(max-width:1200px) {
+    .footer-resource-item{
+        display:flex;
+        max-width: 100%;
+    }
+}
 .project-comp{
     margin-left:15px;
     padding-left:20px;
