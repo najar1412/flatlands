@@ -88,6 +88,13 @@ body {
     flex-direction: row;
 }
 
+@media(max-width:500px) {
+    .blogpostheader {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 
 
 .bloglistpost {
@@ -200,10 +207,13 @@ body {
     }
 }
 .project-comp{
-    margin-left:15px;
-    padding-left:20px;
+    margin-left:30px;
+    padding-left:30px;
     float:right;
-    width:35%;
+    width:400px;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, .06);
 }
 @media(max-width:999px) {
     .project-comp{
@@ -211,6 +221,7 @@ body {
         padding:0px;
         float: none;
         width:100%;
+        border-left-style: none;
     }
 }
 .content a:link {
