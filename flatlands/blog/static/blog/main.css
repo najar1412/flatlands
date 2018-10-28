@@ -183,18 +183,20 @@ body {
     color: #353839;
 }
 
-
-
-.footer-images {
-    display:flex; 
-    flex-direction: row;
+.project-comp{
+    margin-left:15px;
+    padding-left:20px;
+    float:right;
+    width:35%;
 }
-@media(max-width:650px) {
-    .footer-images {
-        flex-direction: column; 
+@media(max-width:999px) {
+    .project-comp{
+        margin:0px;
+        padding:0px;
+        float: none;
+        width:100%;
     }
 }
-
 .content a:link {
     color: #353839;
     text-decoration: none;
