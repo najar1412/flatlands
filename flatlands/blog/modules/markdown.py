@@ -74,12 +74,20 @@ class MTML():
 
         self.markdown_type = None
 
+
     def _wrap(self, to_wrap, wrap_in):
+        """utility to wrap one tag with another
+        AUG:
+        to_wrap: BS4 tag element.
+        wrap_in: BS4 constructed tag"""
         contents = to_wrap.replace_with(wrap_in)
         wrap_in.append(contents)
 
 
     def _parse_headers(self, markdown_contents):
+        """get all headers from a markdown file"""
+        # TODO: this shouldnt be called seprately,
+        # instead it should be built when a markdown file is retrieved.
         html = BeautifulSoup(markdown_contents, 'html.parser')
         results = [x.get_text() for x in html.findAll('h3')]
 
@@ -98,7 +106,8 @@ class MTML():
 
         # update img tags
         for img in html.findAll('img'):
-            img['src'] = f"/static/blog/{self.markdown_type[0]}/{self.markdown_type[1]}/{self.md}/{img['src']}"
+            markdown_location = '/'.join(self.markdown_type)
+            img['src'] = f"/static/blog/{markdown_location}/{self.md}/{img['src']}"
 
         # update h3 tags
         for h3 in html.findAll('h3'):

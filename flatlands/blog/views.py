@@ -9,6 +9,7 @@ import blog.modules.view_helpers as view_helpers
 # TODO: IMP project cover image
 # TODO: imp post linking
 # TODO: imp embedded socials
+# TODO: imp 'posts in series' for articles
 
 # views
 def index(request):
@@ -45,7 +46,7 @@ def article(request, post_id):
         post.content, markdown_type=['articles']
         )
 
-    markdown_headers = MTML()._parse_headers(post_markdown)
+    markdown_headers = MTML('django')._parse_headers(post_markdown)
 
     context = {
         'post': post, 
