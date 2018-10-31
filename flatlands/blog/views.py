@@ -7,6 +7,8 @@ import blog.modules.view_helpers as view_helpers
 
 
 # TODO: IMP project cover image
+# TODO: imp post linking
+# TODO: imp embedded socials
 
 # views
 def index(request):
@@ -43,10 +45,13 @@ def article(request, post_id):
         post.content, markdown_type=['articles']
         )
 
+    markdown_headers = MTML()._parse_headers(post_markdown)
+
     context = {
         'post': post, 
         'post_markdown': post_markdown,
-        'searchform': SearchForm()
+        'searchform': SearchForm(),
+        'markdown_headers': markdown_headers
         }
 
     return render(request, 'blog/post.html', context)

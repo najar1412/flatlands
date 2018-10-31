@@ -74,6 +74,17 @@ class MTML():
 
         self.markdown_type = None
 
+    def _wrap(self, to_wrap, wrap_in):
+        contents = to_wrap.replace_with(wrap_in)
+        wrap_in.append(contents)
+
+
+    def _parse_headers(self, markdown_contents):
+        html = BeautifulSoup(markdown_contents, 'html.parser')
+        results = [x.get_text() for x in html.findAll('h3')]
+
+        return results
+
 
     def _parse_markdown_contents(self, markdown_contents):
         """parse markdown contents to html
@@ -85,8 +96,16 @@ class MTML():
         # better string builder for parsing img tags
         html = BeautifulSoup(markdown_contents, 'html.parser')
 
+        # update img tags
         for img in html.findAll('img'):
             img['src'] = f"/static/blog/{self.markdown_type[0]}/{self.markdown_type[1]}/{self.md}/{img['src']}"
+
+        # update h3 tags
+        for h3 in html.findAll('h3'):
+            new_tag = html.new_tag("a")
+            new_tag['id'] = h3.get_text()
+
+            self._wrap(h3, new_tag)
 
         return str(html)
 
@@ -107,10 +126,11 @@ class MTML():
         return: str: markdown file converted to html.
         """
         self.markdown_type = markdown_type
-        loc = os.path.join(self.static, *markdown_type, markdown)
         self.md = markdown
+        loc = os.path.join(self.static, *markdown_type, markdown)
+        md_contents = self._convert_markdown(loc)
 
-        return self._convert_markdown(loc)
+        return md_contents
 
 
     def __repr__(self):
