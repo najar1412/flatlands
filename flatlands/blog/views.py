@@ -4,15 +4,26 @@ from .forms import SearchForm
 
 from .modules.markdown import MTML
 import blog.modules.view_helpers as view_helpers
+from .modules.social import get_latest_instagram, _cache_instagram_links_to_db
 
 
-# TODO: imp post linking
 # TODO: imp embedded socials
 # TODO: imp 'posts in series' for articles
+
+# NEEDED FOR ALL REQUESTS, IMP DECORATOR
+standard_context = {
+    'instagram_content': get_latest_instagram(),
+    'searchform': SearchForm()
+    }
 
 # views
 def index(request):
     """Landing page"""
+
+    # TODO: cache needs to happen somewhere else.
+    # CACHE instagram
+    # _cache_instagram_links_to_db()
+
     articles = Post.objects.filter(
         published=True, project=None
         ).order_by('-pub_date')
@@ -21,11 +32,10 @@ def index(request):
         published=True
         ).order_by('-pub_date')
 
-    context = {
-        'articles': articles,
-        'projects': projects,
-        'searchform': SearchForm()
-        }
+    context = standard_context
+    context['articles'] = articles
+    context['projects'] = projects
+
 
     return render(request, 'blog/index.html', context)
 
@@ -47,12 +57,11 @@ def article(request, post_id):
 
     markdown_headers = MTML('django')._parse_headers(post_markdown)
 
-    context = {
-        'post': post, 
-        'post_markdown': post_markdown,
-        'searchform': SearchForm(),
-        'markdown_headers': markdown_headers
-        }
+    context = standard_context
+    context['post'] = post
+    context['post_markdown'] = post_markdown
+    context['markdown_headers'] = markdown_headers
+
 
     return render(request, 'blog/post.html', context)
 
@@ -63,10 +72,9 @@ def articles(request):
         project=None, published=True
         ).order_by('-pub_date')
 
-    context = {
-        'articles': articles,
-        'searchform': SearchForm()
-        }
+    context = standard_context
+    context['articles'] = articles
+
 
     return render(request, 'blog/articles.html', context)
 
@@ -82,6 +90,11 @@ def project(request, project_id):
 
     context = {'project': project, 'articles': articles,
         'searchform': SearchForm()}
+
+    context = standard_context
+    context['project'] = project
+    context['articles'] = articles
+
 
     if len(articles) > 0:
         return redirect(
@@ -118,14 +131,13 @@ def project_article(request, project_id, article_id):
             article_id, articles
             )
 
-        context = {
-            'project': project, 
-            'articles': articles, 
-            'viewed_article': article, 
-            'article_content': project_markdown,
-            'project_nav': project_nav,
-            'searchform': SearchForm()
-            }
+        context = standard_context
+        context['project'] = project
+        context['articles'] = articles
+        context['viewed_article'] = article
+        context['article_content'] = project_markdown
+        context['project_nav'] = project_nav
+
 
         return render(request, 'blog/project_article.html', context)
 
@@ -138,10 +150,8 @@ def projects(request):
         published=True
         ).order_by('-pub_date')
 
-    context = {
-        'projects': projects,
-        'searchform': SearchForm()
-        }
+    context = standard_context
+    context['projects'] = projects
 
     return render(request, 'blog/projects.html', context)
 
@@ -162,11 +172,10 @@ def search(request, string):
             for article in article_query_set:
                 articles.append(article)
 
-    context = {
-        'search': cleaned_search,
-        'articles': set(articles),
-        'searchform': SearchForm()
-        }
+    context = standard_context
+    context['search'] = cleaned_search
+    context['articles'] = set(articles)
+
 
     return render(request, 'blog/search.html', context)
 

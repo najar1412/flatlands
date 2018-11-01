@@ -1,6 +1,8 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
 
+
+
 <div style="background: linear-gradient(135deg, rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%);">
         <div class="container content-intro">
                 <p style="height:80px"></p>
@@ -80,16 +82,13 @@
             {{article.strap|capfirst|truncatewords:50}} <a href='/articles/{{article.id}}' style="font-weight: bolder;">Continue Reading.</a>
         </div>
 
-        
-        
     </div>
-
-
-
-
 
     
     <p style="height:60px;"></p>
+
+
+    
     {% endif %}
 
     {% endfor %} 

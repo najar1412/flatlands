@@ -55,3 +55,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class SocialInstagram(models.Model):
+    link = models.CharField(max_length=200)
+    oembed = models.CharField(max_length=5000)
+
+    def __str__(self):
+        return self.link
