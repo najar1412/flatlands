@@ -36,8 +36,8 @@ class UsedSoftware(models.Model):
 
 
 class Post(models.Model):
-    _next = models.IntegerField(null=True, blank=True)
-    _previous = models.IntegerField(null=True, blank=True)
+    next_post = models.IntegerField(null=True, blank=True)
+    previous_post = models.IntegerField(null=True, blank=True)
     name = models.CharField(max_length=200)
     content = models.CharField(max_length=5000)
     pub_date = models.DateTimeField('date published')

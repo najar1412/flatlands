@@ -18,7 +18,9 @@
 
         <div class="project-comp">
 
+{% if post.next_post == None and post.previous_post == None %}
 
+{% else %}
 
                 <div class="card mb-3">
                         <div class="card-body">
@@ -37,7 +39,7 @@
                         </div>
                       </div>
 
-
+{% endif %}
 
                 <div class="card mb-3">
                         <div class="card-body">

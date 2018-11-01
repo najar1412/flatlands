@@ -6,7 +6,6 @@ from .modules.markdown import MTML
 import blog.modules.view_helpers as view_helpers
 
 
-# TODO: IMP project cover image
 # TODO: imp post linking
 # TODO: imp embedded socials
 # TODO: imp 'posts in series' for articles
