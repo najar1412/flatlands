@@ -36,26 +36,23 @@
 <div>
 
 
+    <div class="card mb-3">
+        <div class="card-body">
+          <p class="card-text">
+                <div class="display-4" style="font-size:24px;padding-bottom:20px;">Contents</div>
+                <ul style="list-style-type:circle">
 
-        <div class="card mb-3">
-                <div class="card-body">
-                  <p class="card-text">
-                      <div><a href="#">1. test header 01</a></div>
-                      <div>&emsp;<a href="#">1.1. test subheader 01</a></div>
-                      <div>&emsp;<a href="#">1.2. test subheader 02</a></div>
-                      <div><a href="#">2. test header 02</a></div>
-                      <div><a href="#">3. test header 03</a></div>
+              {% for header in markdown_headers %}
+              <li><a href="#{{header}}">{{header}}</a></li>
+              {% endfor %}
+              </ul>
 
-
-
-
-
-                  </p>
+          </p>
 
 
 
-                </div>
-              </div>
+        </div>
+      </div>
 
 
 </div>

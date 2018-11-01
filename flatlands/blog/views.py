@@ -127,6 +127,8 @@ def project_article(request, project_id, article_id):
             article.content, markdown_type=['projects', project.name]
             )
 
+        markdown_headers = MTML('django')._parse_headers(project_markdown)
+
         project_nav = view_helpers.before_and_after_articles(
             article_id, articles
             )
@@ -137,6 +139,8 @@ def project_article(request, project_id, article_id):
         context['viewed_article'] = article
         context['article_content'] = project_markdown
         context['project_nav'] = project_nav
+        context['markdown_headers'] = markdown_headers
+        print(context['markdown_headers'])
 
 
         return render(request, 'blog/project_article.html', context)
