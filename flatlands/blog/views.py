@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
-from .models import Post, Project, Tag
-from .forms import SearchForm
+from .models import Post, Project, Tag, Mailing_List
+from .forms import SearchForm, MailingList
 
 from .modules.markdown import MTML
 import blog.modules.view_helpers as view_helpers
@@ -13,13 +13,35 @@ from .modules.social import get_latest_instagram, _cache_instagram_links_to_db
 # NEEDED FOR ALL REQUESTS, IMP DECORATOR
 standard_context = {
     'instagram_content': get_latest_instagram(),
-    'searchform': SearchForm()
+    'searchform': SearchForm(),
+    'mailing_list_form': MailingList()
     }
+
+
+def add_to_mailinglist(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = MailingList(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            email = form.cleaned_data['email']
+
+            new_email = Mailing_List(email=email)
+            new_email.save()
+
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return redirect('index')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        return redirect('index')
 
 # views
 def index(request):
     """Landing page"""
-
     # TODO: cache needs to happen somewhere else.
     # CACHE instagram
     # _cache_instagram_links_to_db()

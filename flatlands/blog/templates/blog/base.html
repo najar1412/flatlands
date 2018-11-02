@@ -54,13 +54,10 @@
 
         <div class="container">
 
-        <form class="form-inline">
-            <input type="text" class="form-control mb-2 mr-sm-2" id="Name" placeholder="Name" required>
-            <input type="text" class="form-control mb-2 mr-sm-2" id="Email" placeholder="Email" required>
-          
-      
-          
-            <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
+          <form action="/add_to_mailinglist/" method="post">
+            {% csrf_token %}
+            {{ mailing_list_form }}
+            <button type="submit" value="Submit" class="btn btn-primary mb-2 btn-sm">Subscribe</button>
           </form>
 
 </div>
