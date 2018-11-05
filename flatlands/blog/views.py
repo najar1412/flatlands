@@ -162,7 +162,6 @@ def project_article(request, project_id, article_id):
         context['article_content'] = project_markdown
         context['project_nav'] = project_nav
         context['markdown_headers'] = markdown_headers
-        print(context['markdown_headers'])
 
 
         return render(request, 'blog/project_article.html', context)

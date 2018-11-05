@@ -196,7 +196,7 @@ body {
 .footer-resource{
     display:flex; 
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 @media(max-width:800px) {
     .footer-resource{
