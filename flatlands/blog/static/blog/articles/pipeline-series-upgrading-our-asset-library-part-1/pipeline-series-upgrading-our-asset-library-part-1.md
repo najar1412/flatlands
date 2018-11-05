@@ -1,3 +1,10 @@
+<div  class="markdown-info">
+<div  class="markdown-info-header">&#128712;  &nbsp; Note</div>
+<div  class="markdown-info-body">
+This Post is currently a work in progress. If you'd like to know when its finished. Please add your email to the mailing list at the moment of the page!
+</div>
+</div>
+
 _Where i work our bread and butter is in the production of computer generated imagery (CGI). Fully CG or partially CG images of commercial or residential buildings yet to be completed. 
 These images are made up of 4 key aspects; composition, the scheme, lighting and assets. All with the final goal of advertising to potential buyers._
 
@@ -7,7 +14,9 @@ _Its an interesting environment to develop for, code and computer generated imag
 
 When I say assets i’m mainly referring to [3D models](https://en.wikipedia.org/wiki/3D_modeling) with textures that can be placed into a 3d modelling environments and [rendered](https://en.wikipedia.org/wiki/Rendering_(computer_graphics)) to a high resolution, realistic image. A 3d asset could be a table, car, street lamp. Honestly, anything.
 
-![render_of_random_asset.jpg](render_of_random_asset_from_model_plus_model.jpg "A render of a 3d asset.")_A render of a 3d asset courtesy of [Model Plus Model](https://www.modelplusmodel.com/)._
+![render_of_random_asset.jpg](render_of_random_asset_from_model_plus_model.jpg "A render of a 3d asset.")
+A render of a 3d asset courtesy of [Model Plus Model](https://www.modelplusmodel.com/).
+
 
 ![full_scene_3d_render.jpg](full_scene_3d_render_from_the_boundary.jpg "A render of a 3d scene full of assets.")
 _A render of a 3d scene full of assets courtesy of [The Boundary](https://www.the-boundary.com/)._
@@ -39,7 +48,12 @@ The current library - even with its quirks, works. It's OK. It doesn't take too 
 After a bit of napkin math and some more than biased testing conditions involving a stopwatch and a list of items to find in the library. 
 We came to the conclusion that it takes approx 6 minutes to find an asset. Or, not *find* an asset, rather *confirm* we have it or something like it. With _n_ amount of assets per image and a desired _n_ amount of images to complete per month. The number was quite a bit higher than we had estimated.
 
-~180 hours per 5 artists a month were spent on a simple question, _"do we have this 3d asset, or something like it?"_. That's upwards of 4 bread and butter sandwiches a month of artist time that is spent searching.
+<div  class="markdown-info">
+<div  class="markdown-info-header">&#128712;  &nbsp; Note</div>
+<div  class="markdown-info-body">
+~180 hours per 5 artists a month were spent on a simple question, <i>"do we have this 3d asset, or something like it?"</i>. That's upwards of 4 bread and butter sandwiches a month of artist time that is spent searching.
+</div>
+</div>
 
 Unfortunately i couldn’t find any numbers online to compare such a niche query so I had to instead take the results as a sort of baseline.
 
@@ -68,5 +82,9 @@ This lead to problems that can only been seen from a 1000 foot overview of the e
 All of the above took a couple weeks. It was mainly driven via coffee fueled lunch breaks and between projects, but it left us with a greater understanding of our current system and a solid list of user stories that we could use as criteria to help with the upcoming decision making process.
 
 Upgrading the library will take time. We understand this and are in no immediate rush. Our current system has been in place for +7 years. If a new system has anywhere near that longevity we’ll be more than happy to send a little more time in the planning stage to ensure we produce a stable system.
+
+
+<hr>
+
 
 **_This has been part 1 of an ongoing series about upgrading our asset library with the ultimate goal of reducing time-to-deliver. Thanks for reading. If you’d like to notified of the next post in the series, feel free to join the mail list!_**

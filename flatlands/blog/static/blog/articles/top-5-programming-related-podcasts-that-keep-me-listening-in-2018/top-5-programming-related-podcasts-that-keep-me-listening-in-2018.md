@@ -1,3 +1,11 @@
+<div  class="markdown-info">
+<div  class="markdown-info-header">&#128712;  &nbsp; Note</div>
+<div  class="markdown-info-body">
+This post is currently a work in progress. If you'd like to know when its finished. Please add your email to the mailing list at the moment of the page!
+</div>
+</div>
+
+
 There are great number of podcasts to listen too, wether on a stroll or the daily commute. I really enjoy them they’re like a more targeted radio. Instead of listening to what the latest popular presenter had for dinner or the same song for 16th time today get your ears around some of my favorite podcasts. In no particular order i offer up a list of podcasts that developers of all levels should at the very least try out.
 
 ### [Coding Blocks](https://www.codingblocks.net/)

@@ -2,30 +2,14 @@
 
 
         {% if projects %} 
-        <h1 class="display-4" style="font-size:30px;text-indent: 20px;">Side Projects</h1>
-        <div style="display:flex;text-indent: 20px;">
+        <h1 class="display-4" style="font-size:40px;">Side Projects</h1>
+        <div style="display:flex;">
                 <div style="font-size: 12px; font-weight: bold;"><a href="">Current</a></div>
-                <div style="font-size: 12px;"><a href="" style="color:dimgrey;">Finished</a></div>
-                <div style="font-size: 12px;"><a href="" style="color:dimgrey;">Abandoned</a></div>
+                <s><div style="text-indent: 20px;font-size: 12px;"><a href="" style="color:dimgrey;">Finished</a></div></s>
+                <s><div style="text-indent: 20px;font-size: 12px;"><a href="" style="color:dimgrey;">Abandoned</a></div></s>
             </div>
 
-
-
-
-
-
-
 <p style="height:40px;"></p>
-
-
-
-
-
-
-
-
-
-
 
         
         {% for project in projects %}
