@@ -35,6 +35,15 @@ body {
     z-index:1000;
     width: 100%;
 }
+.mailinglist-box {
+    display:flex; 
+    flex-direction: row;
+}
+@media(max-width:400px) {
+    .mailinglist-box {
+        flex-direction: column;
+    }
+}
 #breadcrumbs {
     font-size: 10px;
 }
