@@ -8,7 +8,7 @@
         <div class="container content" style="display: flex;">
             <div style="display: flex; flex-direction: column;align-self: flex-end;">
 
-                    <p class="display-4" style="color:white;font-size: 50px;">
+                    <p class="display-4" style="color:white;font-size: 80px;">
                             {{ project.name|title }}
                     </p>
                     <p class="display-4" style="color:white;font-size: 20px;font-style: italic;">
@@ -16,6 +16,9 @@
                     </p>
                     {{project.software}}
 
+
+
+<!--
                     <div style="display: flex;">
                     {% for tech in used_software %}
                     <a href="{{tech.website}}">
@@ -23,6 +26,12 @@
                     </a>
                     {% endfor %}
                 </div>
+-->
+
+
+
+
+
             </div>
 </div>
         </div>
@@ -45,8 +54,8 @@
 
 
 
-            <div class="card mb-3">
-                    <div class="card-body">
+            <div class="card mb-3"">
+                    <div class="card-body" style="padding-top:0px;padding-bottom:0px;">
                       <h5 class="card-title">
     
     
@@ -182,6 +191,13 @@
 
 <p style="height:50px;"></p>
 
+
+{% if articles|length > 1 %}
+
+
+
+
+
     <div class="project-next">
 
 
@@ -212,6 +228,11 @@
         </a></div>
         {% endif %}
 
+
+
+       
+
+
         {% if project_nav.1 != -1 %}
         <div>
             
@@ -230,6 +251,8 @@
         {% endif %}
 
     </div>
+    {% endif %}
+
 
 </div>
 
