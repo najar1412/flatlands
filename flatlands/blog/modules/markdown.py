@@ -124,7 +124,7 @@ class MTML():
         returns: str: markdown as html.
         """
         with open(os.path.join(loc, f'{self.md}.md'), 'r') as f:
-            return self._parse_markdown_contents(markdown.markdown(f.read()))
+            return self._parse_markdown_contents(markdown.markdown(f.read(), extensions=['markdown.extensions.tables', 'tables']))
 
 
     def retrieve(self, markdown, markdown_type=None):
