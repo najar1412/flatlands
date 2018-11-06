@@ -5,6 +5,7 @@ from .forms import SearchForm, MailingList
 from .modules.markdown import MTML
 import blog.modules.view_helpers as view_helpers
 from .modules.social import get_latest_instagram, _cache_instagram_links_to_db
+from .models import UsedSoftware
 
 
 # TODO: imp embedded socials
@@ -155,14 +156,16 @@ def project_article(request, project_id, article_id):
             article_id, articles
             )
 
+        used_software = UsedSoftware.objects.filter(projects=project_id)
+
         context = standard_context
         context['project'] = project
+        context['used_software'] = used_software
         context['articles'] = articles
         context['viewed_article'] = article
         context['article_content'] = project_markdown
         context['project_nav'] = project_nav
         context['markdown_headers'] = markdown_headers
-        print(context['markdown_headers'])
 
 
         return render(request, 'blog/project_article.html', context)

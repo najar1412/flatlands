@@ -14,7 +14,15 @@
                     <p class="display-4" style="color:white;font-size: 20px;font-style: italic;">
                             {{ project.strap|title }}
                     </p>
+                    {{project.software}}
 
+                    <div style="display: flex;">
+                    {% for tech in used_software %}
+                    <a href="{{tech.website}}">
+                            <img style="width:75px;height:75px;" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon">
+                    </a>
+                    {% endfor %}
+                </div>
             </div>
 </div>
         </div>
@@ -29,9 +37,84 @@
     <p style="height:30px;"></p>
 
     <div class="project-comp">
+
+
+
+
+
+
+
+
+            <div class="card mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">
+    
+    
+                            <div style="display: flex; flex-direction: row; justify-content: space-between">
+                               
+                                    <div style="display: flex;">
+    
+                                    <div>
+                                            <span style="font-size: 12px;">
+                                                    <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
+                                                    <a href="{{project.repo}}">Repo</a>
+                                            </span>
+                                            
+                                    </div>
+                                    <div style="padding-left:10px;">
+                                            <span style="font-size: 12px;">
+                                                    <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
+                                                    <a href="#">Demo</a>
+                                            </span>
+                                            
+                                    </div>
+                            </div>
+                            </div>
+    
+    
+                      </h5>
+                      <p class="card-text">
+                      </p>
+    
+    
+                    </div>
+                  </div>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {% if articles|length > 1 %}
         <div>
         {% include "blog/comp/project_contents.html" %}
     </div>
+    {% endif %}
 
 <div>
 

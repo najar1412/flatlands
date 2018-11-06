@@ -55,9 +55,21 @@
         <div class="container">
 
           <form action="/add_to_mailinglist/" method="post">
+
             {% csrf_token %}
-            {{ mailing_list_form }}
+
+<br>
+            <div style="display: flex; width: 350px;justify-content: space-between;">
+              <div class="display-4" style="color:white; font-size: 24px;">email</div>
+              <div>{{ mailing_list_form }}</div>
+            
+
+            <div>
             <button type="submit" value="Submit" class="btn btn-primary mb-2 btn-sm">Subscribe</button>
+          </div>
+
+        </div>
+
           </form>
 
 </div>
