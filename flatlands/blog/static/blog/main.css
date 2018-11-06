@@ -1,5 +1,5 @@
 html {
-    font-size:16px;
+    font-size:18px;
 }
 body {
     background-color: #f2f2f2;
@@ -34,6 +34,15 @@ body {
     top: 0;
     z-index:1000;
     width: 100%;
+}
+.mailinglist-box {
+    display:flex; 
+    flex-direction: row;
+}
+@media(max-width:400px) {
+    .mailinglist-box {
+        flex-direction: column;
+    }
 }
 #breadcrumbs {
     font-size: 10px;
@@ -187,9 +196,9 @@ body {
 .footer-resource{
     display:flex; 
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
-@media(max-width:1200px) {
+@media(max-width:800px) {
     .footer-resource{
         display:flex; 
         flex-direction: column;
@@ -198,9 +207,9 @@ body {
 .footer-resource-item{
     display:flex; 
     flex-direction: column;
-    max-width: 33%;
+    max-width: 50%;
 }
-@media(max-width:1200px) {
+@media(max-width:800px) {
     .footer-resource-item{
         display:flex;
         max-width: 100%;
@@ -260,8 +269,7 @@ body {
     .article-post img{
         width:100%;
     }
-}
-  
+}  
 .article-post pre {
   background-color: rgb(236, 236, 236);
   border-radius: 3px;
@@ -282,7 +290,7 @@ body {
   text-decoration: none;
 }
 .article-post h3 {
-  padding-top:40px;
+    padding-top:40px;
   padding-bottom:20px;
   color:#353839;
 }
@@ -304,4 +312,42 @@ body {
   color: #353839;
   border-width: 1px;
   border-bottom-style: dotted;
+}
+.markdown-info{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display:flex;
+    flex-direction: column;
+}
+.markdown-info-header {
+    color: white;
+    padding-left: 20px;
+    font-size:18px;
+    background-color: rgb(120, 177, 220);
+}
+.markdown-info-body {
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(233, 242, 251);
+    padding-bottom: 30px;
+    padding-top: 30px;  
+}
+.markdown-tip{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.markdown-tip-header {
+    color: white;
+    padding-left: 20px;
+    font-size:18px;
+    background-color: rgb(78, 187, 156);
+}
+.markdown-tip-body {
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    background-color: rgb(222, 252, 244);
 }

@@ -51,12 +51,14 @@
           <h1 class="display-4" style="color:white;">Like what you're reading?</h1>
           <p class="lead" style="color: white;">Why not pop your deets into the boxes below and i'll try to remember to keep you updated with whats going on! </p>
         </div>
+        <p style="height:20px;"></p>
 
         <div class="container">
 
           <form action="/add_to_mailinglist/" method="post">
 
             {% csrf_token %}
+<<<<<<< HEAD
 
 <br>
             <div style="display: flex; width: 350px;justify-content: space-between;">
@@ -70,6 +72,15 @@
 
         </div>
 
+=======
+            <div class="mailinglist-box">
+              <div class="display-4" style="font-size:24px;color:white;">Email:</div>&emsp; 
+              <div>{{ mailing_list_form }}</div>&emsp; 
+              <div>
+            <button type="submit" value="Submit" class="btn btn-primary mb-2 btn-sm">Subscribe</button>
+          </div>
+          </div>
+>>>>>>> ba1b776d13508bfa5b2b961f04a779b9077b8a51
           </form>
 
 </div>
