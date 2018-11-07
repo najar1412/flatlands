@@ -7,9 +7,9 @@ This Post is currently a work in progress. If you'd like to know when its finish
 </div>
 </div>
 
-_Where i work our bread and butter is in the production of computer generated imagery (CGI). Fully CG or partially CG images of commercial or residential buildings yet to be completed.
+_Where i work our bread and butter is in the production of computer generated imagery (CGI). Fully CG or partially CG images of commercial or residential buildings yet to be completed._
 
-These images are made up of 4 key aspects; composition, the scheme, lighting and assets. All with the final goal of advertising to potential buyers._
+_These images are made up of 4 key aspects; composition, the scheme, lighting and assets. All with the final goal of advertising to potential buyers._
 
 _Its an interesting environment to develop for, code and computer generated imagery. This series is focused on the management of our assets, current pitfalls and frustrations , and finally how we went about developing solutions._
 
