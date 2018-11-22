@@ -7,11 +7,15 @@ This Post is currently a work in progress. If you'd like to know when its finish
 </div>
 </div>
 
-_I've worked with alot of digital artists and one of the best ways they can get freelance work or just to show off their imagery to the world is to have a website. There's many different platforms that make this a somewhat simple process using website builders etc. Still, a few people have mentioned ‘it's a hassle’ and ‘who wants to spend the evening setting up a site that's really just going to be used as an image dump’._
+ > A minimalist gallery thats all about the visual content.
 
-_I have first hand knowledge of the time and effort required to produce cgi images and film as well as the nerve wracking experience it can be to present such work to the client who’ll potentially be investing thousands of pounds into a single image._
+It's always a pain to put together a select collection of imagery. That shouldn't be made worse by having then to figure out a way to present it online. Portfo aimes to be a quick and simple solution to that problem. A image dump of sorts, using a selection of *gallery style* templates for presentation. 
 
-_Armed with this knowledge i thought it’d be a great experience to build a web app thats super simple to use and manage with the ultimate goal of presenting great images, using a clean and attractive layout._
+Creating **multiple galleries** from holiday snaps means Mum sees the beach and the lads/ladies see the beers/beers!
+
+All those kitten gifs can be dropped into a gallery and **password protected if needed**  so only you and the partner can geekface over them.
+
+**Customizable branding** ensures the next employer knows the name and contact details of someone if they ever need [smoke roto'ed](https://www.youtube.com/watch?v=QEkuHBpvJw0).
 
 ![portfo screenshot](readme_cover.jpg "portfo screenshot")
-_A screenshot of Portfo' landing page._
+*A screenshot of a Portfo template.*

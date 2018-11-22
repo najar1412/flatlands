@@ -45,37 +45,11 @@
 
   {% block content %}{% endblock %}
 
-  <div style="min-height: 300px;width:100%;background: linear-gradient(135deg, rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%);padding-top:50px;padding-bottom:50px;border-bottom-style:solid;border-color: white;">
 
-      <div class="container">
-          <h1 class="display-4" style="color:white;">Like what you're reading?</h1>
-          <p class="lead" style="color: white;">Why not pop your deets into the boxes below and i'll try to remember to keep you updated with whats going on! </p>
-        </div>
-        <p style="height:20px;"></p>
-
-        <div class="container">
-
-          <form action="/add_to_mailinglist/" method="post">
-
-            {% csrf_token %}
-            <div class="mailinglist-box">
-              <div class="display-4" style="font-size:24px;color:white;">Email:</div>&emsp; 
-              <div>{{ mailing_list_form }}</div>&emsp; 
-              <div>
-            <button type="submit" value="Submit" class="btn btn-primary mb-2 btn-sm">Subscribe</button>
-          </div>
-          </div>
-          </form>
-
-</div>
-
-
-
-
-  </div>
 
 
   {% include "blog/footer.html" %}
+
 
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

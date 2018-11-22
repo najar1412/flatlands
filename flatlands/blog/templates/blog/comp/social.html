@@ -1,0 +1,39 @@
+
+<div class="footer-content">
+
+    <div class="footer-resource">
+    
+    
+    <div class="footer-resource-item">
+                    <div style="display:flex;justify-content: space-around;padding-bottom:100px;padding-top:100px;">
+            <a href="https://www.twitter.com"><img style="filter:opacity(60%);" src="/static/blog/img/soc_twitter.png"></a>
+                    </div>
+            
+                    <a class="twitter-timeline" data-theme="light" href="https://twitter.com/RoryJarrel?ref_src=twsrc%5Etfw" data-tweet-limit="5">Tweets by RoryJarrel</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
+    
+    </div>
+    
+    
+    <div class="footer-resource-item">
+            <div style="display:flex;justify-content: space-around; padding-bottom:100px;padding-top:100px;">
+            <a href="https://www.instagram.com"><img style="filter:opacity(60%);" src="/static/blog/img/soc_instagram.png"></a>
+    
+    </div>
+    
+    
+    
+    
+    <div style="display:flex;justify-content: space-around;"></div>
+    {% for post in instagram_content %}
+    
+    {{post.oembed|safe}}
+    
+    
+    {% endfor %}
+    </div>
+    </div>
+    
+    
+    
+    </div>
