@@ -125,6 +125,10 @@
     </div>
     {% endif %}
 
+
+    {% if markdown_headers|length > 1 %}
+
+
 <div>
 
 
@@ -133,6 +137,8 @@
           <p class="card-text">
                 <div class="display-4" style="font-size:24px;padding-bottom:20px;">Contents</div>
                 <ul style="list-style-type:circle">
+
+                    
 
               {% for header in markdown_headers %}
               <li><a href="#{{header}}">{{header}}</a></li>
@@ -148,6 +154,9 @@
 
 
 </div>
+
+
+{% endif %}
 
 
     </div>
