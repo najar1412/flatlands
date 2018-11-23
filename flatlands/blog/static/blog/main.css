@@ -82,6 +82,12 @@ body {
     padding-right:40px;
     position: relative;
 }
+@media(max-width:800px) {
+    .content {
+        padding-left:10px;
+    padding-right:10px;
+    }
+}
 
 .indexlistpost {
     display: flex;
@@ -194,11 +200,12 @@ body {
 .footer-resource-item{
     display:flex; 
     flex-direction: column;
+    width: 45%;
 }
 @media(max-width:800px) {
     .footer-resource-item{
         display:flex;
-        max-width: 100%;
+        width: 100%;
     }
 }
 .project-comp{
