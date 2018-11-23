@@ -74,16 +74,17 @@ def article(request, post_id):
     post.viewed += 1
     post.save()
 
+    breadcrumbs = ['post', post.name]
     post_markdown = MTML('django').retrieve(
         post.content, markdown_type=['articles']
         )
-
     markdown_headers = MTML('django')._parse_headers(post_markdown)
 
     context = standard_context
     context['post'] = post
     context['post_markdown'] = post_markdown
     context['markdown_headers'] = markdown_headers
+    context['breadcrumbs'] = breadcrumbs
 
 
     return render(request, 'blog/post.html', context)

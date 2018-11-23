@@ -11,8 +11,6 @@ from blog.models import SocialInstagram
 import blog.config
 
 
-# insta_token = "498923891.1677ed0.c322b044058840b490d5e0386a0aa421"
-
 def _cache_instagram_links_to_db():
     """caching function: accesses instagram api for latest posts, and caches to database"""
     links = []
