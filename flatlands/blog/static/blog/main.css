@@ -178,27 +178,12 @@ body {
 #footer {
     background-color: #0099cc;
 }
-.footer-content {
-    color: #353839;
-}
-.footer-content a:link {
-    color: #353839;
-    text-decoration: none;
-}
-.footer-content a:visited {
-    color: #353839;
-}
-.footer-content a:hover {
-    color: #353839;
-    border-bottom: none;
-}
-.footer-content a:active {
-    color: #353839;
-}
 .footer-resource{
-    display:flex; 
+    display:flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    max-width: 1060px;
+    margin: auto;
+    justify-content: space-between;
 }
 @media(max-width:800px) {
     .footer-resource{
@@ -209,7 +194,6 @@ body {
 .footer-resource-item{
     display:flex; 
     flex-direction: column;
-    max-width: 50%;
 }
 @media(max-width:800px) {
     .footer-resource-item{
