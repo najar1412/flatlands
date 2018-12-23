@@ -23,7 +23,6 @@ The current generation of panoramas sit on the boundaries of the uncanny valley.
 One of the biggest culprits is [parallax](https://simple.wikipedia.org/wiki/Parallax). Parallax is the perceived change in position of an object seen from two different places. This phenomenon is the only real way for the user to judge distances within an image. 
 
 <div  class="markdown-tip">
-<div  class="markdown-tip-header">&#128712;  &nbsp; Tip</div>
 <div  class="markdown-tip-body">
 You can see this in everyday life too, just stand at the top of a long street and look towards the other end. Take a couple of steps to the left or right. 
 Can you see objects getting occluded or revealing themselves from behind foreground objects? That's Parallax.
