@@ -1,5 +1,5 @@
 <div  class="markdown-info">
-<div  class="markdown-info-header">&#128712;  &nbsp; Note</div>
+ 
 <div  class="markdown-info-body">
 
 This Post is currently a work in progress. If you'd like to know when its finished go ahead and add your email to the mailing list at the bottom of the page!
@@ -35,7 +35,7 @@ Common optical problems are also left out of standard panorama software these ma
 [images: CA, LD and glare examples]
 
 <div  class="markdown-info">
-<div  class="markdown-info-header">&#128712;  &nbsp; Note</div>
+ 
 <div  class="markdown-info-body">
 In the 3d rendering world imperfection is what makes realism. Having a surface that's super clean without the dirt and grim, without the knocks and dings of everyday life is what makes the surface look fake. It's these imperfections that'll need to be implemented to take interactive panoramas to the next level.
 </div>

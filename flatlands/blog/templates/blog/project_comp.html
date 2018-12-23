@@ -2,10 +2,9 @@
 
 
         {% if projects %} 
-        <h1 class="display-4" style="font-size:60px;">Side Projects</h1>
+        <h1 class="display-4" style="font-size:45px;">Side Projects</h1>
         <div style="display:flex;">
                 <div style="font-size: 12px; font-weight: bold;"><a href="">Current</a></div>
-                <s><div style="text-indent: 20px;font-size: 12px;"><a href="" style="color:dimgrey;">Finished</a></div></s>
                 <s><div style="text-indent: 20px;font-size: 12px;"><a href="" style="color:dimgrey;">Abandoned</a></div></s>
             </div>
 
@@ -29,14 +28,14 @@
                                 <div>
                                         <span style="font-size: 12px;">
                                                 <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
-                                                <a href="{{project.repo}}">Repo</a>
+                                                <a href="{{project.repo}}">code</a>
                                         </span>
                                         
                                 </div>
                                 <div style="padding-left:10px;">
                                         <span style="font-size: 12px;">
                                                 <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
-                                                <a href="#">Demo</a>
+                                                <s><a href="#">demo</a></s>
                                         </span>
                                         
                                 </div>
@@ -63,7 +62,7 @@
 <br>
 
 
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <s><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></s>
                 </div>
               </div>
 

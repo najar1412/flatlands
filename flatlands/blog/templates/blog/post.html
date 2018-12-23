@@ -8,10 +8,47 @@
 {% include "blog/comp/breadcrumb.html" %}
 
 
+
+
 <div class="container content">
+
+    
+        <div class="blogpostheader">
+                <div class="bloglistpostdate">
+                    <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{post.pub_date|timesince|upper}} AGO
+                </div>
+        
+                <div class="bloglistpostdate">
+                        <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="clock icon"> {{post.viewed}}
+                    </div>
+        
+                <div class="bloglistposttags">
+                    <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in post.tags.all %}
+                    <a href="/search/{{tag|lower}}">{{tag|upper}}, </a>
+                    {% endfor %}
+        
+                </div>
+        
+            </div>
+
+        <div class="bloglistpostname display-4" style="font-size: 40px;">
+                <div style="padding-bottom: 50px;">
+                        {{ post.name|title }}.
+                </div>
+                
+            </div>
+            
 
 
         <div class="project-comp">
+
+
+                
+    
+
+
+
+
 
 {% if post.next_post == None and post.previous_post == None %}
 
@@ -60,31 +97,6 @@
 
    
 
-    <div class="blogpostheader">
-        <div class="bloglistpostdate">
-            <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{post.pub_date|timesince|upper}} AGO
-        </div>
-
-        <div class="bloglistpostdate">
-                <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="clock icon"> {{post.viewed}}
-            </div>
-
-        <div class="bloglistposttags">
-            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in post.tags.all %}
-            <a href="/search/{{tag|lower}}">{{tag|upper}}, </a>
-            {% endfor %}
-
-        </div>
-
-    </div>
-
-    <div class="bloglistpostname display-4">
-        <div>
-                {{ post.name|title }}.
-        </div>
-        
-    </div>
-    <br>
 
 
     <div class="article-post">
@@ -99,8 +111,8 @@
 <p style="height: 50px;"></p>
 
 
-
+<div class="container content">
 {% include "blog/comp/mailinglist.html" %}
-
+</div>
 
 {% endblock %}

@@ -1,5 +1,5 @@
 <div  class="markdown-info">
-<div  class="markdown-info-header">&#128712;  &nbsp; Note</div>
+ 
 <div  class="markdown-info-body">
 
 This Post is currently a work in progress. If you'd like to know when its finished go ahead and add your email to the mailing list at the bottom of the page!
@@ -51,7 +51,7 @@ After a bit of napkin math and some more than biased testing conditions involvin
 We came to the conclusion that it takes approx 6 minutes to find an asset. Or, not *find* an asset, rather *confirm* we have it or something like it. With _n_ amount of assets per image and a desired _n_ amount of images to complete per month. The number was quite a bit higher than we had estimated.
 
 <div  class="markdown-info">
-<div  class="markdown-info-header">&#128712;  &nbsp; Note</div>
+ 
 <div  class="markdown-info-body">
 
 ~180 hours per 5 artists a month were spent on a simple question, <i>"do we have this 3d asset, or something like it?"</i>. That's upwards of 4 bread and butter sandwiches a month of artist time that is spent searching.

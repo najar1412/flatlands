@@ -8,12 +8,12 @@
                 <p style="height:80px"></p>
                 <p class="display-4" style="font-size: 24px;">
                     Hello, I'm <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a <span style="font-weight: bold;">creative</span> agency based in New York where we predominantly produce computer generated
-                    stills and films.
+                    stills and film.
                     <br><br>
-                    Below you’ll find stories, guides and side projects related to <span style="font-weight: bold;">technology and software development</span>.
+                    Here you’ll find stories and guides in some way related to <span style="font-weight: bold;">web technologies and software development</span>.
                 </p>
         </div>
-        <div style="display: flex; justify-content: space-around;padding-top:30px;">
+        <div style="display: flex; justify-content: space-around;padding-top:30px;opacity: 0.1;">
             <img style="height:75px; width:75px;" src="{% static 'blog/img/construction.gif' %}">
         </div>
       <br>   
@@ -22,6 +22,9 @@
 
 
 <p style="height:60px;"></p>
+
+
+
 <div class="container content">
 
     <div class="project-comp">
@@ -38,12 +41,14 @@
     {% if articles %} 
     <div>
 
-    <h1 class="display-4" style="font-size:60px;">Posts</h1>
+    <h1 class="display-4" style="font-size:45px;">Posts</h1>
  
     
     <div style="display:flex;">
             <div style="padding-right:10px;font-size: 12px; font-weight: bold;"><a href="">Newest</a></div>
             <s><div style="padding-right:10px;font-size: 12px;"><a href="" style="color:dimgrey;">Popular</a></div></s>
+            <div style="padding-right:10px;font-size: 12px;">|</div>
+            <s><div style="padding-right:10px;font-size: 12px;"><a href="/articles/" style="color:dimgrey;">List</a></div></s>
             
         </div>
         
@@ -75,11 +80,12 @@
 
 
 
-        <div class="bloglistpostname display-4">
+        <div class="display-4 bloglistpostname">
             <div><a href="/articles/{{ article.id }}/">{{ article.name|title }}.</a></div>
         </div>
-        <div>
-            {{article.strap|capfirst|truncatewords:50}} <a href='/articles/{{article.id}}' style="font-weight: bolder;">Continue Reading.</a>
+        <div style="border-left: 10px solid rgba(0, 0, 0, .1);
+        padding-left: 15px; font-style: italic;">
+            {{article.strap|capfirst|truncatewords:50}} <a href='/articles/{{article.id}}' style="font-weight: bolder;font-style: normal;">🡢</a>
         </div>
 
     </div>
@@ -116,11 +122,14 @@
     {% endif %}
 </div>
 
+<div style="display: flex; justify-content: center; width: 100%;">
+{% include "blog/comp/social.html" %}
+</div>
 
 </div>
 
 
-{% include "blog/comp/social.html" %}
+
 
 
 {% endblock %}
