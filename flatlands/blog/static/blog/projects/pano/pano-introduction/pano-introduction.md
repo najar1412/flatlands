@@ -7,20 +7,19 @@ This Post is currently a work in progress. If you'd like to know when its finish
 </div>
 </div>
 
-_Pano is an interactive panorama manager. The app is aimed at 3d/visualization professionals, but great care is being taken to allow anyone to use it._
+_Pano is an interactive panorama manager._
 
-### what?
+### What?
 
-There are a couple of different ways to do interactive panoramas. Pano is focused on the traditional technique of somehow getting a 360 degree image (whether via photography or 3d rendering), projecting it onto a sphere and placing a camera at the spheres center for the user to use to move around.
+Pano allows the user to create, manage and share interactive 360 virtual tours from panorama images in the browser.
 
-explain interactive panos
-screenshots/examples
-
-### current panorama software
+### Why Pano over [insert other software]?
 
 The current generation of panoramas sit on the boundaries of the uncanny valley. They look good, they just they don't look *correct*.
 
-One of the biggest culprits is [parallax](https://simple.wikipedia.org/wiki/Parallax). Parallax is the perceived change in position of an object seen from two different places. This phenomenon is the only real way for the user to judge distances within an image. 
+Pano aims to produce the most immersive experience possible. To do this there are some real world phenomenon that need to be reacreated that currently arent available in other panorama software.
+
+One of the biggest culprits is [parallax](https://simple.wikipedia.org/wiki/Parallax). _Parallax is the perceived change in position of an object seen from two different
 
 <div  class="markdown-tip">
 <div  class="markdown-tip-body">
@@ -29,21 +28,12 @@ Can you see objects getting occluded or revealing themselves from behind foregro
 </div>
 </div>
 
-Common optical problems are also left out of standard panorama software these may seem like problems, but to the average eye _not_ seeing these things will affect the realism. Things like chromatic aberration, lens distortion and glare.
+Common optical problems are also left out of standard panorama software this may seem like a good thing, but to the eye _not_ seeing these things will affect the realism. Things like chromatic aberration, lens distortion, glare.
 
 [images: CA, LD and glare examples]
 
 <div  class="markdown-info">
- 
 <div  class="markdown-info-body">
-In the 3d rendering world imperfection is what makes realism. Having a surface that's super clean without the dirt and grim, without the knocks and dings of everyday life is what makes the surface look fake. It's these imperfections that'll need to be implemented to take interactive panoramas to the next level.
+In the 3d rendering world imperfection is what makes realism. Having a surface that's super clean without the dirt and grime, without the knocks and dings of everyday life is what makes the surface look fake. It's these imperfections that'll need to be implemented to take interactive panoramas to the next level.
 </div>
 </div>
-
-### what i'd  like to build
-
-With the underlining goal of implementation parallax into traditional panorama views. I'd also like to build a management system - for the management of multiple pano's, this includes iterations of the same panorama.
-
-Post production on already uploaded panoramas would be great too. Basic color correction, temperature and environment controls.
-
-And finally all the other controls necessary to produce a high resolution, realistic interactive panorama.

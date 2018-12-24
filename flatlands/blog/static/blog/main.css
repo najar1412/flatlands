@@ -292,6 +292,16 @@ body {
   border-radius: 3px;
   padding: 40px;
 }
+.article-post blockquote {
+    display: flex;
+    background-color: rgba(0, 0, 0, .05);
+    border-left-color: darkgray;
+    border-left-style: solid;
+    padding: 15px;
+    padding-top: 25px;
+    font-style: italic;
+    border-width: 5px;
+  }
 .article-post {
   color: #353839;
 }
