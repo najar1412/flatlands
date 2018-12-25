@@ -34,9 +34,10 @@ We categorize 3d assets using a few different criteria.
 *  **Asset Packs** - *Many 3d modelling companies offer packs of assets. 30 Kitchen utensils, or a pack of 10 winter trees.*
 *  **General location** - *a bathroom will have the assets of a bar of soap, shower curtains and facets or an office might have work desks, phones, computers and binders.*
 
-![folder structure](folderstructure.jpg  "folder structure")
-
-*Typical folder structure of a model categorized by its type.*
+&nbsp;|&nbsp;
+------------- | -------------
+![folder structure](folderstructure.jpg  "folder structure") | &nbsp;
+_Typical folder structure of a model categorized by its type._ | &nbsp;
 
 The interface to the folder structure will be whatever the 3d modelling package used, supplies. [3ds Max](https://www.autodesk.com/products/3ds-max/overview) from Autodesk for example, uses a standard Windows OS explorer dialog.
 

@@ -5,13 +5,13 @@
 
     <div class="bloglistpostname" style="border-radius: 3px;padding-left: 20px; padding-right: 20px; padding-top:40px; width:100%; background: linear-gradient(135deg, rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%);">
 
-        <div class="container content" style="display: flex;">
+        <div class="container contentT" style="display: flex;">
             <div style="display: flex; flex-direction: column;align-self: flex-end;">
 
-                    <p class="display-4" style="color:white;font-size: 80px;">
+                    <p class="display-4" style="color:white;font-size: 80px;padding-left:20px;">
                             {{ project.name|title }}
                     </p>
-                    <p class="display-4" style="color:white;font-size: 20px;font-style: italic;">
+                    <p class="display-4" style="color:white;font-size: 20px;font-style: italic;padding-left:20px;">
                             {{ project.strap|title }}
                     </p>
 
@@ -137,8 +137,10 @@
 
 </div>
 
+<p style="height: 20px;"></p>
 
 {% endif %}
+
 
 
     </div>
@@ -218,7 +220,6 @@
 
 </div>
 
-<p style="height:50px;"></p>
 
 <div class="container content">
         {% include "blog/comp/mailinglist.html" %}

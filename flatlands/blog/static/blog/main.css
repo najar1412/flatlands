@@ -112,13 +112,31 @@ body {
 .content {
     padding-left:40px;
     padding-right:40px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 @media(max-width:800px) {
     .content {
         padding-left:10px;
         padding-right:10px;
+        display: flex;
+        flex-direction: column;
     }
+}
+
+.content a:link {
+    color: #353839;
+    text-decoration: none;
+}
+.content a:visited {
+    color: #353839;
+}
+.content a:hover {
+    color: #353839;
+    border-bottom: dotted 1px;
+}
+.content a:active {
+    color: #353839;
 }
 
 .indexlistpost {
@@ -191,6 +209,17 @@ body {
     margin-right:5px;
 }
 
+.content-index{
+    display: flex; 
+    flex-direction: row;
+}
+@media(max-width:1000px) {
+    .content-index{
+        display:flex; 
+        flex-direction: column;
+    }
+}
+
 .content-intro{
     color: white;
     padding-left:40px;
@@ -241,10 +270,10 @@ body {
     }
 }
 .project-comp{
+    display: flex;
     margin-left:30px;
     padding-left:30px;
-    float:right;
-    width:400px;
+    width:100%;
     border-left-style: solid;
     border-width: 1px;
     border-color: rgba(0, 0, 0, .06);
@@ -257,20 +286,6 @@ body {
         width:100%;
         border-left-style: none;
     }
-}
-.content a:link {
-    color: #353839;
-    text-decoration: none;
-}
-.content a:visited {
-    color: #353839;
-}
-.content a:hover {
-    color: #353839;
-    border-bottom: dotted 1px;
-}
-.content a:active {
-    color: #353839;
 }
 
 /** used for markdown conversion **/
@@ -300,6 +315,7 @@ body {
     padding: 15px;
     padding-top: 25px;
     font-style: italic;
+    font-size: 20px;
     border-width: 5px;
   }
 .article-post {
@@ -317,8 +333,10 @@ body {
   text-decoration: none;
 }
 .article-post h3 {
+    font-size:30px;
+    font-weight: 300;
   padding-top:40px;
-  padding-bottom:20px;
+  padding-bottom:40px;
   color:#353839;
 }
 
@@ -327,8 +345,12 @@ body {
   color:#353839;
 }
 .article-post p {
-  height:auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
+.article-post > table > tbody > tr > td > em {
+    font-size: 12px;
+  }
 .article-post a {
   color: #353839;
   text-decoration: none;

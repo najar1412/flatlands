@@ -27,14 +27,17 @@
 
 <div class="container content">
 
-    <div class="project-comp">
-        <div>
-        {% include "blog/project_comp.html" %}
-        </div>
 
-        </div>
 
-<div style="display:inline;">
+
+        <div class="content-index">
+
+
+
+
+
+
+<div style="display: flex; flex-direction: column;">
 
     
 
@@ -115,6 +118,8 @@
             </ul>
           </nav>
 
+          <p style="height:40px;"></p>
+
     
     {% else %}
     <p>No Articles :(</p>
@@ -122,9 +127,33 @@
     {% endif %}
 </div>
 
-<div style="display: flex; justify-content: center; width: 100%;">
+
+
+<div class="project-comp">
+        <div>
+        {% include "blog/project_comp.html" %}
+        </div>
+
+        </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+{% include "blog/comp/mailinglist.html" %}
+
+<div>
 {% include "blog/comp/social.html" %}
 </div>
+
+
 
 </div>
 
