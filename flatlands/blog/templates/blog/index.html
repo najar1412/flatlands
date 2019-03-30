@@ -1,163 +1,102 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
-
-
+<!-- hides the header just on the index page-->
+<script>
+  document.getElementById("nav-header").style.display = "none";
+</script>
 
 <div style="background: linear-gradient(135deg, rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%);">
-        <div class="container content-intro">
-                <p style="height:80px"></p>
-                <p class="display-4" style="font-size: 24px;">
-                    Hello, I'm <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a <span style="font-weight: bold;">creative</span> agency based in New York where we predominantly produce computer generated
-                    stills and film.
-                    <br><br>
-                    Here you’ll find stories and guides in some way related to <span style="font-weight: bold;">web technologies and software development</span>.
-                </p>
-        </div>
-        <div style="display: flex; justify-content: space-around;padding-top:30px;opacity: 0.1;">
-            <img style="height:75px; width:75px;" src="{% static 'blog/img/construction.gif' %}">
-        </div>
-      <br>   
+  <div class="container content-intro">
+    <p style="height:40px"></p>
+    <p class="display-4" style="font-size: 24px;">
+      Hello, I'm
+      <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a
+      <span style="font-weight: bold;">creative</span> agency based in New York
+      where we predominantly produce computer generated stills and film.
+      <br /><br />
+      Here you’ll find articles and side projects in some way related to
+      <span style="font-weight: bold;">software development and web technologies</span>.
+    </p>
+  </div>
+  <div style="display: flex; justify-content: space-around;padding-top:30px;opacity: 0.1;">
+    <img style="height:75px; width:75px;" src="{% static 'blog/img/construction.gif' %}" />
+  </div>
+  <br />
 </div>
-
-
 
 <p style="height:60px;"></p>
 
-
-
 <div class="container content">
+  <div class="content-index">
+    <div style="display: flex; flex-direction: column;">
+      {% if articles %}
+      <p style="height:4px;"></p>
+      {% for article in articles %} {% if article.project == None %}
 
-
-
-
-        <div class="content-index">
-
-
-
-
-
-
-<div style="display: flex; flex-direction: column;">
-
-    
-
-    {% if articles %} 
-    <div>
-
-    <h1 class="display-4" style="font-size:45px;">Posts</h1>
- 
-    
-    <div style="display:flex;">
-            <div style="padding-right:10px;font-size: 12px; font-weight: bold;"><a href="">Newest</a></div>
-            <s><div style="padding-right:10px;font-size: 12px;"><a href="" style="color:dimgrey;">Popular</a></div></s>
-            <div style="padding-right:10px;font-size: 12px;">|</div>
-            <s><div style="padding-right:10px;font-size: 12px;"><a href="/articles/" style="color:dimgrey;">List</a></div></s>
-            
-        </div>
-        
-    </div>
-    <p style="height:30px;"></p>
-    {% for article in articles %}
-
-    {% if article.project == None %}
-    
-    <div class="indexlistpost">
-
-
-        
+      <div class="indexlistpost">
         <div class="blogpostheader">
-            <div class="bloglistpostdate">
-                <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{article.pub_date|timesince|upper}} AGO
-            </div>
-            <div class="bloglistpostdate">
-                    <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="clock icon"> {{article.viewed}}
-                </div>
-            <div class="bloglistpostdate">
-                <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in article.tags.all %}
-                <a href="/search/{{tag|lower}}" style="color: #233452;">{{tag|upper}}</a>, 
-                {% endfor %}
-            </div>
+          <div class="bloglistpostdate">
+            <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon" />
+            {{ article.pub_date | timesince | upper }} AGO
+          </div>
+          <div class="bloglistpostdate">
+            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon" />
+            {% for tag in article.tags.all %}
+            <a href="/search/{{tag|lower}}" style="color: #233452;">{{tag|upper}}</a>, {% endfor %}
+          </div>
         </div>
-
-
-
-
 
         <div class="display-4 bloglistpostname">
-            <div><a href="/articles/{{ article.id }}/">{{ article.name|title }}.</a></div>
+          <div>
+            <a href="/articles/{{article.id}}/">{{ article.name | title }}.</a>
+          </div>
         </div>
         <div style="border-left: 10px solid rgba(139, 217, 253, 0.3);
         padding-left: 15px; font-style: italic;">
-            {{article.strap|capfirst|truncatewords:50}} <a href='/articles/{{article.id}}' style="font-weight: bolder;font-style: normal;">🡢</a>
+          {{ article.strap | capfirst | truncatewords:50 }}
+          <a href="/articles/{{ article.id }}" style="font-weight: bolder;font-style: normal;">🡢</a>
         </div>
+      </div>
 
+      <p style="height:60px;"></p>
+
+      {% endif %} {% endfor %}
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-start">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+
+      <p style="height:40px;"></p>
+
+      {% else %}
+      <p>No Articles :(</p>
+
+      {% endif %}
     </div>
 
-    
-    <p style="height:60px;"></p>
-
-
-    
-    {% endif %}
-
-    {% endfor %} 
-    
-    
-    
-    <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-start">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
-
-          <p style="height:40px;"></p>
-
-    
-    {% else %}
-    <p>No Articles :(</p>
-
-    {% endif %}
-</div>
-
-
-
-<div class="project-comp">
-        <div>
+    <div class="project-comp">
+      <div>
         {% include "blog/project_comp.html" %}
-        </div>
+      </div>
+    </div>
+  </div>
 
-        </div>
+  {% include "blog/comp/mailinglist.html" %}
 
-
-
-
-
-
+  <div>
+    {% include "blog/comp/social.html" %}
+  </div>
 </div>
-
-
-
-
-
-{% include "blog/comp/mailinglist.html" %}
-
-<div>
-{% include "blog/comp/social.html" %}
-</div>
-
-
-
-</div>
-
-
 
 
 

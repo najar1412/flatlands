@@ -1,90 +1,97 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
 
-<p style="height: 60px;"></p>
+<p style="height: 90px;"></p>
 
 
 
 <div class="container content">
-    
 
-<div class="blogpostheader">
-    <div class="bloglistpostdate">
-        <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{post.pub_date|timesince|upper}} AGO
-    </div>
 
-    <div class="bloglistpostdate">
+    <div class="blogpostheader">
+        <div class="bloglistpostdate">
+            <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon">
+            {{post.pub_date|timesince|upper}} AGO
+        </div>
+
+        <div class="bloglistpostdate">
             <img class="iconic-svg" src="{% static 'blog/svg/eye.svg' %}" alt="clock icon"> {{post.viewed}}
         </div>
 
-    <div class="bloglistposttags">
-        <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in post.tags.all %}
-        <a href="/search/{{tag|lower}}">{{tag|upper}}, </a>
-        {% endfor %}
+        <div class="bloglistposttags">
+            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon">
+            {% for tag in post.tags.all %}
+            <a href="/search/{{tag|lower}}">{{tag|upper}}, </a>
+            {% endfor %}
+
+        </div>
 
     </div>
 
-</div>
-
-<div class="bloglistpostname display-4" style="font-size: 40px;">
-    <div style="padding-bottom: 50px;">
+    <div class="bloglistpostname display-4" style="font-size: 40px;">
+        <div style="padding-bottom: 50px;">
             {{ post.name|title }}.
+        </div>
+
     </div>
-    
-</div>
 
 </div>
 
 <div class="container content">
     <div class="markdown-layout">
 
-    <div class="article-post">
-        {{post_markdown|safe|escape}}
+        <div class="article-post">
+            {{post_markdown|safe|escape}}
 
-    </div>
+        </div>
 
         <div class="project-comp">
 
-{% if post.next_post == None and post.previous_post == None %}
+            {% if post.next_post == None and post.previous_post == None %}
 
-{% else %}
+            {% else %}
 
-                <div class="card mb-3">
-                        <div class="card-body">
-                          <p class="card-text">
-                                <div class="display-4" style="font-size:24px;padding-bottom:20px;">Posts in Series</div>
-                                <ul style="list-style-type:circle">
-                              <li><a href="#">part 01</a></li>
-                              <li><a href="#">part 02</a></li>
-                              <li><a href="#">part 03</a></li>
-                              </ul>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="card-text">
+                        <div class="display-4" style="font-size:24px;padding-bottom:20px;">Posts in Series</div>
+                        <ul style="list-style-type:circle">
+                            <li><a href="#">part 01</a></li>
+                            <li><a href="#">part 02</a></li>
+                            <li><a href="#">part 03</a></li>
+                        </ul>
 
-                          </p>
-        
-        
-        
-                        </div>
-                      </div>
+                    </p>
 
-{% endif %}
 
-                <div class="card mb-3">
-                        <div class="card-body">
-                          <p class="card-text">
-                                <div class="display-4" style="font-size:24px;padding-bottom:20px;">Contents</div>
-                                <ul style="list-style-type:circle">
 
-                              {% for header in markdown_headers %}
-                              <li><a href="#{{header}}">{{header}}</a></li>
-                              {% endfor %}
-                              </ul>
+                </div>
+            </div>
 
-                          </p>
-        
-        
-        
-                        </div>
-                      </div>
+            {% endif %}
+
+
+            {% if markdown_headers|length > 0 %}
+            <div class="card mb-3 sticky">
+                <div class="card-body">
+                    <p class="card-text">
+                        <div class="display-4" style="font-size:24px;padding-bottom:20px;">Contents</div>
+                        <ul style="list-style-type:circle">
+
+                            {% for header in markdown_headers %}
+                            <li><a href="#{{header}}">{{header}}</a></li>
+                            {% endfor %}
+                        </ul>
+
+                    </p>
+
+
+
+                </div>
+            </div>
+
+            {% endif %}
+
 
 
 
@@ -97,7 +104,7 @@
 
 
 <div class="container content">
-{% include "blog/comp/mailinglist.html" %}
+    {% include "blog/comp/mailinglist.html" %}
 </div>
 
 {% endblock %}

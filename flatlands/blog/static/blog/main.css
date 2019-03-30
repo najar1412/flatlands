@@ -142,8 +142,12 @@ body {
 .indexlistpost {
     display: flex;
     flex-direction: column;
-    margin: auto auto;
 }
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+  }
 
 .articlelistpost {
     display: flex;

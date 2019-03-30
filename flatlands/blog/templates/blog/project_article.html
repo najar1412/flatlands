@@ -2,7 +2,8 @@
 
 <p style="height: 30px;"></p>
 
-<div class="bloglistpostname" style="border-radius: 3px;padding-left: 20px; padding-right: 20px; padding-top:40px; width:100%; background: linear-gradient(135deg, rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%);">
+<div class="bloglistpostname"
+        style="border-radius: 3px;padding-left: 20px; padding-right: 20px; padding-top:40px; width:100%; background: linear-gradient(135deg, rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%);">
 
         <div class="container contentT" style="display: flex;">
                 <div style="display: flex; flex-direction: column;align-self: flex-end;">
@@ -22,56 +23,90 @@
 
 
 <div class="container content">
-                <div class="markdown-layout">
+        <div class="markdown-layout">
 
                 <div class="article-post">
                         {{article_content|safe|escape}}
                 </div>
 
                 <div class="project-comp">
-                        <div class="card">
-                                <div class="card-body">
-                                        <div class="display-4" style="font-size:24px;padding-bottom:20px;">Overview</div>
-                                        <div style="display: flex; flex-direction: row; justify-content: space-between">
-                                                <div style="display: flex; flex-direction: column;">
-                                                        <div style="display: flex; flex-direction: row;">
-                                                                <div>
-                                                                        <span style="font-size: 12px;">
-                                                                                <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}"
-                                                                                        alt="code icon">
-                                                                                <a href="{{project.repo}}">code</a>
-                                                                        </span>
-                                                                </div>
-                                                                <div style="padding-left:10px;">
-                                                                        <span style="font-size: 12px;">
-                                                                                <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}"
-                                                                                        alt="code icon">
-                                                                                <s><a href="#">demo</a></s>
-                                                                        </span>
-                                                                </div>
-                                                        </div>
-                                                        <br>
-                                                        <div style="display: flex;">
-                                                                {% for tech in used_software %}
-                                                                <a href="{{tech.website}}">
-                                                                        <img style="width:30px;height:30px;" src="{% static 'blog/img/'|add:tech.small_logo %}"
-                                                                                alt="{{tech}} icon">
-                                                                </a>
-                                                                {% endfor %}
-                                                        </div>
-                                                </div>
-                                        </div>
 
-                                </div>
-                        </div>
 
-                        <p style="height: 20px;"></p>
 
-                        {% if markdown_headers|length > 1 %}
+
+
+
+
+
+
+
+
+                        <div class="sticky">
+
+
+
 
                                 <div class="card">
                                         <div class="card-body">
-                                                <div class="display-4" style="font-size:24px;padding-bottom:20px;">Contents</div>
+                                                <div class="display-4" style="font-size:24px;padding-bottom:20px;">
+                                                        Overview
+                                                </div>
+                                                <div
+                                                        style="display: flex; flex-direction: row; justify-content: space-between">
+                                                        <div style="display: flex; flex-direction: column;">
+                                                                <div style="display: flex; flex-direction: row;">
+                                                                        <div>
+                                                                                <span style="font-size: 12px;">
+                                                                                        <img class="iconic-svg-small"
+                                                                                                src="{% static 'blog/svg/code.svg' %}"
+                                                                                                alt="code icon">
+                                                                                        <a
+                                                                                                href="{{project.repo}}">code</a>
+                                                                                </span>
+                                                                        </div>
+                                                                        <div style="padding-left:10px;">
+                                                                                <span style="font-size: 12px;">
+                                                                                        <img class="iconic-svg-small"
+                                                                                                src="{% static 'blog/svg/browser.svg' %}"
+                                                                                                alt="code icon">
+                                                                                        <s><a href="#">demo</a></s>
+                                                                                </span>
+                                                                        </div>
+                                                                </div>
+                                                                <br>
+                                                                <div style="display: flex;">
+                                                                        {% for tech in used_software %}
+                                                                        <a href="{{tech.website}}">
+                                                                                <img style="width:30px;height:30px;"
+                                                                                        src="{% static 'blog/img/'|add:tech.small_logo %}"
+                                                                                        alt="{{tech}} icon">
+                                                                        </a>
+                                                                        {% endfor %}
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+                                <p style="height: 20px;"></p>
+
+                                {% if markdown_headers|length > 1 %}
+
+                                <div class="card">
+                                        <div class="card-body">
+                                                <div class="display-4" style="font-size:24px;padding-bottom:20px;">
+                                                        Contents
+                                                </div>
                                                 <ul style="list-style-type:circle">
                                                         {% for header in markdown_headers %}
                                                         <li><a href="#{{header}}">{{header}}</a></li>
@@ -79,7 +114,19 @@
                                                 </ul>
                                         </div>
                                 </div>
-                       
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
 
                         <p style="height: 20px;"></p>
 
