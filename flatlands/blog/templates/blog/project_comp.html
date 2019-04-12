@@ -1,75 +1,87 @@
 {% load static %}
 
 
-        {% if projects %} 
-        <h1 class="display-4" style="font-size:45px;">Side Projects</h1>
-        <div style="display:flex;">
-                <div style="font-size: 12px; font-weight: bold;"><a href="">Current</a></div>
-                <s><div style="text-indent: 20px;font-size: 12px;"><a href="" style="color:dimgrey;">Abandoned</a></div></s>
-            </div>
+{% if projects %}
+<h1 class="display-4" style="font-size:45px;">Side Projects</h1>
+<div style="display:flex;">
+        <div style="font-size: 12px; font-weight: bold;"><a href="">Current</a></div>
+        <s>
+                <div style="text-indent: 20px;font-size: 12px;"><a href="" style="color:dimgrey;">Abandoned</a></div>
+        </s>
+</div>
 
 <p style="height:40px;"></p>
 
-        
-        {% for project in projects %}
+
+{% for project in projects %}
 
 
-        <div class="card mb-3">
-                <div class="card-body">
-                  <h5 class="card-title">
+<div class="card mb-3">
+        <div class="card-body">
+                <h5 class="card-title">
 
 
                         <div style="display: flex; flex-direction: row; justify-content: space-between">
                                 <div>
-                                        <h5 class="card-title"><a href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a></h5>
+                                        <h5 class="card-title"><a
+                                                        href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a>
+                                        </h5>
                                 </div>
                                 <div style="display: flex;">
 
-                                <div>
-                                        <span style="font-size: 12px;">
-                                                <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
-                                                <a href="{{project.repo}}">code</a>
-                                        </span>
-                                        
-                                </div>
-                                <div style="padding-left:10px;">
-                                        <span style="font-size: 12px;">
-                                                <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
-                                                <s><a href="#">demo</a></s>
-                                        </span>
-                                        
+                                        <div>
+                                                {% if project.repo == None %}
+                                                {% else %}
+                                                <span style="font-size: 14px;">
+                                                        <img class="iconic-svg-small"
+                                                                src="{% static 'blog/svg/code.svg' %}" alt="code icon">
+                                                        <a href="{{project.repo}}">code</a>
+                                                </span>
+                                                {% endif %}
+
+                                        </div>
+                                        <div style="padding-left:10px;">
+                                                <span style="font-size: 14px;">
+                                                        <img class="iconic-svg-small"
+                                                                src="{% static 'blog/svg/browser.svg' %}"
+                                                                alt="code icon">
+                                                        <a href="{{project.demo}}">demo</a>
+                                                </span>
+
+                                        </div>
                                 </div>
                         </div>
-                        </div>
 
 
-                  </h5>
-                  <p class="card-text">
-                                {{project.strap|capfirst|truncatewords:50}}
+                </h5>
+                <p class="card-text">
+                        {{project.strap|capfirst|truncatewords:50}}
 
-                  </p>
+                </p>
 
 
-                  <div>
+                <div>
                         {% for tech in project.usedsoftware_set.all %}
                         <a href="{{tech.website}}">
-                                <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon">
+                                <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}"
+                                        alt="{{tech}} icon">
                         </a>
                         {% endfor %}
                 </div>
 
 
-<br>
+                <br>
 
 
-                  <s><p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p></s>
-                </div>
-              </div>
+                <s>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </s>
+        </div>
+</div>
 
 
 
 
 
-    
-        <br> {% endfor %} {% else %} No Projects :( {% endif %}
 
+<br> {% endfor %} {% else %} No Projects :( {% endif %}
