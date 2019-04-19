@@ -1,20 +1,17 @@
-
 <p style="height: 30px;"></p>
 
-    <div class="mailing-list-form">
+<div class="mailing-list-form">
+  <div class="mailinglist-box">
+    <h1 class="display-4" style="color: white; font-size: 40px;">Want to know more?</h1>
+    <p style="color: white;">Pop in your deets in the box and you'll receive a couple of emails a year with new
+      posts and beginner to intermediate side projects you're more than welcome to learn from and contribute too!</p>
+  </div>
 
-
-<div>
-  <h1 class="display-4" style="color: white; font-size: 40px;">Wanna stay upto date?</h1>
-  <p style="color: white;">Pop your deets in and i'll try to remember to keep you updated!</p>
+  <div class="mailinglist-box">
+    <form action="/add_to_mailinglist/" method="post">
+      {% csrf_token %}
+      {{ mailing_list_form }}
+      <button type="submit" class="button">Subscribe 🡢</button>
+    </form>
+  </div>
 </div>
-<div>
-  <input type=text placeholder="Email" disabled>
-  <button class="button">Subscribe 🡢</button>
-
-
-</div>
-
-
-
-    </div>
