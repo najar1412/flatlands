@@ -23,30 +23,39 @@
 
       <div style="display: flex; flex-direction: row; justify-content: space-between">
         <div>
-          <h5 class="card-title"><a href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a>
+          <h5 class="card-title">
+            {{project.name|capfirst}}
           </h5>
         </div>
         <div style="display: flex;">
 
-          <div>
-            {% if project.repo == None %}
-            {% else %}
-            <span style="font-size: 14px;">
-              <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
-              <a href="{{project.repo}}">code</a>
-            </span>
-            {% endif %}
 
-          </div>
-          <div style="padding-left:10px;">
-            <span style="font-size: 14px;">
-              <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
-              <a href="{{project.demo}}">demo</a>
-            </span>
+          <div style="display: flex; flex-direction: row; justify-content: space-between">
+            <div>
+              <h5 class="card-title"><a href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a>
+              </h5>
+            </div>
+            <div style="display: flex;">
 
+              <div>
+                {% if project.repo == None %}
+                {% else %}
+                <span style="font-size: 14px;">
+                  <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
+                  <a href="{{project.repo}}">code</a>
+                </span>
+                {% endif %}
+
+              </div>
+              <div style="padding-left:10px;">
+                <span style="font-size: 14px;">
+                  <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
+                  <a href="{{project.demo}}">demo</a>
+                </span>
+
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
 
     </h5>
