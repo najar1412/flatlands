@@ -2,13 +2,13 @@
 
 <!-- hides the header just on the index page-->
 <script>
-  document.getElementById("nav-header").style.display = "none";
+  document.getElementById("menu-article").style.display = "none";
 </script>
 
 <div style="background: linear-gradient(135deg, rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%);">
   <div class="container content-intro">
     <p style="height:40px"></p>
-    <p class="display-4" style="font-size: 24px;">
+    <p class="display-4" style="font-size: 24px;text-align:justify;">
       Hello, I'm
       <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a
       <span style="font-weight: bold;">creative</span> agency based in New York
@@ -18,11 +18,18 @@
       <span style="font-weight: bold;">software development and web technologies</span>.
     </p>
   </div>
+  <!-- 
   <div style="display: flex; justify-content: space-around;padding-top:30px;opacity: 0.1;">
     <img style="height:75px; width:75px;" src="{% static 'blog/img/construction.gif' %}" />
   </div>
+-->
   <br />
+  <br />
+  <br />
+  {% include "blog/menu.html" %}
 </div>
+
+
 
 <p style="height:60px;"></p>
 
@@ -33,7 +40,7 @@
       <div style="display:flex;">
         <a href="#" style="font-size: 12px; font-weight: 900;">Recent</a>
 
-        <a href="#" style="text-indent: 20px;font-size: 12px;color:dimgrey;">Popular</a>
+        <a href="#" style="text-indent: 20px;font-size: 12px;color:dimgrey;"><s>Popular</s></a>
 
       </div>
       <p style="height:10px;"></p>
@@ -55,9 +62,9 @@
         </div>
 
         <div class="display-4 bloglistpostname">
-          <a href="/articles/{{article.id}}/">{{ article.name | title }}.</a>
+          <a href="/articles/{{article.id}}/" style="text-align: justify;">{{ article.name | title }}.</a>
         </div>
-        <div style="color: black;">
+        <div style="color: black;text-align: justify;">
           {{ article.strap | capfirst | truncatewords:45 }}
           <a href="/articles/{{ article.id }}" style="font-weight: bolder;font-style: normal;">🡢</a>
         </div>
@@ -67,23 +74,6 @@
 
       {% endif %} {% endfor %}
 
-
-
-      <!--
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-start">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
-      -->
 
       <p style="height:40px;"></p>
 

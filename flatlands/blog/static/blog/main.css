@@ -140,7 +140,24 @@ body {
     color: black;
     opacity: 0.7;
 }
-
+.content > ul a:link {
+    color: white;
+    opacity: 0.8;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.content > ul a:visited {
+    color: white;
+    opacity: 0.8;
+}
+.content > ul a:hover {
+    color: white;
+    opacity: 1;
+}
+.content > ul a:active {
+    color: white;
+    opacity: 0.8;
+}
 .indexlistpost {
     display: flex;
     flex-direction: column;
@@ -150,6 +167,32 @@ body {
     position: sticky;
     top: 100px;
   }
+.menu {
+    background-color: rgb(35, 35, 35); 
+    color: white;
+}
+#menu-article {
+    background-color: rgb(35, 35, 35); 
+    color: white;
+}
+
+  .menu-subscribe {
+    display: flex;
+    border:0px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right:20px;
+    margin:0px;
+    border: solid 1px white;
+    border-radius: 20px;
+    font-weight:400;
+    transition: 0.3s;
+}
+.menu-subscribe:hover {
+    display: flex;
+    color: black;
+    background-color: white;
+}
 
 .articlelistpost {
     display: flex;
