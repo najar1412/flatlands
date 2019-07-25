@@ -18,11 +18,7 @@
       <span style="font-weight: bold;">software development and web technologies</span>.
     </p>
   </div>
-  <!-- 
-  <div style="display: flex; justify-content: space-around;padding-top:30px;opacity: 0.1;">
-    <img style="height:75px; width:75px;" src="{% static 'blog/img/construction.gif' %}" />
-  </div>
--->
+
   <br />
   <br />
   <br />
@@ -64,7 +60,7 @@
         <div class="display-4 bloglistpostname">
           <a href="/articles/{{article.id}}/" style="text-align: justify;">{{ article.name | title }}.</a>
         </div>
-        <div style="color: black;text-align: justify;">
+        <div style="font-size: 18px;color: black;text-align: justify; font-style: italic;">
           {{ article.strap | capfirst | truncatewords:45 }}
           <a href="/articles/{{ article.id }}" style="font-weight: bolder;font-style: normal;">🡢</a>
         </div>

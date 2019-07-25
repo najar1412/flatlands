@@ -2,7 +2,7 @@ html {
     font-size:16px;
 }
 body {
-    background-color: #f2f2f2;
+    background-color: rgb(250, 250, 250);
     
 }
 .navbar-custom {
@@ -21,7 +21,6 @@ body {
     justify-content: space-around;
     padding-top: 40px;
 }
-
 
 .tech-icon {
     width:30px;
@@ -124,21 +123,21 @@ body {
 .content a:link {
     color: black;
     font-weight: 400;
-    opacity: 0.7;
+    opacity: 0.9;
     transition: 0.3s;
     text-decoration: none;
 }
 .content a:visited {
     color: black;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 .content a:hover {
-    color: black;
+    color: rgba(48,157,207,1);
     opacity: 1;
 }
 .content a:active {
     color: black;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 .content > ul a:link {
     color: white;
@@ -161,6 +160,9 @@ body {
 .indexlistpost {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    padding-bottom: 70px;
 }
 .sticky {
     position: -webkit-sticky;
@@ -229,7 +231,6 @@ body {
     padding-top:5px;
     padding-bottom:10px;
     width: 100%;
-    color:#353839;
 }
 .bloglistpostcontent {
     color: #353839;
@@ -326,9 +327,6 @@ body {
     margin-left:30px;
     padding-left:30px;
     width:100%;
-    border-left-style: solid;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, .06);]\
     height: auto;
 }
 @media(max-width:999px) {
@@ -337,7 +335,6 @@ body {
         padding:0px;
         float: none;
         width:100%;
-        border-left-style: none;
     }
 }
 
