@@ -45,6 +45,24 @@
       {% for article in articles %} {% if article.project == None %}
 
       <div class="indexlistpost">
+        <div class="blogpostimage">
+          <div style="display: flex; align-self: flex-end;">
+            {% for tech in article.tags.all %}
+
+
+
+
+            <div
+              style="display: flex; position: relative; top: 18px;margin: 5px;filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, .3));border: 20px;border-radius: 30px; overflow: hidden;">
+              <a href="{{tech.website}}">
+                <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon">
+              </a>
+            </div>
+
+
+            {% endfor %}
+          </div>
+        </div>
         <div class="blogpostheader">
           <div class="bloglistpostdate">
             <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon" />
@@ -60,13 +78,18 @@
         <div class="display-4 bloglistpostname">
           <a href="/articles/{{article.id}}/" style="text-align: justify;">{{ article.name | title }}.</a>
         </div>
-        <div style="font-size: 18px;color: black;text-align: justify; font-style: italic;">
-          {{ article.strap | capfirst | truncatewords:45 }}
-          <a href="/articles/{{ article.id }}" style="font-weight: bolder;font-style: normal;">🡢</a>
+        <div style="font-size: 14px;color: black;text-align: justify;">
+          {{ article.strap | capfirst | truncatewords:40 }}
         </div>
+        <a href="/articles/{{article.id}}/" style="text-align: justify;">
+          <div
+            style="display: flex; width: 125px; padding: 8px;border-radius: 3px;border: 2px solid #0099ccc0;color:#0099ccc0;justify-content: center;margin-top:20px;">
+            Read More
+          </div>
+        </a>
       </div>
 
-      <p style="height:60px;"></p>
+      <p style="height:10px;"></p>
 
       {% endif %} {% endfor %}
 

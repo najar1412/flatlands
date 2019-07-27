@@ -135,6 +135,7 @@ def project_article(request, project_id, article_id):
     project_id: ??: pk of a project
     article_id: ??: pk of an article
     """
+    # TODO: this is a stupid.
     # TODO: Limit data return to minimum. 
     # why send the whole project row, if i just need the title etc.
     article = get_object_or_404(Post, pk=article_id)
