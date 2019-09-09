@@ -24,7 +24,7 @@
       <div style="display: flex; flex-direction: row; justify-content: space-between">
         <div>
           <h5 class="card-title">
-            <a href="/projects/{{ project.id }}/">{{project.name|capfirst}}</a>
+            {{project.name|capfirst}}
           </h5>
         </div>
         <div style="display: flex;">
@@ -53,9 +53,24 @@
               </div>
             </div>
           </div>
-
-
     </h5>
+    {% if project.cover_img ==  'None' %}
+    <div style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;">
+      <img style="width: inherit;height: auto;border-radius: 3px; border:1px solid rgba(0, 0, 0, .05);"
+        src="https://www.fillmurray.com/350/150">
+    </div>
+
+
+
+
+    {% else %}
+    <div style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;">
+      <img style="width: inherit;height: auto;border-radius: 3px; border:1px solid rgba(0, 0, 0, .05);"
+        src="{% static 'blog/projects/'|add:project.name|add:'/'|add:project.cover_img %}">
+    </div>
+    {% endif %}
+
+
     <p class="card-text" style="text-align: justify;">
       {{project.strap|capfirst|truncatewords:50}}
 
