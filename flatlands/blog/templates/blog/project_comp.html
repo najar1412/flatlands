@@ -26,6 +26,7 @@
           <h5 class="card-title">
             {{project.name|capfirst}}
           </h5>
+
         </div>
         <div style="display: flex;">
 
@@ -39,17 +40,19 @@
                 {% else %}
                 <span style="font-size: 14px;">
                   <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
-                  <a href="{{project.repo}}">code</a>
+                  <a href="{{project.repo}}">repo</a>
                 </span>
                 {% endif %}
 
               </div>
               <div style="padding-left:10px;">
+                {% if project.demo == None %}
+                {% else %}
                 <span style="font-size: 14px;">
                   <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
                   <a href="{{project.demo}}">demo</a>
                 </span>
-
+                {% endif %}
               </div>
             </div>
           </div>
@@ -69,6 +72,8 @@
         src="{% static 'blog/projects/'|add:project.name|add:'/'|add:project.cover_img %}">
     </div>
     {% endif %}
+
+    <p style="font-size: 10px;"><strong>PLATFORM : </strong>{{project.platform|capfirst}}</p>
 
 
     <p class="card-text" style="text-align: justify;">
