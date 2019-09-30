@@ -496,11 +496,17 @@ body {
     display: flex; min-width: 50%;
     margin: 10px;
 }
+.about-content {
+
+}
 @media(max-width:800px) {
     .about{
         flex-direction: column;
     }
     .about-padding {
         min-width: 0px;
+    }
+    .about-content {
+text-align: center;
     }
 }
