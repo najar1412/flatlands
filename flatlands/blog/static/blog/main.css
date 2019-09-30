@@ -493,14 +493,14 @@ body {
     justify-self: center;
 }
 .about-padding{
-    display: flex; width: 820px;
+    display: flex; min-width: 50%;
+    margin: 10px;
 }
 @media(max-width:800px) {
     .about{
         flex-direction: column;
     }
     .about-padding {
-        width: 0px;
-        background-color: red;
+        min-width: 0px;
     }
 }
