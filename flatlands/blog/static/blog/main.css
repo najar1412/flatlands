@@ -488,3 +488,19 @@ body {
     padding-top: 30px;
     background-color: rgb(222, 252, 244);
 }
+.about{
+    display: flex; margin: 10px;
+    justify-self: center;
+}
+.about-padding{
+    display: flex; width: 820px;
+}
+@media(max-width:800px) {
+    .about{
+        flex-direction: column;
+    }
+    .about-padding {
+        width: 0px;
+        background-color: red;
+    }
+}
