@@ -13,7 +13,7 @@
 <p style="height:20px;"></p>
 
 
-{% for project in projects %}
+{% for project in projects reversed %}
 
 
 <div class="card mb-3" style="filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .05));">
@@ -39,8 +39,10 @@
                 {% if project.repo == None %}
                 {% else %}
                 <span style="font-size: 14px;">
-                  <img class="iconic-svg-small" src="{% static 'blog/svg/code.svg' %}" alt="code icon">
-                  <a href="{{project.repo}}">repo</a>
+                  <a href="{{project.repo}}">
+                    <i class="fas fa-code"></i>
+                    repo
+                  </a>
                 </span>
                 {% endif %}
 
@@ -49,8 +51,9 @@
                 {% if project.demo == None %}
                 {% else %}
                 <span style="font-size: 14px;">
-                  <img class="iconic-svg-small" src="{% static 'blog/svg/browser.svg' %}" alt="code icon">
-                  <a href="{{project.demo}}">demo</a>
+                  <a href="{{project.demo}}">
+                    <i class="fas fa-play"></i>
+                    demo</a>
                 </span>
                 {% endif %}
               </div>
