@@ -41,9 +41,9 @@
           style="display:flex; flex-direction: row;padding-bottom: 5px;width: 100%; margin-left: 20px;font-size: 12px;">
 
           <span style="opacity: .4;">
-            <img class="iconic-svg-small" src="{% static 'blog/svg/magnifying-glass.svg' %}" alt="code icon">
-          </span>
-          <input style="width: 100%; border:0px; background-color: rgba(0, 0, 0, 0);" placeholder="Search">
+            <i class="fas fa-search" style="margin-right: 15px;margin-top: 2px;"></i> </span>
+          <input style="font-size: 12px;width: 100%; border:0px; background-color: rgba(0, 0, 0, 0);"
+            placeholder="Search">
 
         </div>
 
@@ -74,12 +74,11 @@
         </div>
         <div class="blogpostheader">
           <div class="bloglistpostdate">
-            <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon" />
+            <i class="far fa-clock"></i>
             {{ article.pub_date | timesince | upper }} AGO
           </div>
           <div class="bloglistpostdate">
-            <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon" />
-            {% for tag in article.tags.all %}
+            <i class="fas fa-tags"></i> {% for tag in article.tags.all %}
             <a href="/search/{{tag|lower}}" style="color: black;">{{tag|upper}}</a>, {% endfor %}
           </div>
         </div>

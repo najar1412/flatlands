@@ -10,14 +10,14 @@
 
 <div class="container content">
 
-        <div id="breadcrumbs">
-                Search &emsp; > &emsp; {% for word in search %}{{word}} {% endfor %}
-            </div>
+    <div id="breadcrumbs">
+        Search &emsp; > &emsp; {% for word in search %}{{word}} {% endfor %}
+    </div>
 
-        <p style="height:40px"></p>
-    
+    <p style="height:40px"></p>
+
     {% if articles %}
-    
+
     <h1 class="display-4">Found Articles</h1>
     <p style="height:20px"></p>
 
@@ -25,15 +25,14 @@
 
     <div class="indexlistpost">
 
-            <p style="height:20px;"></p>
-        
+        <p style="height:20px;"></p>
+
         <div class="blogpostheader">
             <div class="bloglistpostdate">
-                <img class="iconic-svg" src="{% static 'blog/svg/clock.svg' %}" alt="clock icon"> {{article.pub_date|timesince|upper}} AGO
-            </div>
+                <i class="far fa-clock"></i> </div>
             <div class="bloglistposttags">
-                <img class="iconic-svg" src="{% static 'blog/svg/tags.svg' %}" alt="tags icon"> {% for tag in article.tags.all %}
-                <a href="/search/{{tag|lower}}" style="color: #233452;">{{tag|upper}}</a>, 
+                <i class="fas fa-tags"></i> {% for tag in article.tags.all %}
+                <a href="/search/{{tag|lower}}" style="color: #233452;">{{tag|upper}}</a>,
                 {% endfor %}
             </div>
         </div>
@@ -43,14 +42,15 @@
                 {% if article.project == None %}
                 <a href="/articles/{{ article.id }}/">{{ article.name|title }}</a>
                 {% else %}
-                <a href="/projects/{{article.project.id}}/{{ article.id }}">{{article.project|title}}: {{ article.name|title }}</a>
-                
+                <a href="/projects/{{article.project.id}}/{{ article.id }}">{{article.project|title}}:
+                    {{ article.name|title }}</a>
+
                 {% endif %}
             </div>
         </div>
 
-        
-        
+
+
     </div>
 
     {% endfor %} {% else %}
