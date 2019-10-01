@@ -499,6 +499,12 @@ body {
 .about-content {
 
 }
+.about-images {
+    display:flex; flex-wrap: wrap;
+}
+.about-image {
+    max-width: 50%; height: auto;padding: 2px;
+}
 @media(max-width:800px) {
     .about{
         flex-direction: column;
@@ -508,5 +514,8 @@ body {
     }
     .about-content {
 text-align: center;
+    }
+    .about-images > img {
+        max-width:100%;
     }
 }
