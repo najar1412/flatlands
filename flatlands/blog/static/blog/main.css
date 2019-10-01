@@ -10,8 +10,8 @@ body {
 }
 
 .content-nav{
-    padding-left:40px;
-    padding-right:40px;
+    padding-left:20px;
+    padding-right:20px;
 }
 
 
@@ -108,8 +108,8 @@ body {
     font-size: 60px;
 }
 .content {
-    padding-left:40px;
-    padding-right:40px;
+    padding-left:20px;
+    padding-right:20px;
     display: flex;
     flex-direction: column;
 }
@@ -280,8 +280,8 @@ body {
 
 .content-intro{
     color: white;
-    padding-left:40px;
-    padding-right:40px;
+    padding-left:20px;
+    padding-right:20px;
 }
 .content-intro a:link{
     color: white;
