@@ -41,6 +41,28 @@ def add_to_mailinglist(request):
         return redirect('index')
 
 # views
+# views
+def home(request):
+    """Landing page"""
+
+    articles = Post.objects.filter(
+        published=True, project=None
+        ).order_by('-pub_date')
+
+    projects = Project.objects.filter(
+        published=True
+        ).order_by('-pub_date')
+
+    context = standard_context
+    context['articles'] = articles
+    context['projects'] = projects
+
+
+    return render(request, 'blog/home.html', context)
+
+
+
+
 def index(request):
     """Landing page"""
     # TODO: cache needs to happen somewhere else.
