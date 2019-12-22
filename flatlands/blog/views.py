@@ -41,28 +41,6 @@ def add_to_mailinglist(request):
         return redirect('index')
 
 # views
-# views
-def home(request):
-    """Landing page"""
-
-    articles = Post.objects.filter(
-        published=True, project=None
-        ).order_by('-pub_date')
-
-    projects = Project.objects.filter(
-        published=True
-        ).order_by('-pub_date')
-
-    context = standard_context
-    context['articles'] = articles
-    context['projects'] = projects
-
-
-    return render(request, 'blog/home.html', context)
-
-
-
-
 def index(request):
     """Landing page"""
     # TODO: cache needs to happen somewhere else.
@@ -84,12 +62,6 @@ def index(request):
 
     return render(request, 'blog/index.html', context)
 
-
-def about(request):
-    # TODO: IMP design and copy
-    return render(request, 'blog/about.html')
-
-
 def article(request, post_id):
     """retrives a single articles"""
     post = get_object_or_404(Post, pk=post_id)
@@ -110,103 +82,6 @@ def article(request, post_id):
 
 
     return render(request, 'blog/post.html', context)
-
-
-def articles(request):
-    """retrives all articles"""
-    articles = Post.objects.filter(
-        project=None, published=True
-        ).order_by('-pub_date')
-
-    context = standard_context
-    context['articles'] = articles
-
-
-    return render(request, 'blog/articles.html', context)
-
-
-def project(request, project_id):
-    """retrives a single project"""
-    project = get_object_or_404(Project, pk=project_id)
-    articles = list(
-        Post.objects.filter(
-            project=project_id, published=True
-            ).order_by('pub_date')
-        )
-
-    context = {'project': project, 'articles': articles,
-        'searchform': SearchForm()}
-
-    context = standard_context
-    context['project'] = project
-    context['articles'] = articles
-
-
-    if len(articles) > 0:
-        return redirect(
-            'project_article', project_id=project_id, article_id=articles[0].pk
-            )
-
-    else:
-        return render(request, 'blog/project.html', context)
-    
-
-def project_article(request, project_id, article_id):
-    """retrives a single projects article
-    AUG:
-    project_id: ??: pk of a project
-    article_id: ??: pk of an article
-    """
-    # TODO: this is a stupid.
-    # TODO: Limit data return to minimum. 
-    # why send the whole project row, if i just need the title etc.
-    article = get_object_or_404(Post, pk=article_id)
-
-    if article:
-        project = get_object_or_404(Project, pk=project_id)
-        articles = list(
-            Post.objects.filter(
-                project=project_id, published=True
-                ).order_by('pub_date')
-            )
-
-        project_markdown = MTML('django').retrieve(
-            article.content, markdown_type=['projects', project.name]
-            )
-
-        markdown_headers = MTML('django')._parse_headers(project_markdown)
-
-        project_nav = view_helpers.before_and_after_articles(
-            article_id, articles
-            )
-
-        used_software = UsedSoftware.objects.filter(projects=project_id)
-
-        context = standard_context
-        context['project'] = project
-        context['used_software'] = used_software
-        context['articles'] = articles
-        context['viewed_article'] = article
-        context['article_content'] = project_markdown
-        context['project_nav'] = project_nav
-        context['markdown_headers'] = markdown_headers
-
-
-        return render(request, 'blog/project_article.html', context)
-
-    return redirect('index')
-
-
-def projects(request):
-    """retrives all projects"""
-    projects = Project.objects.filter(
-        published=True
-        ).order_by('-pub_date')
-
-    context = standard_context
-    context['projects'] = projects
-
-    return render(request, 'blog/projects.html', context)
 
 
 def search(request, string):

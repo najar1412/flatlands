@@ -1,73 +1,59 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
 <!-- hides the header just on the index page-->
+
 <script>
   document.getElementById("menu-article").style.display = "none";
 </script>
-
-<div style="background: linear-gradient(135deg, rgb(6, 47, 75) 0%,rgb(12, 31, 53) 100%);">
-  <div class="container content-intro">
-    <p style="height:40px"></p>
-    <p class="display-4" style="font-size: 24px;text-align:justify;">
+<div id="simple-logo">
+  <div>
+    <img src="{% static 'blog/img/logo.png' %}" alt="logo" />
+    <p>flatlands</p>
+  </div>
+  <div>
+    <p id="intro" style="text-align:justify;">
       Hello, I'm
       <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a
-      <span style="font-weight: bold;">creative</span> agency based in New York
-      where we predominantly produce computer generated stills and film.
+      digital
+      <span style="font-weight: bold;">creative</span> agency based in New York. We predominantly create web/print media
+      and
+      computer generated still and films.
       <br /><br />
-      Below you’ll find articles and side projects in some way related to
-      <span style="font-weight: bold;">software development and web technologies</span>.
+      Sometimes i'll write about that, aswel as other
+      <span style="font-weight: bold;">software development and technology</span> things.
     </p>
   </div>
-
-  <br />
-  <br />
-  <br />
-  {% include "blog/menu.html" %}
 </div>
-
-
-
-<p style="height:60px;"></p>
-
-<div class="container content">
+<div class="container">
   <div class="content-index">
-    <div style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column; max-width: 700px;">
       <h1 class="display-4" style="font-size:45px;">Posts</h1>
       <div style="display:flex;">
         <a href="#" style="font-size: 12px; font-weight: 900;">Recent</a>
 
-
         <div
           style="display:flex; flex-direction: row;padding-bottom: 5px;width: 100%; margin-left: 20px;font-size: 12px;">
-
           <span style="opacity: .4;">
-            <i class="fas fa-search" style="margin-right: 15px;margin-top: 2px;"></i> </span>
+            <i class="fas fa-search" style="margin-right: 15px;margin-top: 2px;"></i>
+          </span>
           <input style="font-size: 12px;width: 100%; border:0px; background-color: rgba(0, 0, 0, 0);"
-            placeholder="Search">
-
+            placeholder="Search" />
         </div>
-
-
       </div>
       <p style="height:14px;"></p>
-      {% if articles %}
-      {% for article in articles %} {% if article.project == None %}
+      {% if articles %} {% for article in articles %} {% if article.project == None %}
 
       <div class="indexlistpost">
         <div class="blogpostimage" style="background: url(https://www.fillmurray.com/580/199)">
           <div style="display: flex; align-self: flex-end;">
             {% for tech in article.tags.all %}
 
-
-
-
             <div
               style="display: flex; position: relative; top: 18px;margin: 5px;filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, .3));border: 20px;border-radius: 30px; overflow: hidden;">
               <a href="{{tech.website}}">
-                <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon">
+                <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon" />
               </a>
             </div>
-
 
             {% endfor %}
           </div>
@@ -86,7 +72,7 @@
         <div class="display-4 bloglistpostname">
           <a href="/articles/{{article.id}}/" style="text-align: justify;">{{ article.name | title }}.</a>
         </div>
-        <div style="font-size: 14px;color: black;text-align: justify;">
+        <div style="font-size: 16px;color: black;text-align: justify;">
           {{ article.strap | capfirst | truncatewords:40 }}
         </div>
         <a href="/articles/{{article.id}}/" style="text-align: justify;">
@@ -99,11 +85,7 @@
 
       <p style="height:10px;"></p>
 
-      {% endif %} {% endfor %}
-
-
-
-      {% else %}
+      {% endif %} {% endfor %} {% else %}
       <p>No Articles :(</p>
 
       {% endif %}
@@ -111,17 +93,24 @@
 
     <div class="project-comp">
       <div>
-        {% include "blog/project_comp.html" %}
+        {% include "blog/side_projects.html" %}
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
   <!--
-  {% include "blog/comp/mailinglist.html" %}
--->
-  <div>
     {% include "blog/comp/social.html" %}
   </div>
 </div>
+-->
+</div>
+
 
 
 

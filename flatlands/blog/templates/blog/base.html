@@ -7,6 +7,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109427281-1"></script>
   <script src="https://kit.fontawesome.com/b8a8dfb039.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway&display=swap" rel="stylesheet">
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -38,9 +39,12 @@
 
 
   {% block content %}{% endblock %}
-  <!-- 
-  {% include "blog/footer.html" %}
--->
+
+  <hr>
+
+  {% include "blog/comp/mailinglist.html" %}
+
+  {% include "blog/information.html" %}
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
