@@ -497,6 +497,11 @@ a {
     padding: 55px;
 }
 
+.list-unstyled > li {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 
 @media (min-width: 1920px) {
     .container {
@@ -547,9 +552,6 @@ a {
         display: flex;
         flex-direction: column;
     }
-    #intro {
-        font-size: 16px;
-    }
     
     
 
@@ -593,6 +595,10 @@ a {
     #simple-logo > div:last-child {
         max-width: 510px;
         padding-top: 34px;
+    }
+    
+    #intro {
+        font-size: 16px;
     }
 }
 
