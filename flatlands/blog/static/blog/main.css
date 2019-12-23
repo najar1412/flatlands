@@ -4,7 +4,7 @@ html {
 body {
     background-color: rgb(250, 250, 250);
     font-family: 'Raleway', sans-serif;
-    /*font-family: 'Quicksand', sans-serif; */
+    letter-spacing: 2px;
     
 }
 a {
@@ -18,24 +18,15 @@ a {
     align-items: center;
     height: 350px;
 }
-#simple-logo > div:first-child {
-        max-width: 200px;
-    width: 200px;
-    text-align: center;
-}
-#simple-logo > div:first-child > img {
-    width: 100px;
-    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
-}
 #simple-logo > div:first-child > p {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 500;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     color: black;
     padding-top: 20px;
 }
 #simple-logo > div:last-child {
-    max-width: 300px;
+    max-width: 600px;
 }
 #intro {
     font-family: 'Quicksand', sans-serif;
@@ -501,6 +492,24 @@ a {
     margin-top: 20px;
     margin-bottom: 10px;
 }
+.section-header {
+    font-weight: 300;
+    line-height: 1.2;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#mobile-menu {
+    padding: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 100;
+}
 
 
 @media (min-width: 1920px) {
@@ -515,6 +524,14 @@ a {
 }
 
 @media only screen and (max-width: 1000px) {
+    #mobile-menu {
+        display: flex;
+    }
+    
+    #simple-logo > div:last-child {
+        max-width: 700px;
+        padding-top: 50px;
+    }
     .content-index{
         display:flex; 
         flex-direction: column;
@@ -558,6 +575,7 @@ a {
 }
 
 @media only screen and (max-width: 800px) {
+    
     .about{
         flex-direction: column;
     }
@@ -584,17 +602,13 @@ a {
     }
 
     #simple-logo {
-        margin-top: 30px;
+        margin-top: 0;
         margin-bottom: 30px;
         flex-direction: column;
         padding: 15px;
         height: auto;
-        padding-top: 26px;
+        padding-top: 0;
 
-    }
-    #simple-logo > div:last-child {
-        max-width: 510px;
-        padding-top: 34px;
     }
     
     #intro {

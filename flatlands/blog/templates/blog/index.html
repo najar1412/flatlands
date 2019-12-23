@@ -5,12 +5,33 @@
 <script>
   document.getElementById("menu-article").style.display = "none";
 </script>
+
+
+
+
+<div id="mobile-menu">
+  <div style="display:flex;padding-top: 20px;">
+    <div id="mobile-menu-posts"
+      style="margin-right: 15px; cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
+      onclick="sideProjectToggle(this)">POSTS
+    </div>
+
+    <div id="mobile-menu-sideprojects"
+      style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
+      onclick="sideProjectToggle(this)">SIDE PROJECTS
+    </div>
+
+    <div id="mobile-menu-about"
+      style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
+      onclick="sideProjectToggle(this)">ABOUT
+    </div>
+
+  </div>
+</div>
+
 <div id="simple-logo">
   <div>
-    <img src="{% static 'blog/img/logo.png' %}" alt="logo" />
-    <p>flatlands</p>
-  </div>
-  <div>
+
     <p id="intro" style="text-align:justify;">
       Hello, I'm
       <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a
@@ -22,24 +43,40 @@
       Sometimes i'll write about that, aswel as other
       <span style="font-weight: bold;">software development and technology</span> things.
     </p>
+
   </div>
 </div>
 <div class="container">
   <div class="content-index">
     <div style="display: flex; flex-direction: column; max-width: 700px;">
-      <h1 class="display-4" style="font-size:45px;">Posts</h1>
-      <div style="display:flex;">
-        <a href="#" style="font-size: 12px; font-weight: 900;">Recent</a>
+      <h1 class="section-header" style="font-size:45px;">Posts</h1>
 
-        <div
-          style="display:flex; flex-direction: row;padding-bottom: 5px;width: 100%; margin-left: 20px;font-size: 12px;">
-          <span style="opacity: .4;">
-            <i class="fas fa-search" style="margin-right: 15px;margin-top: 2px;"></i>
-          </span>
-          <input style="font-size: 12px;width: 100%; border:0px; background-color: rgba(0, 0, 0, 0);"
-            placeholder="Search" />
+
+
+
+
+      <div style="display:flex;padding-top: 20px;">
+        <div id="side-projects-current"
+          style="margin-right: 15px; cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
+          onclick="sideProjectToggle(this)">RECENT
         </div>
+
+        <div id="side-projects-showcase"
+          style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
+          onclick="sideProjectToggle(this)">SEARCH
+        </div>
+
       </div>
+
+
+
+
+
+
+
+
+
+
       <p style="height:14px;"></p>
       {% if articles %} {% for article in articles %} {% if article.project == None %}
 
@@ -69,8 +106,9 @@
           </div>
         </div>
 
-        <div class="display-4 bloglistpostname">
-          <a href="/articles/{{article.id}}/" style="text-align: justify;">{{ article.name | title }}.</a>
+        <div class="section-header bloglistpostname">
+          <a href="/articles/{{article.id}}/"
+            style="text-align: justify;font-weight: 600;">{{ article.name | title }}.</a>
         </div>
         <div style="font-size: 16px;color: black;text-align: justify;">
           {{ article.strap | capfirst | truncatewords:40 }}
