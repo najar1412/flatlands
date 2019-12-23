@@ -1,22 +1,27 @@
-<div style="background-color: black;color: white;padding: 30px;margin-top: 50px;">
+{% load static %}
+
+<div style="background-color: black;color: white;padding: 30px;margin-top: 80px;">
 
 
 
 
 
-    <footer>
+    <footer id="about">
         <div class="row">
             <div class="footer-column">
-                <h1 class="display-4" style="font-size:45px;">TL;DR</h1>
-                <p>“...”</p>
+                <img class="about-image" src="{% static 'blog/svg/003-eye.svg' %}" alt="tldr icon">
+                <p class="section-header" style="font-size:24px;">“Curiosity killed the cat, But satisfaction brought it
+                    back.”</p class="section-header" style="font-size:24px;">
                 <ul class="list-unstyled text-small text-muted">
                     <li>Rory Jarrel</li>
                     <li>Brooklyn, New York</li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h1 class="display-4" style="font-size:45px;">Skill</h1>
-                <p>“A jack of all trades is a master of none, but oftentimes better than a master of one.”</p>
+                <img class="about-image" src="{% static 'blog/svg/002-skills.svg' %}" alt="tldr icon">
+                <p class="section-header" style="font-size:24px;">“A jack of all trades is a master of none, but
+                    oftentimes better than a master
+                    of one.”</p>
                 <ul class="list-unstyled text-small text-muted">
                     <li>Languages</li>
                     <ul>
@@ -44,8 +49,9 @@
                 </ul>
             </div>
             <div class="footer-column">
-                <h1 class="display-4" style="font-size:45px;">Grind</h1>
-                <p>“Opportunity is missed by most people because it is dressed in overalls and looks like work.”</p>
+                <img class="about-image" src="{% static 'blog/svg/001-candidate.svg' %}" alt="tldr icon">
+                <p class="section-header" style="font-size:24px;">“Opportunity is missed by most people because it is
+                    dressed in overalls and looks like work.”</p class="section-header" style="font-size:24px;">
                 <ul class="list-unstyled text-small text-muted">
                     <li>Technical Director</li>
 

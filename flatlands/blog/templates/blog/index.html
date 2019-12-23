@@ -13,43 +13,61 @@
   <div style="display:flex;padding-top: 20px;">
     <div id="mobile-menu-posts"
       style="margin-right: 15px; cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
-      onclick="sideProjectToggle(this)">POSTS
+      onclick="menuToggle(this)">POSTS
     </div>
 
     <div id="mobile-menu-sideprojects"
       style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-      onclick="sideProjectToggle(this)">SIDE PROJECTS
+      onclick="menuToggle(this)">SIDE PROJECTS
     </div>
 
     <div id="mobile-menu-about"
       style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-      onclick="sideProjectToggle(this)">ABOUT
+      onclick="menuToggle(this)">ABOUT
     </div>
 
   </div>
+
+
+  <a href="#simple-logo"> <img style="position: absolute;right: 0;height: 23px;margin: 13px;margin-right: 18px;"
+      src="{% static 'blog/svg/thin-up-arrow.svg' %}" alt="tldr icon"></a>
+
 </div>
 
-<div id="simple-logo">
-  <div>
 
-    <p id="intro" style="text-align:justify;">
-      Hello, I'm
-      <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at a
-      digital
-      <span style="font-weight: bold;">creative</span> agency based in New York. We predominantly create web/print media
-      and
-      computer generated still and films.
-      <br /><br />
-      Sometimes i'll write about that, aswel as other
-      <span style="font-weight: bold;">software development and technology</span> things.
-    </p>
+
+<div class="container">
+  <div class="content-index">
+    <div id="simple-logo">
+      <div>
+
+        <p id="intro" style="text-align:justify;">
+          Hello, I'm
+          <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at
+          a
+          digital
+          <span style="font-weight: bold;">creative</span> agency based in New York. We predominantly create web/print
+          media
+          and
+          computer generated still and films.
+          <br /><br />
+          Sometimes i'll write about that, aswel as other
+          <span style="font-weight: bold;">software development and technology</span> things.
+        </p>
+
+      </div>
+    </div>
 
   </div>
+
 </div>
+
+
+
 <div class="container">
   <div class="content-index">
     <div style="display: flex; flex-direction: column; max-width: 700px;">
-      <h1 class="section-header" style="font-size:45px;">Posts</h1>
+      <h1 id="posts" class="section-header" style="font-size:45px;">Posts</h1>
 
 
 
@@ -58,12 +76,12 @@
       <div style="display:flex;padding-top: 20px;">
         <div id="side-projects-current"
           style="margin-right: 15px; cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
-          onclick="sideProjectToggle(this)">RECENT
+          onclick="postToggle(this)">RECENT
         </div>
 
         <div id="side-projects-showcase"
           style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-          onclick="sideProjectToggle(this)">SEARCH
+          onclick="postToggle(this)"><s>SEARCH</s>
         </div>
 
       </div>
