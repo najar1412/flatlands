@@ -32,6 +32,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}" />
 </head>
 
+
 <body>
   <nav class="fixed-top" id="menu-article">
     {% include "blog/menu-article.html" %}
@@ -101,7 +102,7 @@
         if (parent.children[i].id === el.id) {
           el.style.fontWeight = 600;
           parent.children[i].style.color = 'black';
-          parent.children[i].style.borderBottom = '1px solid black';
+          parent.children[i].style.borderBottom = '3px solid black';
 
           var nameArray = el.id.split("-")
           var name = nameArray[nameArray.length - 1];

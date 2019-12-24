@@ -10,26 +10,26 @@
 
 
 <div id="mobile-menu">
-  <div style="display:flex;padding-top: 20px;">
+  <div style="display: flex;align-self: center;margin-top: 21px;">
     <div id="mobile-menu-posts"
-      style="margin-right: 15px; cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
+      style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 16px; border-bottom: 0px"
       onclick="menuToggle(this)">POSTS
     </div>
 
     <div id="mobile-menu-sideprojects"
-      style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
+      style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 16px; border-bottom: 0px"
       onclick="menuToggle(this)">SIDE PROJECTS
     </div>
 
     <div id="mobile-menu-about"
-      style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
+      style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 16px; border-bottom: 0px"
       onclick="menuToggle(this)">ABOUT
     </div>
 
   </div>
 
 
-  <a href="#simple-logo"> <img style="position: absolute;right: 0;height: 23px;margin: 13px;margin-right: 18px;"
+  <a href="#simple-logo"> <img style="position: absolute;right: 0;height: 23px;margin: 18px;margin-right: 18px;"
       src="{% static 'blog/svg/thin-up-arrow.svg' %}" alt="tldr icon"></a>
 
 </div>
@@ -43,7 +43,7 @@
 
         <p id="intro" style="text-align:justify;">
           Hello, I'm
-          <span style="font-weight: bold;"><a href="mailto:hello@flatlands.io">Rory</a></span>! Technical director at
+          <span><a href="mailto:hello@flatlands.io" style="font-weight: bold;">Rory</a></span>! Technical director at
           a
           digital
           <span style="font-weight: bold;">creative</span> agency based in New York. We predominantly create web/print
@@ -51,8 +51,8 @@
           and
           computer generated still and films.
           <br /><br />
-          Sometimes i'll write about that, aswel as other
-          <span style="font-weight: bold;">software development and technology</span> things.
+          Sometimes i'll write about that, other-times
+          <span style="font-weight: bold;">software development and web technology</span> type things.
         </p>
 
       </div>
@@ -74,14 +74,19 @@
 
 
       <div style="display:flex;padding-top: 20px;">
-        <div id="side-projects-current"
+        <div id="posts-recent"
           style="margin-right: 15px; cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
           onclick="postToggle(this)">RECENT
         </div>
 
-        <div id="side-projects-showcase"
+        <div id="posts-popular"
+          style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
+          onclick="postToggle(this)">POPULAR
+        </div>
+
+        <div id="posts-search"
           style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-          onclick="postToggle(this)"><s>SEARCH</s>
+          onclick="postToggle(this)">SEARCH
         </div>
 
       </div>
