@@ -8,6 +8,7 @@
     style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
     onclick="sideProjectToggle(this)">SHOWCASE (1)
   </div>
+
   <div id="side-projects-current"
     style="cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
     onclick="sideProjectToggle(this)">CURRENT (2)
@@ -24,7 +25,7 @@
   {% for project in projects reversed %}
 
 
-
+  {% if project.showcase == False %}
 
   <div class="card mb-3" style="filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .03));border: 0;border-radius: 0;">
     <div class="card-body">
@@ -45,7 +46,7 @@
                   <span style="font-size: 14px;">
                     <a href="{{project.repo}}" target="_blank">
                       <i class="fas fa-code"></i>
-                      code (new tab)
+                      code (+)
                     </a>
                   </span>
                   {% endif %}
@@ -56,7 +57,7 @@
                   <span style="font-size: 14px;">
                     <a href="{{project.demo}}" target="_blank">
                       <i class="fas fa-play"></i>
-                      demo (new tab)</a>
+                      demo (+)</a>
                   </span>
                   {% endif %}
                 </div>
@@ -97,7 +98,99 @@
       </div>
 
 
-      <br>
+      <s>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </s>
+    </div>
+  </div>
+
+  {% endif %}
+  {% endfor %}
+</div>
+
+
+
+
+
+
+<div id="showcase-side-projects" style="display: none;">
+
+  {% for project in projects reversed %}
+
+
+  {% if project.showcase == True %}
+
+  <div class="card mb-3" style="filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .03));border: 0;border-radius: 0;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <div style="display: flex;flex-direction: column;padding-bottom: 25px;">
+          <div>
+            <h5 class="card-title" style="font-weight: 600;font-size: 30px;">
+              {{project.name|capfirst}}
+            </h5>
+          </div>
+
+          <div style="display: flex;">
+            <div style="display: flex; flex-direction: row; justify-content: space-between">
+              <div style="display: flex;">
+                <div>
+                  {% if project.repo == None %}
+                  {% else %}
+                  <span style="font-size: 14px;">
+                    <a href="{{project.repo}}" target="_blank">
+                      <i class="fas fa-code"></i>
+                      code (+)
+                    </a>
+                  </span>
+                  {% endif %}
+                </div>
+                <div style="padding-left:10px;">
+                  {% if project.demo == None %}
+                  {% else %}
+                  <span style="font-size: 14px;">
+                    <a href="{{project.demo}}" target="_blank">
+                      <i class="fas fa-play"></i>
+                      demo (+)</a>
+                  </span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+      </h5>
+      {% if project.cover_img ==  'None' %}
+      <div style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;">
+        <img style="width: inherit;height: auto;border-radius: 3px; border:1px solid rgba(0, 0, 0, .05);"
+          src="https://www.fillmurray.com/350/150">
+      </div>
+
+
+
+
+      {% else %}
+      <div style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;">
+        <img style="width: inherit;height: auto;border-radius: 3px; border:1px solid rgba(0, 0, 0, .05);"
+          src="{% static 'blog/projects/'|add:project.name|add:'/'|add:project.cover_img %}">
+      </div>
+      {% endif %}
+
+      <p style="font-size: 10px;"><strong>PLATFORM : </strong>{{project.platform|capfirst}}</p>
+
+
+      <p class="card-text" style="text-align: justify;">
+        {{project.strap|capfirst|truncatewords:50}}
+
+      </p>
+
+
+      <div>
+        {% for tech in project.usedsoftware_set.all %}
+        <a href="{{tech.website}}">
+          <img class="tech-icon" src="{% static 'blog/img/'|add:tech.small_logo %}" alt="{{tech}} icon">
+        </a>
+        {% endfor %}
+      </div>
+
+
 
 
       <s>
@@ -106,19 +199,9 @@
     </div>
   </div>
 
+  {% endif %}
 
-
-  <br> {% endfor %}
-</div>
-
-<div id="showcase-side-projects" style="display: none;width: 100%;">
-  <div class="card mb-3" style="filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .03));border: 0;border-radius: 0;">
-    <div class="card-body" style="text-align: center; font-weight: 600;">
-      <img style="width: 100%; padding:100px;padding-top: 50px;padding-bottom: 40px;"
-        src="{% static 'blog/svg/empty_box.svg' %}" alt="tldr icon"><br>
-      Such Empty.
-    </div>
-  </div>
+  {% endfor %}
 </div>
 
 </div>
