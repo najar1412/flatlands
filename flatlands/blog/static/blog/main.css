@@ -16,9 +16,9 @@ a {
     width: 100%;
     justify-content: center;
     border-bottom: 1px solid lightgrey;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     padding-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 #simple-logo > div:first-child > p {
     font-size: 26px;
@@ -615,10 +615,10 @@ a {
 
     #simple-logo {
         margin-top: 0;
-        margin-bottom: 30px;
+        margin-bottom: 100px;
         flex-direction: column;
         height: auto;
-        padding-bottom: 20px;
+        padding-bottom: 100px;
 
     }
     

@@ -6,11 +6,11 @@
 
   <div id="side-projects-showcase"
     style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-    onclick="sideProjectToggle(this)">SHOWCASE(0)
+    onclick="sideProjectToggle(this)">SHOWCASE (1)
   </div>
   <div id="side-projects-current"
     style="cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
-    onclick="sideProjectToggle(this)">CURRENT(2)
+    onclick="sideProjectToggle(this)">CURRENT (2)
   </div>
 
 </div>
@@ -29,7 +29,7 @@
   <div class="card mb-3" style="filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .03));border: 0;border-radius: 0;">
     <div class="card-body">
       <h5 class="card-title">
-        <div style="display: flex; flex-direction: row; justify-content: space-between">
+        <div style="display: flex;flex-direction: column;padding-bottom: 25px;">
           <div>
             <h5 class="card-title" style="font-weight: 600;font-size: 30px;">
               {{project.name|capfirst}}
@@ -45,7 +45,7 @@
                   <span style="font-size: 14px;">
                     <a href="{{project.repo}}" target="_blank">
                       <i class="fas fa-code"></i>
-                      repo (new tab)
+                      code (new tab)
                     </a>
                   </span>
                   {% endif %}

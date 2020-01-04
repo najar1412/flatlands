@@ -4,7 +4,6 @@ from .forms import SearchForm, MailingList
 
 from .modules.markdown import MTML
 import blog.modules.view_helpers as view_helpers
-from .modules.social import get_latest_instagram, _cache_instagram_links_to_db
 from .models import UsedSoftware
 
 
@@ -13,7 +12,6 @@ from .models import UsedSoftware
 
 # NEEDED FOR ALL REQUESTS, IMP DECORATOR
 standard_context = {
-    'instagram_content': get_latest_instagram(),
     'searchform': SearchForm(),
     'mailing_list_form': MailingList()
     }
@@ -43,10 +41,6 @@ def add_to_mailinglist(request):
 # views
 def index(request):
     """Landing page"""
-    # TODO: cache needs to happen somewhere else.
-    # CACHE instagram
-    # _cache_instagram_links_to_db()
-
     articles = Post.objects.filter(
         published=True, project=None
         ).order_by('-pub_date')

@@ -22,10 +22,11 @@ class Project(models.Model):
     name = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     strap = models.CharField(max_length=300)
-    content = models.CharField(max_length=5000)
+    # content = models.CharField(max_length=5000)
     tags = models.ManyToManyField(Tag, blank=True)
     cover_img = models.CharField(max_length=200)
     published = models.BooleanField(default=False)
+    showcase = models.BooleanField(default=False)
     repo = models.CharField(max_length=200, null=True, blank=True)
     demo = models.CharField(max_length=200, null=True, blank=True)
     platform = models.CharField(max_length=200, null=True, blank=True)
@@ -55,7 +56,6 @@ class Post(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='posts', null=True, blank=True)
     cover_img = models.CharField(max_length=200, null=True, blank=True)
     published = models.BooleanField(default=False)
-    techspec = models.BooleanField(default=False)
     viewed = models.IntegerField(default=0)
 
     def tag_test(self):
@@ -64,11 +64,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class SocialInstagram(models.Model):
-    link = models.CharField(max_length=200)
-    oembed = models.CharField(max_length=5000)
-
-    def __str__(self):
-        return self.link
