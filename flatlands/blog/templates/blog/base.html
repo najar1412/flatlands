@@ -121,6 +121,21 @@
 
   </script>
 
+  <script>
+    // random rotate side project cards
+    function randomIntFromInterval(min, max) { // min and max included 
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    const cards = document.getElementsByClassName('side-project-card');
+
+    for (const card in cards) {
+      console.log(cards[card]);
+      cards[card].style.transform = 'rotate(' + randomIntFromInterval(-5, 5) + 'deg)';
+    }
+
+  </script>
+
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
