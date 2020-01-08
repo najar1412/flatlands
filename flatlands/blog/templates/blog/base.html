@@ -33,7 +33,7 @@
 </head>
 
 
-<body>
+<body style="background-image: url({% static 'blog/img/background.jpg' %})">
   <nav class="fixed-top" id="menu-article">
     {% include "blog/menu-article.html" %}
   </nav>
@@ -115,6 +115,21 @@
         }
       }
     }
+
+    function randomIntFromInterval(min, max) { // min and max included 
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function wha() {
+      // random whole number between 100 250
+      // return needs to be position of the pin
+      var pins = document.getElementsByClassName('pin');
+      for (pin in pins) {
+        pins[pin].style.left = randomIntFromInterval(100, 250) + 'px'
+      }
+    }
+
+    wha();
 
 
 
