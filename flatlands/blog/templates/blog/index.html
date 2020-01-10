@@ -100,13 +100,20 @@
 </div>
 
 
-
-
 <div class="container">
 
   <div class="content-index">
     <div style="display: flex; flex-direction: column; max-width: 700px;">
-      <div style="display: flex;height: 400px;width: 400px;position: absolute;bottom: -200px;z-index: 999;opacity: .4;">
+      <div style="    display: flex;
+        height: 400px;
+        max-width: 100%;
+        width: 400px;
+        min-width: 300px;
+        position: absolute;
+        bottom: -200px;
+        z-index: 999;
+        opacity: .4;
+        pointer-events: none;">
         <img style="width: 100%;position: absolute;left: -200px;" src="{% static 'blog/img/coffeering.svg' %}"
           alt="tldr icon">
       </div>
