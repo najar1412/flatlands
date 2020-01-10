@@ -17,7 +17,7 @@ a {
     width: 100%;
     justify-content: center;
     padding-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 #simple-logo > div:first-child > p {
     font-size: 26px;
@@ -32,6 +32,30 @@ a {
     font-family: 'Quicksand', sans-serif;
     font-size: 14px;
 }
+.effect2
+{
+  position: relative;
+}
+.effect2:after
+{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: rgba(0, 0, 0, 1);
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+    filter: drop-shadow(rgba(0, 0, 0, 1) 6px 6px 4px);
+    opacity: .1;
+} 
 .navbar-custom {
     background-color: #353839;
 }
@@ -567,33 +591,32 @@ a {
   .cinta {
     position: relative;
     text-align: center;
-    display: inline-block; *display: inline; zoom: 1;
-    filter: drop-shadow(rgba(0, 0, 0, 0.03) 6px 6px 4px);    }
+    display: inline-block; *display: inline; zoom: 1;}
     .uno:before,
     .dos:before, .dos:after{
+    z-index: 5;
     content: "";
     display: block;
-    width: 200px;
-    height: 50px;
+    width: 300px;
+    height: 100px;
     position: relative;
     top: 20px;
     margin: auto;
     background: rgba(255,255,200,0.6);
-
     }
     .dos:before, .dos:after {
     position: absolute;
     top: 50px;
     }
     .dos:before {
-        left: -50px;
+    left: -100px;
     -webkit-transform: rotate(-35deg);
     -moz-transform: rotate(-35deg);
     transform: rotate(-35deg);
     
     }
     .dos:after {
-        right: -50px;
+    right: -100px;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     transform: rotate(45deg);

@@ -44,53 +44,58 @@
 
 
 
-<div class="container"">
+<div class="container">
+
+
+
+
+
+
+
   <div class=" content-index">
 
 
 
 
 
-  <div class="cinta dos" style="transform: rotate(2deg);    margin-top: 50px;">
+    <div class="cinta dos" style="transform: rotate(2deg);    margin-top: 50px;">
 
 
 
 
-    <div id="simple-logo" style="">
-      <div>
+      <div id="simple-logo" class="effect2">
+        <div>
 
 
-        <p id="intro" style="text-align: justify;background-color: white;
+          <p id="intro" style="text-align: justify;background-color: white;
           padding: 30px;">
-          Hello, I'm
-          <span><a href="mailto:hello@flatlands.io" style="font-weight: bold;">Rory</a></span>! Technical director at
-          a
-          digital
-          <span style="font-weight: bold;">creative</span> agency based in New York. We predominantly create web/print
-          media
-          and
-          computer generated still and films.
-          <br /><br />
-          Sometimes i'll write about that, other-times
-          <span style="font-weight: bold;">software development and web technology</span> type things.
-        </p>
+            Hello, I'm
+            <span><a href="mailto:hello@flatlands.io" style="font-weight: bold;">Rory</a></span>! Technical director at
+            a
+            digital
+            <span style="font-weight: bold;">creative</span> agency based in New York. We predominantly create web/print
+            media
+            and
+            computer generated still and films.
+            <br /><br />
+            Sometimes i'll write about that, other-times
+            <span style="font-weight: bold;">software development and web technology</span> type things.
+          </p>
 
+        </div>
       </div>
+
+
+
+
+
     </div>
 
 
 
 
+
   </div>
-
-
-
-
-
-
-
-
-</div>
 
 </div>
 
@@ -98,8 +103,13 @@
 
 
 <div class="container">
+
   <div class="content-index">
     <div style="display: flex; flex-direction: column; max-width: 700px;">
+      <div style="display: flex;height: 400px;width: 400px;position: absolute;bottom: -200px;z-index: 999;opacity: .4;">
+        <img style="width: 100%;position: absolute;left: -200px;" src="{% static 'blog/img/coffeering.svg' %}"
+          alt="tldr icon">
+      </div>
       <h1 id="posts" class="section-header" style="font-size:45px;">Posts</h1>
 
 
@@ -134,7 +144,7 @@
 
 
 
-      <p style="height:14px;"></p>
+      <p style="height: 50px;"></p>
       {% if articles %} {% for article in articles %} {% if article.project == None %}
 
       <div class="indexlistpost">
