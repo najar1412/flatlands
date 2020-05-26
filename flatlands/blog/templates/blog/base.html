@@ -8,6 +8,8 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109427281-1"></script>
   <script src="https://kit.fontawesome.com/b8a8dfb039.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -47,110 +49,6 @@
 
   {% include "blog/information.html" %}
 
-  <script>
-
-    function postToggle(el) {
-      var parent = el.parentElement;
-      for (var i = 0; i < parent.children.length; i++) {
-        if (parent.children[i].id === el.id) {
-          el.style.fontWeight = 600;
-          parent.children[i].style.color = 'black';
-          parent.children[i].style.borderBottom = '1px solid black';
-        }
-        else {
-          parent.children[i].style.fontWeight = 300;
-          parent.children[i].style.color = 'dimgray';
-          parent.children[i].style.borderBottom = 0;
-        }
-      }
-    }
-
-    function sideProjectToggle(el) {
-      var parent = el.parentElement;
-      for (var i = 0; i < parent.children.length; i++) {
-        if (parent.children[i].id === el.id) {
-          el.style.fontWeight = 600;
-          parent.children[i].style.color = 'black';
-          parent.children[i].style.borderBottom = '1px solid black';
-
-          var nameArray = el.id.split("-")
-          var name = nameArray[nameArray.length - 1];
-          var sideProjectName = name + '-side-projects'
-
-          var ttt = document.getElementById(sideProjectName);
-          ttt.style.display = 'block';
-        }
-        else {
-          parent.children[i].style.fontWeight = 300;
-          parent.children[i].style.color = 'dimgray';
-          parent.children[i].style.borderBottom = 0;
-
-          var nameArray = parent.children[i].id.split("-")
-          var name = nameArray[nameArray.length - 1];
-          var sideProjectName = name + '-side-projects'
-
-          var ttt = document.getElementById(sideProjectName);
-          ttt.style.display = 'none';
-        }
-      }
-    }
-
-    function menuToggle(el) {
-      var parent = el.parentElement;
-      for (var i = 0; i < parent.children.length; i++) {
-        if (parent.children[i].id === el.id) {
-          el.style.fontWeight = 600;
-          parent.children[i].style.color = 'black';
-          parent.children[i].style.borderBottom = '3px solid black';
-
-          var nameArray = el.id.split("-")
-          var name = nameArray[nameArray.length - 1];
-
-          document.getElementById(name).scrollIntoView();
-        }
-        else {
-          parent.children[i].style.fontWeight = 300;
-          parent.children[i].style.color = 'dimgray';
-          parent.children[i].style.borderBottom = 0;
-        }
-      }
-    }
-
-    function randomIntFromInterval(min, max) { // min and max included 
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-    function wha() {
-      // random whole number between 100 250
-      // return needs to be position of the pin
-      var pins = document.getElementsByClassName('pin');
-      for (pin in pins) {
-        pins[pin].style.left = randomIntFromInterval(100, 250) + 'px'
-      }
-    }
-
-    wha();
-
-
-
-
-  </script>
-
-  <script>
-    // random rotate side project cards
-    function randomIntFromInterval(min, max) { // min and max included 
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-    const cards = document.getElementsByClassName('side-project-card');
-
-    for (const card in cards) {
-      console.log(cards[card]);
-      cards[card].style.transform = 'rotate(' + randomIntFromInterval(-5, 5) + 'deg)';
-    }
-
-  </script>
-
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -161,6 +59,102 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
+
+  <script>
+
+    $(window).on("load", function () {
+      // MAIN CONTENT 
+
+      function postToggle(el) {
+        var parent = el.parentElement;
+        for (var i = 0; i < parent.children.length; i++) {
+          if (parent.children[i].id === el.id) {
+            el.style.fontWeight = 600;
+            parent.children[i].style.color = 'black';
+            parent.children[i].style.borderBottom = '1px solid black';
+          }
+          else {
+            parent.children[i].style.fontWeight = 300;
+            parent.children[i].style.color = 'dimgray';
+            parent.children[i].style.borderBottom = 0;
+          }
+        }
+      }
+
+      // MOBILE NAV
+
+      function mobileMenuNav(el) {
+        var parent = el.parentElement;
+        for (var i = 0; i < parent.children.length; i++) {
+          if (parent.children[i].id === el.id) {
+            el.style.fontWeight = 600;
+            parent.children[i].style.color = 'black';
+            parent.children[i].style.borderBottom = '3px solid black';
+
+            var nameArray = el.id.split("-")
+            var name = nameArray[nameArray.length - 1];
+
+            document.getElementById(name).scrollIntoView();
+          }
+          else {
+            parent.children[i].style.fontWeight = 300;
+            parent.children[i].style.color = 'dimgray';
+            parent.children[i].style.borderBottom = 0;
+          }
+        }
+      }
+
+      function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
+      // random whole number between 100 250
+      // return needs to be position of the pin
+      var pins = document.getElementsByClassName('pin');
+      for (pin in pins) {
+        try {
+          pins[pin].style.left = randomIntFromInterval(100, 250) + 'px'
+        } catch (err) {
+
+        }
+
+      }
+
+      const cards = document.getElementsByClassName('side-project-card');
+
+      for (const card in cards) {
+        try {
+          cards[card].style.transform = 'rotate(' + randomIntFromInterval(-5, 5) + 'deg)';
+        } catch (err) {
+
+        }
+      }
+
+      var scrollRevealConfig = {
+        reset: true,
+        wait: '0.5s',
+        mobile: true,
+        duration: 2000,
+      }
+
+
+      ScrollReveal(scrollRevealConfig).reveal('.post')
+
+
+
+      // show page when fully loaded
+      $('body,html').css('opacity', '1');
+
+
+    })
+
+
+
+  </script>
+
+
+
+
 </body>
 
 </html>

@@ -6,25 +6,21 @@
   document.getElementById("menu-article").style.display = "none";
 </script>
 
-
-
-
-
 <div id="mobile-menu">
   <div style="display: flex;align-self: center;margin-top: 21px;">
     <div id="mobile-menu-posts"
       style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 16px; border-bottom: 0px"
-      onclick="menuToggle(this)">POSTS
+      onclick="mobileMenuNav(this)">POSTS
     </div>
 
     <div id="mobile-menu-sideprojects"
       style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 16px; border-bottom: 0px"
-      onclick="menuToggle(this)">SIDE PROJECTS
+      onclick="mobileMenuNav(this)">SIDE PROJECTS
     </div>
 
     <div id="mobile-menu-about"
       style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 16px; border-bottom: 0px"
-      onclick="menuToggle(this)">ABOUT
+      onclick="mobileMenuNav(this)">ABOUT
     </div>
 
   </div>
@@ -40,22 +36,9 @@
 
 <div class="container">
 
-
-
-
-
-
-
   <div class="content-index">
 
-
-
-
-
-    <div class="cinta dos" style="transform: rotate(2deg);    margin-top: 50px;">
-
-
-
+    <div class="cinta dos" style="transform: rotate(2deg);margin-top: 50px;">
 
       <div id="simple-logo" class="effect2">
         <div>
@@ -79,15 +62,7 @@
         </div>
       </div>
 
-
-
-
-
     </div>
-
-
-
-
 
   </div>
 
@@ -104,8 +79,8 @@
         width: 400px;
         min-width: 300px;
         position: absolute;
-        bottom: -200px;
-        z-index: 999;
+        bottom: -2000px;
+        z-index: 20;
         opacity: .4;
         pointer-events: none;">
         <img style="width: 100%;position: absolute;left: -200px;" src="{% static 'blog/img/coffeering.svg' %}"
@@ -126,29 +101,21 @@
         <div id="posts-popular"
           style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
           onclick="postToggle(this)">
-          <strike>POPULAR</strike>
+          <s>POPULAR</s>
         </div>
 
         <div id="posts-search"
           style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-          onclick="postToggle(this)"><strike>SEARCH</strike>
+          onclick="postToggle(this)"><s>SEARCH</s>
         </div>
 
       </div>
 
 
-
-
-
-
-
-
-
-
       <p style="height: 50px;"></p>
       {% if articles %} {% for article in articles %} {% if article.project == None %}
 
-      <div class="indexlistpost">
+      <div class="indexlistpost post">
         <div class="blogpostimage" style="background: url(https://www.fillmurray.com/580/199)">
           <div style="display: flex; align-self: flex-end;">
             {% for tech in article.tags.all %}
@@ -208,9 +175,7 @@
 
 </div>
 
-<!--
-<script src="{% static 'blog/js/three/GLTFLoader.js' %}"></script>
--->
+
 <script type="module">
   import * as THREE from "{% static 'blog/js/three/three.module.js' %}"
   import { GLTFLoader } from "{% static 'blog/js/three/GLTFLoader.js' %}";
@@ -275,7 +240,7 @@
   var shadowCatcherMaterial = new THREE.ShadowMaterial();
   shadowCatcherMaterial.opacity = 0.2;
 
-  // Instantiate a loader
+  // Instantiate a coffee cup loader
   var loader = new GLTFLoader();
   loader.load(
     "{% static 'blog/models/03.gltf' %}",
@@ -284,19 +249,20 @@
       gltf.scene.scale.x = 0.3;
       gltf.scene.scale.y = 0.3;
       gltf.scene.scale.z = 0.3;
-      gltf.scene.position.x = 1.05;
+      gltf.scene.position.x = 1.3;
       gltf.scene.position.z = 5;
 
       // process meshes and materials
       gltf.scene.children.forEach(parseGLTF)
 
       function parseGLTF(item) {
-        console.log(item)
         if (item.name === "cup_shadow_catcher") {
           item.material = shadowCatcherMaterial
           item.receiveShadow = true;
         }
         else if (item.name === 'cup_01') {
+          console.log('cup')
+          console.log(item);
           item.castShadow = true;
         }
         else if (item.name === 'coffee_foam') {
@@ -308,13 +274,55 @@
 
     },
     function (xhr) {
-      console.log((xhr.loaded / xhr.total * 100) + '% loaded');
     },
     function (error) {
       console.log('An error happened');
       console.log(error);
     }
   );
+
+
+
+
+  // Instantiate a coffee cup loader
+  var loader = new GLTFLoader();
+  loader.load(
+    "{% static 'blog/models/banana.gltf' %}",
+    function (gltf) {
+      // set initial position
+      gltf.scene.scale.x = 0.00035;
+      gltf.scene.scale.y = 0.00035;
+      gltf.scene.scale.z = 0.00035;
+      gltf.scene.position.x = -2;
+      gltf.scene.position.z = 2.3;
+
+      // process meshes and materials
+      gltf.scene.children.forEach(parseGLTF)
+
+      function parseGLTF(item) {
+        if (item.name === "banana_shadow_catcher") {
+          item.material = shadowCatcherMaterial
+          item.receiveShadow = true;
+        }
+        else if (item.name === 'banana') {
+          console.log('cup')
+          console.log(item);
+          item.castShadow = true;
+        }
+      }
+
+      scene.add(gltf.scene);
+
+    },
+    function (xhr) {
+    },
+    function (error) {
+      console.log('An error happened');
+      console.log(error);
+    }
+  );
+
+
 
   let animate = function () {
     requestAnimationFrame(animate);
@@ -330,5 +338,6 @@
   window.addEventListener("scroll", updateCamera);
 
 </script>
+
 
 {% endblock %}
