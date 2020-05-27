@@ -317,6 +317,7 @@ a {
 }
 
 .content-index{
+    justify-content: center;
     display: flex; 
     flex-direction: row;
 }
@@ -650,7 +651,6 @@ a {
         max-width: 100%;
     }
     .content-index {
-        justify-content: space-between;
         padding-left: 20%;
         padding-right: 20%;
     }

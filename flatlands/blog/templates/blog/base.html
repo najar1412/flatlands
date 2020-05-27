@@ -22,7 +22,7 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <title>
     Flatlands - stories and guides in some way related to web technologies and
     software development.
@@ -131,29 +131,24 @@
       }
 
       var scrollRevealConfig = {
-        reset: true,
-        wait: '0.5s',
+        wait: '0.6s',
         mobile: true,
-        duration: 2000,
+        duration: 1500,
       }
-
 
       ScrollReveal(scrollRevealConfig).reveal('.post')
 
-
-
-      // show page when fully loaded
+      // fade in page when fully loaded
       $('body,html').css('opacity', '1');
-
 
     })
 
-
+    // turns off browsers ability to remember the scroll position
+    // as it was causes the 3d elements to scale and move incorrectly
+    // when refreshing.
+    history.scrollRestoration = "manual"
 
   </script>
-
-
-
 
 </body>
 

@@ -79,11 +79,11 @@
         width: 400px;
         min-width: 300px;
         position: absolute;
-        bottom: -2000px;
-        z-index: 20;
+        bottom: -1150px;
+        z-index: 15;
         opacity: .4;
         pointer-events: none;">
-        <img style="width: 100%;position: absolute;left: -200px;" src="{% static 'blog/img/coffeering.svg' %}"
+        <img style="width: 100%;position: absolute;right: -750px;" src="{% static 'blog/img/coffeering.svg' %}"
           alt="tldr icon">
       </div>
       <h1 id="posts" class="section-header" style="font-size:45px;">Posts</h1>
@@ -170,23 +170,20 @@
       </div>
     </div>
   </div>
-
-
-
 </div>
-
 
 <script type="module">
   import * as THREE from "{% static 'blog/js/three/three.module.js' %}"
   import { GLTFLoader } from "{% static 'blog/js/three/GLTFLoader.js' %}";
   import { RGBELoader } from "{% static 'blog/js/three/RGBELoader.js' %}";
-  import { RoughnessMipmapper } from "{% static 'blog/js/three/RoughnessMipmapper.js' %}";
+
+
 
   let renderer;
   let camera;
   let scene = new THREE.Scene();
 
-  // renderer
+  // RENDERER
   renderer = new THREE.WebGLRenderer({
     antialias: true,
     canvas: document.getElementById("viewport"),
@@ -216,7 +213,7 @@
 
     });
 
-  // camera
+  // CAMERA
   camera = new THREE.PerspectiveCamera(
     45, window.innerWidth / window.innerHeight, 0.1, 1000
   );
@@ -224,25 +221,31 @@
   camera.position.z = window.scrollY / 300.0;
   camera.lookAt(0, -1, 0);
 
-  // lighting
+  // remember these initial values
+  var tanFOV = Math.tan(((Math.PI / 180) * camera.fov / 2));
+  var windowHeight = window.innerHeight;
+
+  // LIGHT
   var light = new THREE.DirectionalLight(0xffffff, 1, 100);
   light.position.set(-0.5, 1, -1);
-  light.castShadow = true;
-  scene.add(light);
 
-  //Set up shadow properties for the light
+  light.castShadow = true;
   light.shadow.mapSize.width = 512;
   light.shadow.mapSize.height = 512;
   light.shadow.camera.near = 0.0;
   light.shadow.camera.far = 5000;
 
+  scene.add(light);
+
   // MATERIALS
   var shadowCatcherMaterial = new THREE.ShadowMaterial();
   shadowCatcherMaterial.opacity = 0.2;
 
-  // Instantiate a coffee cup loader
-  var loader = new GLTFLoader();
-  loader.load(
+  // MESHES
+  var gltfLoader = new GLTFLoader();
+
+  // Coffee Cup geo
+  gltfLoader.load(
     "{% static 'blog/models/03.gltf' %}",
     function (gltf) {
       // set initial position
@@ -281,12 +284,8 @@
     }
   );
 
-
-
-
-  // Instantiate a coffee cup loader
-  var loader = new GLTFLoader();
-  loader.load(
+  // Banana Geo
+  gltfLoader.load(
     "{% static 'blog/models/banana.gltf' %}",
     function (gltf) {
       // set initial position
@@ -335,7 +334,16 @@
     camera.position.z = window.scrollY / 300.0;
   }
 
-  window.addEventListener("scroll", updateCamera);
+  function onWindowResize(event) {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.fov = (360 / Math.PI) * Math.atan(tanFOV * (window.innerHeight / windowHeight));
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  window.addEventListener('scroll', updateCamera);
+  window.addEventListener('resize', onWindowResize, false);
 
 </script>
 
