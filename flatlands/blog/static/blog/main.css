@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 html {
     font-size:16px;
     scroll-behavior: smooth;
@@ -33,7 +35,7 @@ a {
     margin-bottom: 100px;
 }
 #simple-logo > div:first-child > p {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 500;
     letter-spacing: 2px;
     color: black;
@@ -42,8 +44,9 @@ a {
     max-width: 1140px;
 }
 #intro {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 14px;
+    /*font-family: 'Quicksand', sans-serif;*/
+    font-family: 'Indie Flower', cursive;
+    font-size: 32px;
 }
 .effect2
 {

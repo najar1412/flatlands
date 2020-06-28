@@ -47,8 +47,14 @@
 
   {% include "blog/comp/mailinglist.html" %}
 
-  {% include "blog/information.html" %}
+  <p style="height:200px;"></p>
+  <p style="text-align: center;">For more information or to ask anything at all, <span
+      style="font-weight:bolder;">hello@flatlands.io</span>.</p>
+  <p style="height:200px;"></p>
 
+  <!--
+  {% include "blog/information.html" %}
+-->
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -83,26 +89,7 @@
 
       // MOBILE NAV
 
-      function mobileMenuNav(el) {
-        var parent = el.parentElement;
-        for (var i = 0; i < parent.children.length; i++) {
-          if (parent.children[i].id === el.id) {
-            el.style.fontWeight = 600;
-            parent.children[i].style.color = 'black';
-            parent.children[i].style.borderBottom = '3px solid black';
 
-            var nameArray = el.id.split("-")
-            var name = nameArray[nameArray.length - 1];
-
-            document.getElementById(name).scrollIntoView();
-          }
-          else {
-            parent.children[i].style.fontWeight = 300;
-            parent.children[i].style.color = 'dimgray';
-            parent.children[i].style.borderBottom = 0;
-          }
-        }
-      }
 
       function randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min);

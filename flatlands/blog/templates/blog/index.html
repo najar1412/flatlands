@@ -18,10 +18,6 @@
       onclick="mobileMenuNav(this)">SIDE PROJECTS
     </div>
 
-    <div id="mobile-menu-about"
-      style="cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 16px; border-bottom: 0px"
-      onclick="mobileMenuNav(this)">ABOUT
-    </div>
 
   </div>
 
@@ -55,8 +51,14 @@
             and
             computer generated still and films.
             <br /><br />
-            Sometimes i'll write about that, other-times
-            <span style="font-weight: bold;">software development and web technology</span> type things.
+            Below you might find something interesting in the realm of <span style="font-weight: bold;">software
+              development and the web</span>.
+            <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank"><img
+                src="{% static 'blog/img/soc_github.png' %}"></a>
+            <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank"><img
+                src="{% static 'blog/img/soc_twitter.png' %}"></a>
+            <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank"><img
+                src="{% static 'blog/img/soc_instagram.png' %}"></a>
           </p>
 
         </div>
@@ -131,10 +133,12 @@
           </div>
         </div>
         <div class="blogpostheader">
+          <!--
           <div class="bloglistpostdate">
             <i class="far fa-clock"></i>
             {{ article.pub_date | timesince | upper }} AGO
           </div>
+           -->
           <div class="bloglistpostdate">
             <i class="fas fa-tags"></i> {% for tag in article.tags.all %}
             <a href="/search/{{tag|lower}}" style="color: black;">{{tag|upper}}</a>, {% endfor %}
@@ -345,6 +349,29 @@
   window.addEventListener('scroll', updateCamera);
   window.addEventListener('resize', onWindowResize, false);
 
+</script>
+
+<script>
+  function mobileMenuNav(el) {
+    var parent = el.parentElement;
+    for (var i = 0; i < parent.children.length; i++) {
+      if (parent.children[i].id === el.id) {
+        el.style.fontWeight = 600;
+        parent.children[i].style.color = 'black';
+        parent.children[i].style.borderBottom = '3px solid black';
+
+        var nameArray = el.id.split("-")
+        var name = nameArray[nameArray.length - 1];
+
+        document.getElementById(name).scrollIntoView();
+      }
+      else {
+        parent.children[i].style.fontWeight = 300;
+        parent.children[i].style.color = 'dimgray';
+        parent.children[i].style.borderBottom = 0;
+      }
+    }
+  }
 </script>
 
 

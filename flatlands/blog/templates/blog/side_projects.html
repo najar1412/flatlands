@@ -6,7 +6,7 @@
 
   <div id="side-projects-showcase"
     style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-    onclick="sideProjectToggle(this)">SHOWCASE (1)
+    onclick="sideProjectToggle(this)">SHOWCASE (0)
   </div>
 
   <div id="side-projects-current"
@@ -27,8 +27,10 @@
 
   {% if project.showcase == False %}
 
-  <div class="card mb-3 side-project-card"
-    style="filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .03));border: 0;border-radius: 0;">
+
+  <div class="card mb-3 side-project-card" style="font-family: 'Indie Flower', cursive; filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .03));border: 0;border-radius: 0;
+    background-image: url({% static 'blog/img/scrap_paper.jpg' %});
+    ">
     <i class="pin" style="display: flex;position: relative;top: 30px;"></i>
     <div class="card-body">
       <h5 class="card-title">
@@ -45,7 +47,7 @@
                 <div>
                   {% if project.repo == None %}
                   {% else %}
-                  <span style="font-size: 14px;">
+                  <span style=" font-size: 14px;">
                     <a href="{{project.repo}}" target="_blank">
                       <i class="fas fa-code"></i>
                       code (+)
@@ -67,7 +69,8 @@
             </div>
       </h5>
       {% if project.cover_img ==  'None' %}
-      <div style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;">
+      <div
+        style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;filter: drop-shadow(rgba(0, 0, 0, 0.1) 4px 4px 4px);">
         <img style="width: inherit;height: auto;border-radius: 3px; border:1px solid rgba(0, 0, 0, .05);"
           src="https://www.fillmurray.com/350/150">
       </div>
@@ -76,7 +79,9 @@
 
 
       {% else %}
-      <div style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;">
+      <div
+        style="width: 100%;background-color: #aaacad44;margin-bottom: 20px;filter: drop-shadow(rgba(0, 0, 0, 0.1) 2px 2px 4px);">
+
         <img style="width: inherit;height: auto;border-radius: 3px; border:1px solid rgba(0, 0, 0, .05);"
           src="{% static 'blog/projects/'|add:project.name|add:'/'|add:project.cover_img %}">
       </div>
