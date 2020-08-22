@@ -29,9 +29,20 @@
 
 
   <div class="card mb-3 side-project-card" style="font-family: 'Indie Flower', cursive; filter: drop-shadow(6px 6px 4px rgba(0, 0, 0, .03));border: 0;border-radius: 0;
-    background-image: url({% static 'blog/img/scrap_paper.jpg' %});
-    ">
+    background-image: url({% static 'blog/img/scrap_paper.jpg' %});">
     <i class="pin" style="display: flex;position: relative;top: 30px;"></i>
+
+    {% if project.name == 'trippy' %}
+
+    <div class="whiteboard-marker">*<span style="
+    right: -20px;
+      position: relative;
+      top: -40px;
+      font-size: 30px;
+      font-weight: bolder;">Quarantimes 2020</span></div>
+
+    {% endif  %}
+
     <div class="card-body">
       <h5 class="card-title">
         <div style="display: flex;flex-direction: column;padding-bottom: 25px;">

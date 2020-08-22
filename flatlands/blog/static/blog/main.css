@@ -88,7 +88,14 @@ a {
     justify-content: space-around;
     padding-top: 40px;
 }
-
+.whiteboard-marker {
+    position: absolute;
+    right: -160px;
+    top: 110px;
+    font-size: 110px;
+    transform: rotate(90deg);
+    color: #ff9c07d1;
+}
 .tech-icon {
     width:30px;
     height:30px;
