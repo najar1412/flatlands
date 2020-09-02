@@ -1,17 +1,22 @@
 {% extends "blog/base.html" %} {% load static %} {% block content %}
 
 
-<p style="height: 90px;"></p>
 
-
-
-<div class="container" style="padding-top: 40px;">
+<div class="container" style="padding-top: 50px;">
     <div class="content-index" style="flex-direction: column;">
         <div style="    display: flex;
       flex-direction: column;
       width: 100%;">
+            <div style="padding-bottom: 50px;">
+                <a href="/">
+                    <i class="fas fa-angle-left"></i></i>
+
+                    <span style="font-weight: border">Flatlands.io</span>
+                </a>
+            </div>
 
             <div class="blogpostheader">
+
                 <div class="bloglistpostdate">
                     <i class="far fa-clock"></i> {{post.pub_date|timesince|upper}} AGO
                 </div>
@@ -55,12 +60,12 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <p class="card-text">
-                                <div class="display-4" style="font-size:24px;padding-bottom:20px;">Posts in Series</div>
-                                <ul style="list-style-type:circle">
-                                    <li><a href="#">part 01</a></li>
-                                    <li><a href="#">part 02</a></li>
-                                    <li><a href="#">part 03</a></li>
-                                </ul>
+                            <div class="display-4" style="font-size:24px;padding-bottom:20px;">Posts in Series</div>
+                            <ul style="list-style-type:circle">
+                                <li><a href="#">part 01</a></li>
+                                <li><a href="#">part 02</a></li>
+                                <li><a href="#">part 03</a></li>
+                            </ul>
 
                             </p>
 
@@ -76,13 +81,13 @@
                     <div class="card mb-3 sticky">
                         <div class="card-body">
                             <p class="card-text">
-                                <div class="display-4" style="font-size:24px;padding-bottom:20px;">Contents</div>
-                                <ul style="list-style-type:circle">
+                            <div class="display-4" style="font-size:24px;padding-bottom:20px;">Contents</div>
+                            <ul style="list-style-type:circle">
 
-                                    {% for header in markdown_headers %}
-                                    <li><a href="#{{header}}">{{header}}</a></li>
-                                    {% endfor %}
-                                </ul>
+                                {% for header in markdown_headers %}
+                                <li><a href="#{{header}}">{{header}}</a></li>
+                                {% endfor %}
+                            </ul>
 
                             </p>
 

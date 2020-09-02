@@ -75,6 +75,18 @@ a {
 .navbar-custom {
     background-color: #353839;
 }
+.flat-btn{
+    display: flex; width: 125px; padding: 8px;
+    border-radius: 3px;
+    border: 2px solid black;
+    color:black;
+    justify-content: center;margin-top:20px;
+    cursor: pointer;
+}
+.flat-btn:hover {
+    color:white;
+    background: black;
+}
 
 .content-nav{
     padding-left:20px;

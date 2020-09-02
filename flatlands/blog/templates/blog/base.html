@@ -35,9 +35,7 @@
 
 
 <body style="background-image: url({% static 'blog/img/background.jpg' %})">
-  <nav class="fixed-top" id="menu-article">
-    {% include "blog/menu-article.html" %}
-  </nav>
+
 
 
   {% block content %}{% endblock %}
@@ -47,8 +45,7 @@
   {% include "blog/comp/mailinglist.html" %}
 
   <p style="height:200px;"></p>
-  <p style="text-align: center;">For more information or to ask anything at all, <span
-      style="font-weight:bolder;">hello@flatlands.io</span>.</p>
+  <p style="text-align: center;">Questions? <span style="font-weight:bolder;">hello@flatlands.io</span>.</p>
   <p style="height:200px;"></p>
 
   <!--

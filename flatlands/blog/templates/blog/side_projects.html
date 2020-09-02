@@ -1,18 +1,10 @@
 {% load static %}
 
-<h1 id="sideprojects" class="section-header" style="font-size:45px;">Side Projects</h1>
+<h1 id="sideprojects" class="section-header" style="font-size:45px;">Things</h1>
 <div style="display:flex;padding-top: 20px;">
 
 
-  <div id="side-projects-showcase"
-    style="margin-right: 15px; cursor: pointer; font-size: 12px;color:dimgrey;padding-bottom: 10px; border-bottom: 0px"
-    onclick="sideProjectToggle(this)">SHOWCASE (0)
-  </div>
 
-  <div id="side-projects-current"
-    style="cursor: pointer; font-size: 12px; font-weight: 600;color: black; padding-bottom: 10px; border-bottom: 1px solid black;"
-    onclick="sideProjectToggle(this)">CURRENT (2)
-  </div>
 
 </div>
 
@@ -56,6 +48,29 @@
             <div style="display: flex; flex-direction: row; justify-content: space-between">
               <div style="display: flex;">
                 <div>
+
+
+
+
+
+
+                  {% if project.demo == None %}
+                  {% else %}
+                  <span style="font-size: 14px;">
+                    <a href="{{project.demo}}" target="_blank">
+                      <i class="fas fa-play"></i>
+                      demo (+)</a>
+                  </span>
+                  {% endif %}
+
+
+                </div>
+                <div style="padding-left:10px;">
+
+
+
+
+
                   {% if project.repo == None %}
                   {% else %}
                   <span style=" font-size: 14px;">
@@ -65,16 +80,11 @@
                     </a>
                   </span>
                   {% endif %}
-                </div>
-                <div style="padding-left:10px;">
-                  {% if project.demo == None %}
-                  {% else %}
-                  <span style="font-size: 14px;">
-                    <a href="{{project.demo}}" target="_blank">
-                      <i class="fas fa-play"></i>
-                      demo (+)</a>
-                  </span>
-                  {% endif %}
+
+
+
+
+
                 </div>
               </div>
             </div>
@@ -116,9 +126,6 @@
       </div>
 
 
-      <s>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </s>
     </div>
   </div>
 
@@ -214,9 +221,6 @@
 
 
 
-      <s>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </s>
     </div>
   </div>
 
